@@ -24,6 +24,21 @@ export default function Home() {
           </p>
         </div>
 
+        {/* UNESCO Badge */}
+        <div className="bg-amber-100 border-2 border-amber-300 rounded-lg p-6 mb-12 text-center max-w-2xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="w-12 h-12 bg-amber-900 rounded-full flex items-center justify-center text-white font-bold text-xl">
+              UNESCO
+            </div>
+            <p className="text-lg font-semibold text-amber-900">
+              Patrimoine immatériel de l&apos;humanité
+            </p>
+          </div>
+          <p className="text-gray-700 text-sm">
+            Le système Ifá/Fâ est inscrit depuis 2005 sur la liste représentative du patrimoine culturel immatériel de l&apos;humanité
+          </p>
+        </div>
+
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <Link
@@ -38,6 +53,26 @@ export default function Home() {
           >
             Découvrir les 16 signes
           </Link>
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div className="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-amber-900">
+            <div className="text-4xl font-bold text-amber-900 mb-2">16</div>
+            <div className="text-gray-600 text-sm">Signes-mères (Dougans)</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-amber-700">
+            <div className="text-4xl font-bold text-amber-900 mb-2">256</div>
+            <div className="text-gray-600 text-sm">Combinaisons possibles</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-amber-600">
+            <div className="text-4xl font-bold text-amber-900 mb-2">4</div>
+            <div className="text-gray-600 text-sm">Peuples (Fon, Goun, Mahi, Yoruba)</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-amber-500">
+            <div className="text-4xl font-bold text-amber-900 mb-2">+500</div>
+            <div className="text-gray-600 text-sm">Années de transmission</div>
+          </div>
         </div>
 
         {/* Mission Section */}
@@ -61,8 +96,29 @@ export default function Home() {
           </p>
         </div>
 
+        {/* Validation Section */}
+        <div className="bg-gradient-to-r from-amber-50 to-amber-100 rounded-xl p-8 mb-12 border-l-4 border-amber-900">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0">
+              <div className="w-16 h-16 bg-amber-900 rounded-full flex items-center justify-center text-white text-2xl">
+                ✓
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-amber-900 mb-2">
+                Validé par les gardiens de la tradition
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Ce projet a reçu la validation des bokonon (devins traditionnels) et s&apos;appuie sur 
+                les travaux de recherche de Rémy Hounwanou, référence académique sur le Fâ au Bénin. 
+                FÂ DÜ respecte la profondeur sacrée du système tout en le rendant accessible au grand public.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Target Audience */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-amber-50 rounded-lg p-6 border-2 border-amber-200">
             <h4 className="text-xl font-bold text-amber-900 mb-3">Redécouvrir</h4>
             <p className="text-gray-700">
@@ -81,6 +137,56 @@ export default function Home() {
               Pour toute personne intéressée par les savoirs traditionnels africains
             </p>
           </div>
+        </div>
+
+        {/* Roadmap */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+          <h3 className="text-2xl font-bold text-amber-900 mb-6 text-center">Feuille de route</h3>
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-3">
+                ✓
+              </div>
+              <h4 className="font-semibold text-gray-800 mb-2">Phase 1</h4>
+              <p className="text-sm text-gray-600">16 signes-mères documentés</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-3">
+                2
+              </div>
+              <h4 className="font-semibold text-gray-800 mb-2">Phase 2</h4>
+              <p className="text-sm text-gray-600">256 combinaisons + pictogrammes</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-amber-300 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-3">
+                3
+              </div>
+              <h4 className="font-semibold text-gray-800 mb-2">Phase 3</h4>
+              <p className="text-sm text-gray-600">Reconnaissance par image</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-amber-200 rounded-full flex items-center justify-center text-gray-600 text-2xl font-bold mx-auto mb-3">
+                4
+              </div>
+              <h4 className="font-semibold text-gray-800 mb-2">Phase 4</h4>
+              <p className="text-sm text-gray-600">Ateliers & expositions</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Institutionnel */}
+        <div className="bg-gradient-to-r from-amber-900 to-amber-800 rounded-xl p-8 text-white text-center">
+          <h3 className="text-2xl font-bold mb-4">Vous êtes une institution culturelle ?</h3>
+          <p className="mb-6 text-amber-100">
+            Ministère du Tourisme, EPA, UAC, centres culturels, musées... 
+            FÂ DÜ peut s&apos;intégrer dans vos dispositifs de médiation culturelle.
+          </p>
+          <a
+            href="mailto:contact@fadu.bj"
+            className="inline-block bg-white text-amber-900 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition"
+          >
+            Nous contacter
+          </a>
         </div>
       </section>
 
