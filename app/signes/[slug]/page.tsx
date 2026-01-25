@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { faMotherSigns, getCombinaisonsParSigne } from "@/data/faSigns";
 import { notFound } from "next/navigation";
+import { FaSignSymbol } from "@/components/FaSymbol"; 
 
 interface PageProps {
   params: Promise<{
@@ -141,23 +142,16 @@ export default async function SignePage({ params }: PageProps) {
 
                 {/* Mini symbole */}
                 <div className="bg-amber-50 p-2 rounded">
-                  <div className="flex justify-center gap-2 text-xs font-mono text-amber-900">
-                    {combo.figureSymbolique.colonnes.map((colonne, colIdx) => (
-                      <div key={colIdx} className="flex flex-col gap-1">
-                        {colonne.map((trait, traitIdx) => (
-                          <div key={traitIdx}>
-                            {trait === 1 ? "I" : "II"}
-                          </div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
+                  <FaSignSymbol 
+                    colonnes={combo.figureSymbolique.colonnes} 
+                    size="sm" 
+                  />
                 </div>
               </Link>
             ))}
           </div>
-        </div>
 
+        </div>
 
 
         {/* Navigation */}

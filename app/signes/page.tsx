@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { faMotherSigns } from "@/data/faSigns";
+import { FaSignSymbol } from "@/components/FaSymbol";
+
 
 export default function SignesPage() {
   return (
@@ -42,16 +44,8 @@ export default function SignesPage() {
               </h3>
 
 {/* Visual representation - FIDÈLE À L'IMAGE */}
-<div className="flex gap-6 justify-center mb-4 py-4 bg-amber-50 rounded font-mono text-xl">
-  {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
-    <div key={colIdx} className="flex flex-col gap-1">
-      {colonne.map((trait, traitIdx) => (
-        <div key={traitIdx} className="text-amber-900">
-          {trait === 1 ? "I" : "II"}
-        </div>
-      ))}
-    </div>
-  ))}
+<div className="py-4 bg-amber-50 rounded">
+  <FaSignSymbol colonnes={sign.figureSymbolique.colonnes} size="md" />
 </div>
 
 
