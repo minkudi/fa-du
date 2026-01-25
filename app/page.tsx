@@ -24,18 +24,13 @@ export default function Home() {
           </p>
         </div>
 
-        {/* UNESCO Badge */}
+        {/* UNESCO Badge - Version simple */}
         <div className="bg-amber-100 border-2 border-amber-300 rounded-lg p-6 mb-12 text-center max-w-2xl mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <div className="w-12 h-12 bg-amber-900 rounded-full flex items-center justify-center text-white font-bold text-xl">
-              UNESCO
-            </div>
-            <p className="text-lg font-semibold text-amber-900">
-              Patrimoine immatériel de l&apos;humanité
-            </p>
-          </div>
+          <p className="text-lg font-semibold text-amber-900 mb-2">
+            🏛️ Patrimoine immatériel de l&apos;humanité
+          </p>
           <p className="text-gray-700 text-sm">
-            Le système Ifá/Fâ est inscrit depuis 2005 sur la liste représentative du patrimoine culturel immatériel de l&apos;humanité
+            Le système Ifá/Fâ est inscrit depuis 2005 sur la liste représentative du patrimoine culturel immatériel
           </p>
         </div>
 
@@ -56,7 +51,7 @@ export default function Home() {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16">
           <div className="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-amber-900">
             <div className="text-4xl font-bold text-amber-900 mb-2">16</div>
             <div className="text-gray-600 text-sm">Signes-mères (Dougans)</div>
@@ -66,10 +61,6 @@ export default function Home() {
             <div className="text-gray-600 text-sm">Combinaisons possibles</div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-amber-600">
-            <div className="text-4xl font-bold text-amber-900 mb-2">4</div>
-            <div className="text-gray-600 text-sm">Peuples (Fon, Goun, Mahi, Yoruba)</div>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-amber-500">
             <div className="text-4xl font-bold text-amber-900 mb-2">+500</div>
             <div className="text-gray-600 text-sm">Années de transmission</div>
           </div>
@@ -94,27 +85,6 @@ export default function Home() {
             symboliques, et progressivement ouvrir vers une compréhension plus large des 256 combinaisons. 
             Le tout avec des mots simples, des visuels modernes et des contenus accessibles à tous.
           </p>
-        </div>
-
-        {/* Validation Section */}
-        <div className="bg-gradient-to-r from-amber-50 to-amber-100 rounded-xl p-8 mb-12 border-l-4 border-amber-900">
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0">
-              <div className="w-16 h-16 bg-amber-900 rounded-full flex items-center justify-center text-white text-2xl">
-                ✓
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-amber-900 mb-2">
-                Validé par les gardiens de la tradition
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Ce projet a reçu la validation des bokonon (devins traditionnels) et s&apos;appuie sur 
-                les travaux de recherche de Rémy Hounwanou, référence académique sur le Fâ au Bénin. 
-                FÂ DÜ respecte la profondeur sacrée du système tout en le rendant accessible au grand public.
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Target Audience */}
