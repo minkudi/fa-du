@@ -1,19 +1,24 @@
 import Link from "next/link";
-import { faMotherSigns } from "@/data/faSigns";
+import { faMotherSigns, getCombinaisonsParSigne } from "@/data/faSigns";
 import { notFound } from "next/navigation";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function SignePage({ params }: PageProps) {
-  const sign = faMotherSigns.find((s) => s.id === params.slug);
+export default async function SignePage({ params }: PageProps) {
+  const { slug } = await params;
+  const sign = faMotherSigns.find((s) => s.id === slug);
 
   if (!sign) {
     notFound();
   }
+
+  // Obtenir les 16 combinaisons et FILTRER pour retirer le signe-mère
+  const toutesCombinaisons = getCombinaisonsParSigne(slug);
+  const combinaisons = toutesCombinaisons.filter(c => c.type === "vikando"); // ✅ Ne garder que les vikandos (15)
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
@@ -34,19 +39,18 @@ export default function SignePage({ params }: PageProps) {
 
       {/* Content */}
       <article className="max-w-4xl mx-auto px-4 py-12">
-{/* Visual representation - FIDÈLE À L'IMAGE */}
-<div className="flex gap-12 justify-center py-8 bg-amber-50 rounded-lg font-mono text-3xl">
-  {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
-    <div key={colIdx} className="flex flex-col gap-2">
-      {colonne.map((trait, traitIdx) => (
-        <div key={traitIdx} className="text-amber-900">
-          {trait === 1 ? "I" : "II"}
+        {/* Visual representation */}
+        <div className="flex gap-12 justify-center py-8 bg-amber-50 rounded-lg font-mono text-3xl mb-8">
+          {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
+            <div key={colIdx} className="flex flex-col gap-2">
+              {colonne.map((trait, traitIdx) => (
+                <div key={traitIdx} className="text-amber-900">
+                  {trait === 1 ? "I" : "II"}
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  ))}
-</div>
-
 
         {/* Mots-clés */}
         {sign.motsCles && sign.motsCles.length > 0 && (
@@ -113,6 +117,48 @@ export default function SignePage({ params }: PageProps) {
             </p>
           </div>
         )}
+
+        {/* Les 15 combinaisons (vikandos uniquement) */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+          <h2 className="text-2xl font-bold text-amber-900 mb-4">
+            Les 15 combinaisons de {sign.nomPrincipal.replace('-MEDJI', '')}
+          </h2>
+          <p className="text-gray-700 mb-6">
+            {sign.nomPrincipal.replace('-MEDJI', '')} peut se combiner avec les 15 autres signes 
+            pour créer des combinaisons uniques (Vikandos).
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {combinaisons.map((combo) => (
+              <Link
+                key={combo.id}
+                href={`/signes/${slug}/${combo.id}`}
+                className="rounded-lg p-4 border-2 border-amber-200 bg-white hover:border-amber-400 hover:shadow-lg transition-all cursor-pointer"
+              >
+                <h3 className="font-bold text-amber-900 text-sm mb-3 text-center">
+                  {combo.nom}
+                </h3>
+
+                {/* Mini symbole */}
+                <div className="bg-amber-50 p-2 rounded">
+                  <div className="flex justify-center gap-2 text-xs font-mono text-amber-900">
+                    {combo.figureSymbolique.colonnes.map((colonne, colIdx) => (
+                      <div key={colIdx} className="flex flex-col gap-1">
+                        {colonne.map((trait, traitIdx) => (
+                          <div key={traitIdx}>
+                            {trait === 1 ? "I" : "II"}
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+
 
         {/* Navigation */}
         <div className="flex justify-between mt-12">
