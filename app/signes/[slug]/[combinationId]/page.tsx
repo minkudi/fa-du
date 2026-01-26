@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getCombinaisonById, faMotherSigns } from "@/data/faSigns";
 import { notFound } from "next/navigation";
+import { FaSignSymbol } from "@/components/FaSymbol";
 
 interface PageProps {
   params: Promise<{
@@ -48,17 +49,26 @@ export default async function CombinaisonPage({ params }: PageProps) {
           <h2 className="text-2xl font-bold text-amber-900 mb-6 text-center">
             Figure symbolique
           </h2>
-          <div className="flex gap-12 justify-center py-8 bg-amber-50 rounded-lg font-mono text-4xl">
-            {combinaison.figureSymbolique.colonnes.map((colonne, colIdx) => (
-              <div key={colIdx} className="flex flex-col gap-2">
-                {colonne.map((trait, traitIdx) => (
-                  <div key={traitIdx} className="text-amber-900">
-                    {trait === 1 ? "I" : "II"}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
+<div className="flex gap-12 justify-center py-8 bg-amber-50 rounded-lg font-mono text-4xl relative">
+  {/* SVG visible pour l'utilisateur */}
+  <FaSignSymbol 
+    colonnes={combinaison.figureSymbolique.colonnes} 
+    size="lg" 
+    showElements={false}
+  />
+  
+  {/* Texte caché pour reconnaissance IA */}
+  <div className="sr-only" aria-label={`Combinaison ${combinaison.nom}`}>
+    {combinaison.figureSymbolique.colonnes.map((colonne, colIdx) => (
+      <div key={colIdx}>
+        {colonne.map((trait, traitIdx) => (
+          <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+
           
           {combinaison.type === "vikando" && (
             <div className="mt-6 text-center">
@@ -114,17 +124,26 @@ export default async function CombinaisonPage({ params }: PageProps) {
                 <p className="text-center text-lg font-bold text-amber-900 mb-4">
                   {combinaison.signePrincipal.nomPrincipal}
                 </p>
-                <div className="bg-white p-4 rounded">
-                  <div className="flex justify-center gap-4 font-mono text-2xl text-amber-900">
-                    {combinaison.signePrincipal.figureSymbolique.colonnes.map((colonne, colIdx) => (
-                      <div key={colIdx} className="flex flex-col gap-1">
-                        {colonne.map((trait, traitIdx) => (
-                          <div key={traitIdx}>{trait === 1 ? "I" : "II"}</div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+<div className="bg-white p-4 rounded relative">
+  {/* SVG visible */}
+  <FaSignSymbol 
+    colonnes={combinaison.signePrincipal.figureSymbolique.colonnes} 
+    size="md" 
+    showElements={false}
+  />
+  
+  {/* Texte caché pour reconnaissance IA */}
+  <div className="sr-only">
+    {combinaison.signePrincipal.figureSymbolique.colonnes.map((colonne, colIdx) => (
+      <div key={colIdx}>
+        {colonne.map((trait, traitIdx) => (
+          <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+
                 <div className="mt-4">
                   <div className="flex flex-wrap gap-2 justify-center">
                     {combinaison.signePrincipal.motsCles?.slice(0, 3).map((mot, i) => (
@@ -144,17 +163,26 @@ export default async function CombinaisonPage({ params }: PageProps) {
                 <p className="text-center text-lg font-bold text-amber-900 mb-4">
                   {combinaison.signeCompagnie.nomPrincipal}
                 </p>
-                <div className="bg-amber-50 p-4 rounded">
-                  <div className="flex justify-center gap-4 font-mono text-2xl text-amber-900">
-                    {combinaison.signeCompagnie.figureSymbolique.colonnes.map((colonne, colIdx) => (
-                      <div key={colIdx} className="flex flex-col gap-1">
-                        {colonne.map((trait, traitIdx) => (
-                          <div key={traitIdx}>{trait === 1 ? "I" : "II"}</div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+<div className="bg-amber-50 p-4 rounded relative">
+  {/* SVG visible */}
+  <FaSignSymbol 
+    colonnes={combinaison.signeCompagnie.figureSymbolique.colonnes} 
+    size="md" 
+    showElements={false}
+  />
+  
+  {/* Texte caché pour reconnaissance IA */}
+  <div className="sr-only">
+    {combinaison.signeCompagnie.figureSymbolique.colonnes.map((colonne, colIdx) => (
+      <div key={colIdx}>
+        {colonne.map((trait, traitIdx) => (
+          <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+
                 <div className="mt-4">
                   <div className="flex flex-wrap gap-2 justify-center">
                     {combinaison.signeCompagnie.motsCles?.slice(0, 3).map((mot, i) => (

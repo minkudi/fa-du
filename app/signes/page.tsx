@@ -42,13 +42,22 @@ export default function SignesPage() {
               <h3 className="text-xl font-bold text-amber-900 mb-3">
                 {sign.nomPrincipal}
               </h3>
-
 {/* Visual representation - FIDÈLE À L'IMAGE */}
-<div className="py-4 bg-amber-50 rounded">
+<div className="py-4 bg-amber-50 rounded relative">
+  {/* SVG visible pour l'utilisateur */}
   <FaSignSymbol colonnes={sign.figureSymbolique.colonnes} size="md" />
+  
+  {/* Texte caché pour reconnaissance IA/OCR */}
+  <div className="sr-only" aria-label={`Signe ${sign.nomPrincipal}`}>
+    {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
+      <div key={colIdx}>
+        {colonne.map((trait, traitIdx) => (
+          <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
+        ))}
+      </div>
+    ))}
+  </div>
 </div>
-
-
               {sign.motsCles && sign.motsCles.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {sign.motsCles.slice(0, 3).map((mot, idx) => (

@@ -41,17 +41,26 @@ export default async function SignePage({ params }: PageProps) {
       {/* Content */}
       <article className="max-w-4xl mx-auto px-4 py-12">
         {/* Visual representation */}
-        <div className="flex gap-12 justify-center py-8 bg-amber-50 rounded-lg font-mono text-3xl mb-8">
-          {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
-            <div key={colIdx} className="flex flex-col gap-2">
-              {colonne.map((trait, traitIdx) => (
-                <div key={traitIdx} className="text-amber-900">
-                  {trait === 1 ? "I" : "II"}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+<div className="flex justify-center py-8 bg-amber-50 rounded-lg mb-8 relative">
+  {/* SVG visible */}
+  <FaSignSymbol 
+    colonnes={sign.figureSymbolique.colonnes} 
+    size="lg" 
+    showElements={false}
+  />
+  
+  {/* Texte caché pour reconnaissance IA */}
+  <div className="sr-only" aria-label={`Signe ${sign.nomPrincipal}`}>
+    {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
+      <div key={colIdx}>
+        {colonne.map((trait, traitIdx) => (
+          <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+
 
         {/* Mots-clés */}
         {sign.motsCles && sign.motsCles.length > 0 && (
@@ -141,12 +150,24 @@ export default async function SignePage({ params }: PageProps) {
                 </h3>
 
                 {/* Mini symbole */}
-                <div className="bg-amber-50 p-2 rounded">
-                  <FaSignSymbol 
-                    colonnes={combo.figureSymbolique.colonnes} 
-                    size="sm" 
-                  />
-                </div>
+<div className="bg-amber-50 p-2 rounded">
+  <FaSignSymbol 
+    colonnes={combo.figureSymbolique.colonnes} 
+    size="sm" 
+  />
+  
+  {/* Texte caché pour IA */}
+  <div className="sr-only">
+    {combo.figureSymbolique.colonnes.map((colonne, colIdx) => (
+      <div key={colIdx}>
+        {colonne.map((trait, traitIdx) => (
+          <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+
               </Link>
             ))}
           </div>
