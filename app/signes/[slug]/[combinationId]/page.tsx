@@ -70,19 +70,16 @@ export default async function CombinaisonPage({ params }: PageProps) {
 </div>
 
           
-          {combinaison.type === "vikando" && (
-            <div className="mt-6 text-center">
-              <p className="text-gray-600">
-                <span className="font-semibold text-amber-900">
-                  {combinaison.signePrincipal.nomPrincipal}
-                </span>
-                {" "}dans la maison de{" "}
-                <span className="font-semibold text-amber-900">
-                  {combinaison.signeCompagnie.nomPrincipal}
-                </span>
-              </p>
-            </div>
-          )}
+{combinaison.type === "vikando" && (
+  <div className="mt-6 text-center">
+    <p className="text-gray-600">
+      <span className="font-semibold text-amber-900">
+        {combinaison.nom}
+      </span>
+    </p>
+  </div>
+)}
+
         </div>
 
         {/* Description */}
@@ -182,7 +179,7 @@ export default async function CombinaisonPage({ params }: PageProps) {
     ))}
   </div>
 </div>
-    
+
                 <div className="mt-4">
                   <div className="flex flex-wrap gap-2 justify-center">
                     {combinaison.signeCompagnie.motsCles?.slice(0, 3).map((mot, i) => (
