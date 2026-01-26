@@ -182,7 +182,7 @@ export default async function CombinaisonPage({ params }: PageProps) {
     ))}
   </div>
 </div>
-
+    
                 <div className="mt-4">
                   <div className="flex flex-wrap gap-2 justify-center">
                     {combinaison.signeCompagnie.motsCles?.slice(0, 3).map((mot, i) => (
