@@ -935,7 +935,7 @@ export function genererToutesCombinations(): FaCombination[] {
         id: combinationId,
         nom: estSigneMere 
           ? signePrincipal.nomPrincipal
-          : `${signePrincipal.nomPrincipal.replace('-MEDJI', '')}-${signeCompagnie.nomPrincipal.replace('-MEDJI', '')}`,
+          : `${signePrincipal.nomPrincipal.replace('-MÊDJI', '')}-${signeCompagnie.nomPrincipal.replace('-MÊDJI', '')}`,
         signePrincipal,
         signeCompagnie,
         figureSymbolique: {
