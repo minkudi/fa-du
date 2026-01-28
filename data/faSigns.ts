@@ -140,141 +140,211 @@ export const faMotherSigns: FaSign[] = [
     sacrifices: ["Adorer Gu, Tohossou, Kulito", "Kù di wo- Fo do", "Faire aussi des sacrifices de viande et de chapeau"],
     commentaire: "L'homme né sous le signe de Woli gagnera l'estime de tout le monde. Sa vie sera très rude pendant son enfance et sera très éclatante quand il grandira, avec un emploi très brillant. Ses projets seront réalisés et il cherchera à pratiquer toutes les religions. Son autorité sera incontestable sur sa famille. Il occupera une place de choix dans sa famille ou dans sa ville natale."
   },
-  {
-    position: 4,
-    id: "di-medji",
-    nomPrincipal: "DI-MÊDJI",
-    sexe: "feminin",
-    figureSymbolique: {
-      colonnes: [[1, 2, 2, 1], [1, 2, 2, 1]],
-      description: "Structure équilibrée, symbole de richesse et abondance matérielle.",
-    },
-    resumeCourt: "Signe de richesse, d'abondance et de prospérité. Apporte la responsabilité de bien gérer les biens matériels.",
-    motsCles: ["richesse", "abondance", "responsabilité", "gestion", "prospérité"],
-    texteRue:
-      "Di-Mêdji, c'est le signe de l'argent et de la richesse. Il parle de gains financiers, d'opportunités d'affaires, de croissance matérielle. Mais avec la richesse vient la responsabilité: Di-Medji demande de bien gérer ses biens, de ne pas tomber dans la cupidité et de partager sa prospérité avec les autres.",
-    themesDeVie: ["prospérité financière", "opportunité d'affaires", "gestion de patrimoine", "générosité"],
-    tonGeneral: "plutot_favorable",
-    fetiches: ["Na","Kinnesssi", "Jumeaux (Hoho)", "Gbadu", "Tohossou", "Lissa"],
-    devises: [
-      "Ku naho kpako, Azon naho kpako, huè naho kpako. La mort, la maladie et le procès ne peuvent t'atteindre.",
-      "Kpô mô nô wili avoun do ganja mê. Le lopard n'attrape pas le chien enfermé dans une cage métallique résistante.",
-      "Làn kloklo dé bu hun é yiba do gbaù, Ajotô nô fin Ku y sè do a. Si une grosse viande est perdue, allez la chercher sur la claie où on la fait cuire, Le voleur ne peut voler un mort et le dissimuler.",
-      "Tô Kpo dé non dawa bo nô yi gba déô a. Une rive ne peut se déplacer pour aller faire la guerre à la rive opposée. (Le consultant possède des ennemis dans sa propre maison, mais ils ne pourront rien lui faire.)"
-    ],
-    interdits: [
-      "Nà Nu Dà Nu (toute viande ou nourriture consacrée à Nà, Dà)",
-      "Viande du coq (interdit commun à tous les signes)",
-      "Azwi ou Azui (le lièvre)",
-      "Viande de singes ",
-      "Tous les jumeaux",
-      "Gnibu (bœuf)",
-      "Arbre Za, Kloukunpois d'angol",
-      "Adjinaku (éléphant), Kinni Kinni (lion), Lopard (kpôvê), Hla (hyène), Alului"
-    ],
-    sacrifices: ["Être large et faire beaucoup de sacrifices", "Adorer Na-hoho (jumeaux)", "Kinnessi", "Tohossou"],
-    commentaire: "Lorsqu'on est sous la dépendance de ce signe, on aura une bonne épouse. La réussite dans la vie est évidente, mais les peines et les difficultés seront nombreuses et de toutes natures. Lon fait en apparence, contre mauvaise fortune bon cœur et on garde ses peines secrètes. On a grande conscience professionnelle et l'on aime son prochain quel que soit son rang social."
+{
+  position: 4,
+  id: "di-medji",
+  nomPrincipal: "DI-MÊDJI",
+  sexe: "feminin",
+  figureSymbolique: {
+    colonnes: [[1, 2, 2, 2], [1, 2, 2, 2]],
+    description:
+      "Épreuves et lenteur, signe de contraintes, d’ennemis proches et de réussite tardive après de nombreuses peines.",
   },
+  resumeCourt:
+    "Signe de peines, de lenteur et de contraintes. Di-Mêdji annonce des difficultés multiples, souvent dans la famille et l’administration, mais aussi une réussite réelle à force de patience.",
+  motsCles: [
+    "épreuves",
+    "lenteur",
+    "contraintes morales",
+    "ennemis proches",
+    "réussite tardive",
+  ],
+  texteRue:
+    "Di-Mêdji, c’est le signe de celles et ceux qui doivent porter beaucoup de charges avant de voir la lumière. Il parle de difficultés dans la maison, de problèmes administratifs ou juridiques, de situations qui avancent lentement malgré les efforts. Le Fâ montre ici une personne consciencieuse, attachée à bien faire, qui aime son prochain, mais qui subit de nombreuses contraintes morales et matérielles. Avec Di-Mêdji, la vie commence sombre, puis s’éclaircit plus tard, à condition de tenir bon et de respecter les interdits.",
+  themesDeVie: [
+    "difficultés familiales et administratives",
+    "lenteur dans la réalisation des projets",
+    "alternance de hauts et de bas",
+    "importance de la patience",
+    "réputation qui s’améliore avec le temps",
+  ],
+  tonGeneral: "equilibre",
+  fetiches: ["Nâ-Kinnessi", "Jumeaux (Hoho)", "Gbadu", "Tohossou", "Lissa"],
+  feuillesLiturgiques: ["Désrègu / désrèssigu (fon)"],
+  couleursPreferes: ["Noir", "Bigarré", "Jaune", "Rouge (pour certains sacrifices aux femmes)"],
+  devises: [
+    "Ku naho kpako, Azon naho kpako, kpô naho kpako, houn naho kpako. Avì dindin ma yi voun. La mort, la maladie et le procès ne peuvent t’atteindre si tu es bien couvert. On n’entre pas dans un buisson d’épines avec un grand pagne sans protection.",
+    "Kpô mèn n wili avoun do ganja mèn. Le léopard ou le tigre n’attrape pas le chien enfermé dans une cage métallique solide.",
+    "Lên kloklo dé bù houn yiba do gba, Ajot n fin ku yè sô do a. Si une grosse viande est perdue, allez la chercher sur la claie où on la fait cuire. Le voleur ne peut cacher longtemps un mort.",
+    "Tè kpo do non dawa bo n yi gba dô a. Une rive ne se déplace pas pour aller faire la guerre à l’autre rive. Le consultant a des ennemis dans sa propre maison, mais ils ne pourront pas le détruire.",
+  ],
+  interdits: [
+    "Toutes viandes ou nourritures consacrées à Nâ et D (Nâ-nu, D-nu)",
+    "Azwi / Azui (certains singes, liés au symbole du livre)",
+    "Singes Zinwô, Klan, Xa / Za",
+    "Tous les jumeaux (Gnibù bùf)",
+    "Arbre Za, Kloukun (pois d’angole)",
+    "Éléphant (Adjinaku)",
+    "Lion (Kinni Kinni)",
+    "Léopard (Kpovi)",
+    "Hyène (Hla)",
+    "Alului",
+    "Coq (interdit commun aux signes majeurs)",
+  ],
+  sacrifices: [
+    "Être large dans les sacrifices (argent, nourriture, objets rituels)",
+    "Adorer Nâ, les jumeaux, Kinnessi et Tohossou",
+  ],
+  commentaire:
+    "Sous Di-Mêdji, on a souvent une bonne épouse et une vraie conscience professionnelle, mais on porte beaucoup de soucis et de peines. On aime son prochain, on se fait respecter, mais on traverse des contraintes morales et physiques, ainsi que des complications administratives ou judiciaires. La vie est faite d’alternance: tantôt tout va bien, tantôt tout va mal. Si la patience et les sacrifices sont au rendez-vous, la fin de vie est plus brillante que le début.",
+},
   {
-    position: 5,
-    id: "losso-medji",
-    nomPrincipal: "LOSSO-MÊDJI",
-    sexe: "masculin",
-    figureSymbolique: {
-      colonnes: [[1, 1, 2, 2], [1, 1, 2, 2]],
-      description: "Progression ordonnée, symbole de construction stable et durable.",
-    },
-    resumeCourt: "Signe de stabilité, de construction et de fondations solides. Représente la patience dans l'édification.",
-    motsCles: ["stabilité", "construction", "fondation", "patience", "progression"],
-    texteRue:
-      "Losso-Mêdji, c'est le signe du bâtisseur, de celui qui construit pierre par pierre. Il parle de créer quelque chose de solide, de durable, sans précipitation. C'est le signe des fondations, de la stabilité, du travail bien fait qui résiste au temps. Losso-Medji enseigne la patience et la persévérance dans la construction de projets.",
-    themesDeVie: ["construction de projet", "stabilité familiale", "investissement durable", "patience créative"],
-    tonGeneral: "plutot_favorable",
-    fetiches: ["Hêbiosso", "Yalodé", "Dà", "Na", "Gu", "Tovodoun", "Lissa"],
-    feuillesLiturgiques: ["Ologoncece (Yoruba)", "Kpakléssi (Fon)", "Xexemà", "Dindin fundin", "Amàjê"],
-    devises: [
+  position: 5,
+  id: "losso-medji",
+  nomPrincipal: "LOSSO-MÊDJI",
+  sexe: "masculin",
+  figureSymbolique: {
+    colonnes: [[2, 1, 2, 2], [1, 1, 1, 1]],
+    description:
+      "Tension et coup de tonnerre, signe d’épreuves, de colère, d’accidents et de succès instables.",
+  },
+  resumeCourt:
+    "Signe de feu, de conflits et d’accidents. Losso-Mêdji annonce une vie pleine de vicissitudes, de souffrances et de tensions, avec des réussites réelles mais jamais tranquilles.",
+  motsCles: [
+    "épreuves",
+    "conflits",
+    "vindicte",
+    "accidents",
+    "succès instable",
+    "intuition forte",
+  ],
+  texteRue:
+    "Losso-Mêdji, c’est le signe de la foudre qui tombe sans prévenir. Il parle de souffrances, de conflits, de coups durs et de situations où la colère et la vengeance prennent vite le dessus. Le Fâ montre ici une personne qui passe par beaucoup de difficultés, dans plusieurs domaines, mais qui garde une intuition très forte et une capacité réelle à se relever. Sous Losso-Mêdji, le succès existe, mais il reste instable et souvent accompagné de dépenses inutiles et de tensions avec l’entourage.",
+  themesDeVie: [
+    "épreuves répétées",
+    "tensions et inimitiés",
+    "risques d’accidents",
+    "succès non durable",
+    "intuitions puissantes",
+  ],
+  tonGeneral: "plutot_difficile",
+  fetiches: ["Hêbiosso", "Yalodé", "D", "Nâ", "Gu", "Tovodoun", "Lissa"],
+  feuillesLiturgiques: ["Ologoncece (yoruba)", "Kpaklissi (fon)", "Xexem", "Dindin fundin", "Amji"],
+  couleursPreferes: ["Rouge (feu, sang, foudre)"],
+  devises: [
       "Akpà miàu, ho xè si. Gbè tô mi mô ahossu jà hun mi hon. Quand Akpà est en colère, tous les oiseaux s'envolent. Lorsque les hommes voient leur roi, ils le craignent.",
       "Nu kun mian nô ton kan àn. Qui dit œil rouge ne dit pas œil crevé. Il s'agit des souffrances qu'engendrent les épreuves de la vie. Le consultant connaîtra de la douleur, mais n'en mourra pas.",
       "Nu kun édo vê nû Attakin, é na nô sêwi do Akpamê àn. Les yeux qui se moquent des brûlures d'attakin ne se tiennent pas tranquilles dans leurs globes.",
       "Hon do gbê, Gué wê na gni Ahossua. Tant que Hon l'aigle est en vie, l'oiseau rouge Gu ne peut prendre le nom de roi."
     ],
-    interdits: [
+  interdits: [
       "Tout ce qui est rouge (vêtement, meubles, bijoux, plumes de la queue de Kèsè (perroquet), teinture (Sokpakpê)",
       "Ne doit pas épouser une femme de teint clair, ni une Sakpatassi, ni Hêbiossossi",
-      "Laiande de singes.",
+      "Viande de singes.",
       "Oiseaux Akpà, Drègbagwé, Gué, Aklassu, Ututu, Agbanlin (Girafe)",
-      "Ne pas faire usage des fruits rouges Gogozotin et Cili vovo"
-    ],
-    sacrifices: [
-      "Adorer les fétiches Hêbiosso, dà, Yalodé et Gu",
-      "Faire des sacrifices de nu kun mian"
-    ],
-    commentaire: "Lorsqu'on est né sous le signe de losso, on est pauvre, indiscret, vindicatif, appliquant à la lettre la loi du talion. La vie ne sera pas sans vicissitudes et on aura beaucoup de difficultés. Persvérant, on aimera tout le monde et se confiera facilement à ses camarades. On sera beaucoup aidé par son intuition qui est très développée."
-  },
+      "Ne pas faire usage des fruits rouges Gogozotin et Cili vovo",
+    "Coq (interdit commun aux signes majeurs)",
+  ],
+  sacrifices: [],
+  commentaire:
+    "Né sous Losso-Mêdji, on est souvent pauvre au départ, indiscret et vindicatif, appliquant facilement la loi du talion. La vie est remplie de difficultés et de conflits, mais l’intuition du «favi» est très développée et lui permet de se tirer de situations compliquées. Son succès est réel mais instable, avec beaucoup de dépenses inutiles et de tensions. Ce signe n’est pas favorable à une union paisible et demande beaucoup de maîtrise de soi et de rituels de protection.",
+},
   {
-    position: 6,
-    id: "winlin-medji",
-    nomPrincipal: "WINLIN-MÊDJI",
-    sexe: "feminin",
-    figureSymbolique: {
-      colonnes: [[2, 2, 1, 1], [2, 2, 1, 1]],
-      description: "Inversion de Losso, symbole de renversement et changement brutal.",
-    },
-    resumeCourt: "Signe de renversement, de changement soudain et d'adaptation nécessaire.",
-    motsCles: ["renversement", "changement", "adaptation", "souplesse", "évolution"],
-    texteRue:
-      "Winlin-Mêdji, c'est le signe qui dit \"tout peut basculer du jour au lendemain\". Il parle de changements soudains, de situations qui se renversent complètement. Ce qui était en haut se retrouve en bas et vice-versa. Ce n'est pas forcément négatif, mais ça demande une grande capacité d'adaptation. Winlin-Medji enseigne la souplesse et la capacité à rebondir.",
-    themesDeVie: ["changement professionnel", "bouleversement de situation", "adaptation rapide", "résilience"],
-    tonGeneral: "equilibre",
-    fetiches: ["Sakpata", "Kinnessi", "Tohossou", "Dà", "Hoho (jumeaux)", "Lissa"],
-    feuillesLiturgiques: ["Atoladola (yoruba)", "Godokô ou gninsinkin (fon)", "Mafowok omomi (Yoruba)"],
-    devises: [
+  position: 6,
+  id: "winlin-medji",
+  nomPrincipal: "WINLIN-MÊDJI",
+  sexe: "feminin",
+  figureSymbolique: {
+    colonnes: [[2, 1, 1, 2], [2, 1, 1, 2]],
+    description:
+      "Puissance de Sakpata, signe de guerre, de protection face aux ennemis et de richesse après des débuts difficiles.",
+  },
+  resumeCourt:
+    "Signe de combat, de protection et de richesse tardive. Winlin-Mêdji annonce des ennemis réels, mais aussi la capacité à les vaincre et à s’élever après les souffrances.",
+  motsCles: [
+    "guerre",
+    "protection",
+    "ennemis vaincus",
+    "souffrance initiale",
+    "richesse et ascension sociale",
+  ],
+  texteRue:
+    "Winlin-Mêdji, c’est le signe de ceux qui ne reculent pas devant la guerre. Il parle d’attaques, de jalousies, de conflits ouverts, mais aussi de la protection de Sakpata et des autres fétiches qui veillent sur le «favi». Le Fâ montre ici un destin rude au début, avec des souffrances et des difficultés, mais qui devient prospère si les sacrifices sont respectés. Sous Winlin-Mêdji, on finit souvent par s’élever au-dessus de son milieu, à force de travail, de droiture et de persévérance.",
+  themesDeVie: [
+    "conflits et attaques",
+    "protection spirituelle",
+    "souffrance au début de la vie",
+    "richesse et réussite après combat",
+    "ascension sociale",
+  ],
+  tonGeneral: "plutot_favorable",
+  fetiches: ["Sakpata", "Kinnessi", "Tohossou", "D", "Hoho (jumeaux)", "Lissa"],
+  feuillesLiturgiques: ["Atoladola (yoruba)", "Godok / Gninsinkin (fon)", "Mafowok omomi (yoruba)"],
+  couleursPreferes: ["Moucheté / bigarré (wanlan-wanlan)"],
+  devises: [
       "Attakin kpo li kpo si hu wa ahuandan àn. Attakin wa nu hu lihuan. Si Attakin (petits piments rouges) déclare la guerre à Li (mil), Attakin l'emportera toujours.",
       "Sè Lissa ma dégbé do to déa, ahuan nô gbaa. Sans l'ordre de Sè Lissa, la guerre ne brisera pas un pays.",
       "Zan mô nô nô aga nufindoh. La natte ordinaire findoh ne pose jamais sous une autre natte. Celle-ci est la plus jolie des deux. S'il entreprend une action avec quelqu'un, le consultant en profitera bien comme il risquera aussi d'enregistrer des difficultés.",
       "Ahuan mô nô gba Kuta. La guerre ne peut casser les rochers. Les ennemis ne peuvent rien contre le consultant."
     ],
-    interdits: [
-      "Viande de pintade (Sonu)",
-      "Toutes sortes de nourritures consacrées au Vodun Sakpata",
-      "Tous les mets grillés (nu mi mê)",
-      "Le vin de palme, la bière de mil, de sorgho",
-      "Viande d'éléphant (adjinaku)",
-      "Viande de cheval (Sô)",
-      "Viande d'hyène (hla)",
-      "Viande de girafe (Agbanlin)",
-      "Ne doit pas épouser une Sakpatassi",
-      "Ne pas se laver dans la mer",
-      "Ne pas porter des pagnes ou vêtements bigarrés ou de plus de deux couleurs"
-    ],
-    commentaire: "L'homme né Winlin est brutal, mais estimé de tout son entourage. Au début de sa vie, il souffrira pour être heureux après. Il sera franc, juste et correct envers tout le monde, puis sera riche et charitable. Il s'élèvera au-dessus de son milieu par son savoir-faire et le travail."
+  interdits: [
+    "Chair de pintade (Sonu)",
+    "Toutes nourritures consacrées au vodun Sakpata",
+    "Tous les mets grillés (nu mi m)",
+    "Vin de palme",
+    "Bière de mil et de sorgho",
+    "Viande d’éléphant (Adjinaku)",
+    "Viande de cheval (Sô)",
+    "Viande d’hyène (Hia)",
+    "Viande de girafe (Agbanlin)",
+    "Coq (interdit commun aux signes majeurs)",
+    "Épouser une prêtresse de Sakpata",
+    "Se laver dans la mer",
+    "Porter des pagnes ou vêtements bigarrés ou de plus de deux couleurs",
+  ],
+  sacrifices: [],
+  commentaire:
+    "Sous Winlin-Mêdji, la personne est souvent brutale dans ses réactions, mais respectée de son entourage. Elle souffre au début de sa vie, puis connaît le bonheur, la richesse et une élévation sociale marquée. Franc, juste et correct envers tout le monde, le «favi» finit par se hisser au-dessus de son milieu grâce à son travail. Ce signe demande de respecter strictement les interdits alimentaires et les sacrifices pour maintenir la protection dans les conflits.",
+},
+ {
+  position: 7,
+  id: "abla-medji",
+  nomPrincipal: "ABLA-MÊDJI",
+  sexe: "masculin",
+  figureSymbolique: {
+    colonnes: [[1, 1, 1, 2], [1, 1, 1, 2]],
+    description:
+      "Vent frais du chef patient, signe de leadership, de patience récompensée, mais aussi de fin de vie difficile.",
   },
-  {
-    position: 7,
-    id: "abla-medji",
-    nomPrincipal: "ABLA-MÊDJI",
-    sexe: "masculin",
-    figureSymbolique: {
-      colonnes: [[1, 2, 2, 2], [1, 2, 2, 2]],
-      description: "Prédominance d'éléments doubles, symbole de force et autorité.",
-    },
-    resumeCourt: "Signe de force, de pouvoir et d'autorité. Représente le leadership et l'influence.",
-    motsCles: ["force", "pouvoir", "autorité", "leadership", "influence"],
-    texteRue:
-      "Abla-Mêdji, c'est le signe du chef, du leader, de celui qui a l'autorité. Il parle de pouvoir, d'influence, de capacité à diriger et à prendre des décisions importantes. Mais attention: le pouvoir sans sagesse peut devenir oppression. Abla-Medji demande d'exercer son autorité avec justice, équité et responsabilité envers ceux qu'on dirige.",
-    themesDeVie: ["leadership", "autorité professionnelle", "influence sociale", "prise de décision", "responsabilité"],
-    tonGeneral: "plutot_favorable",
-    fetiches: ["Lissa", "Hoho (jumeaux)", "Tovodun", "Tohiyo (yoruba)", "Dan"],
-    feuillesLiturgiques: ["Davonum (fon)"],
-    couleursPreferes: ["Bleu clair"],
-    devises: [
+  resumeCourt:
+    "Signe de chef, de patience et de succès mêlé de peine. Abla-Mêdji annonce un destin respecté, mais avec des épreuves et une fin de vie qui peut être lourde si l’orgueil domine.",
+  motsCles: [
+    "leadership",
+    "patience",
+    "bonheur et peine",
+    "ambition",
+    "fin de vie difficile",
+  ],
+  texteRue:
+    "Abla-Mêdji, c’est le signe de celui qui évente les autres avant de s’occuper de lui-même. Il parle de protection, de réussite, de bonne épouse et de bonnes habitudes, mais aussi de peines, de maladies passagères et d’une fin de vie qui peut être lourde. Le Fâ montre ici un chef respecté, ambitieux, qui triomphe souvent, mais qui doit apprendre à rester humble et patient. Sans patience, Abla-Mêdji se termine dans l’amertume.",
+  themesDeVie: [
+    "protection et succès",
+    "nécessité de patience",
+    "bonheur mêlé de souffrance",
+    "ambition forte",
+    "risque d’amertume aux derniers jours",
+  ],
+  tonGeneral: "plutot_favorable",
+  fetiches: ["Lissa", "Hoho (jumeaux)", "Tovodoun", "Toyiyo (yoruba)", "Dan"],
+  feuillesLiturgiques: ["Davonum (fon)"],
+  couleursPreferes: ["Bleu clair"],
+  devises: [
       "Afafa wê nô kon din huaa. C'est l'éventail qui sèche la sueur. Le favi sera défendu contre tous ses ennemis.",
       "Abla-jimê! Adjidja non ba kpôssi ho nô glo. Le porc-épic courtise la femelle du léopard et échappe aux crocs puissants du mâle. Le consultant, même s'il redoute un plus grand que lui, triomphera de toute lutte engagée contre lui par son ennemi.",
       "Suru ni n'jôba l'haoussa. L'homme patient devient roi du pays haoussa. Le consultant, dans son propre intérêt, devra observer constamment la patience",
       "Gnon nu wa n'dé ho dubla lô, Ajô ton nassu. La femme qui mange à deux râteliers s'expose à la mort. Si l'épouse du «favi» veut tromper son mari, elle mourra.",
-      "Dagbé é do tôssié, Houa wê nô bê kô ton yi agué. C'est le poisson appelé «Houa» qui traîne ou draine jusqu'à la rive, la ressource de l'eau douce."
-    ],
-interdits: [
+      "Dagbé é do tôssié, Houa wê nô bê kô ton yi agué. C'est le poisson appelé «Houa» qui traîne ou draine jusqu'à la rive, la ressource de l'eau douce." ],
+  interdits: [
   "Viande de pintade (Sonu)",
   "Boule d'akassa",
   "Hluinsuvô",  
@@ -290,358 +360,548 @@ interdits: [
   "Éléphant",
   "Léopard",
   "TÊ",
-  "Vipère(Amanmônu)"
-],
-sacrifices: [
-  "Adorer Lissa, Hoho (jumeaux), Tovodun et Dan",
-  "Faire des offrandes aux divinités de l'eau"
-],
-
-    commentaire: "Celui qui est né sous le signe de Abia sera heureux, aura une bonne épouse et des enfants bien éduqués."
-  },
+  "Vipère(Amanmônu)",
+"Coq (interdit commun aux signes majeurs)"
+  ],
+  sacrifices: [],
+  commentaire:
+    "Celui qui est né sous Abla-Mêdji sera heureux, avec une bonne épouse et de bonnes habitudes. Il connaîtra cependant des moments de méchanceté, de maladies passagères et de souffrance. Il n’aimera pas toujours son prochain, sera très ambitieux et risquera d’être malheureux aux derniers jours de sa vie. S’il cultive la patience et respecte ses interdits, il triomphera dans de nombreux domaines et conservera une grande renommée.",
+},
   {
-    position: 8,
-    id: "aklan-medji",
-    nomPrincipal: "AKLAN-MÊDJI",
-    sexe: "masculin",
-    figureSymbolique: {
-      colonnes: [[2, 2, 2, 1], [2, 2, 2, 1]],
-      description: "Force contrariée, symbole de guerre, lutte et confrontation.",
-    },
-    resumeCourt: "Signe de guerre, de combat et de confrontation. Demande courage et détermination face aux obstacles.",
-    motsCles: ["guerre", "combat", "courage", "victoire", "confrontation"],
-    texteRue:
-      "Aklan-Mêdji, c'est le signe du guerrier, de celui qui doit se battre. Il parle de lutte, de combat, de situations difficiles où rien ne vient facilement. Ce n'est pas un signe de paix, mais de confrontation nécessaire. Aklan-Medji enseigne le courage, la détermination et la capacité à affronter l'adversité sans reculer, même quand c'est dur.",
-    themesDeVie: ["lutte acharnée", "adversité", "courage face au danger", "défense de ses droits", "victoire difficile"],
-    tonGeneral: "plutot_difficile",
-fetiches: ["Hoho (jumeaux)", "Lègba", "Hêbiosso", "Dan", "Sakpata", "Tohossou"],
-feuillesLiturgiques: ["Koklo dèkpadjè (fon)"],
-
-    devises: [
+  position: 8,
+  id: "aklan-medji",
+  nomPrincipal: "AKLAN-MEDJI",
+  sexe: "feminin",
+  figureSymbolique: {
+    colonnes: [[1, 2, 2, 1], [1, 2, 2, 1]],
+    description:
+      "Honors et solitude, signe de lutte, d’orgueil, de hauts et bas, de deuils et d’héritages successifs.",
+  },
+  resumeCourt:
+    "Signe d’honneurs, d’orgueil et de solitude. Aklan-Mêdji annonce une vie faite de luttes, de chagrins et d’héritages, avec de grands hauts et de grands bas.",
+  motsCles: [
+    "honneurs",
+    "orgueil",
+    "solitude",
+    "hauts et bas",
+    "deuils et héritages",
+  ],
+  texteRue:
+    "Aklan-Mêdji, c’est le signe de celui qui reçoit les honneurs mais qui porte ses fardeaux seul. Il parle de luttes, de dangers, de réputations fortes, mais aussi d’orgueil, d’avarice, de mélancolie et de solitude. Le Fâ montre ici une vie qui alterne coups durs et succès, deuils et héritages, avec une santé qui demande une vigilance constante. Aklan-Mêdji invite à travailler sur l’orgueil et l’isolement pour ne pas se perdre dans ses propres combats.",
+  themesDeVie: [
+    "honneurs et réputation",
+    "lutte et danger",
+    "orgueil et avarice",
+    "succession de deuils et héritages",
+    "alternance hauts/bas",
+  ],
+  tonGeneral: "equilibre",
+  fetiches: ["Hohovi (jumeaux)", "Lgba", "Hêbiosso", "Dan", "Sakpata", "Tohossou"],
+  feuillesLiturgiques: [],
+  couleursPreferes: [],
+  devises: [
       "Gan Kpatrè mon nô gnon klon. Deux morceaux de fer soudés ne peuvent être séparés. Les ennemis ne pourront rien contre le favi.",
       "Assin hluisin mô nô djè gan do alô kpakpa home hô nô tchi bi ayi. L'eau dont on se lave les mains est aussitôt jetée après la toilette. Tout ce que feront les ennemis contre le «favi» échouera",
       "Adôkpo sakotowé mà nô si kôdo, ho nù vitô xo tomé to nô jayi. Le contenu du sac fermant à coulisse, même retourné, ne tombe pas au sol. (Menace d'avortement pour la femme enceinte qu'il faut préserver).",
       "Dôh mô nô hu Aklaku dègbo. Le filet de pêche ne prend pas l'hippopotame. Le «favi» échappera toujours aux dangers et accidents."
-    ],
-    interdits: [
-      "Viande de singe",
-      "Haricot Akpakoun",
-      "Attacher soi-même des fagots de bois",
-      "Manger des boules d'akassa ",
-      "Toucher à la liane «Agbakan»",
-      "Chien, Coq, Léopard, Aklassu, Buffle",
-      "Brûler le bois d'iroko"
-    ],
-    sacrifices: [],
-    commentaire: "L'homme qui a vu le jour sous le signe de Aklan aura des honneurs, sera plein d'orgueil, tenace, fort aimé de tout le monde, pondéré et solitaire. En outre, il sera mélancolique, réfléchi, sûr de lui-même et fort avare de ses biens. Il aura beaucoup d'afflictions avant de connaître un bonheur durable. Des alternatives de haut et de bas. Longévité probable, mais en fonction des soins vigilants dont il devra entourer sa santé."
-  },
+     ],
+  interdits: [
+    "Viande de singe",
+    "Haricot Akpakoun",
+    "Attacher soi-même des fagots de bois",
+    "Manger des boules d’akassa enveloppées dans des feuilles pliées (Alvi do gudo)",
+    "Toucher la liane Agbakan",
+    "Chien",
+    "Coq (interdit commun aux signes majeurs)",
+    "Léopard",
+    "Aklassu",
+    "Buffle",
+    "Brûler le bois d’iroko",
+  ],
+  sacrifices: [],
+  commentaire:
+    "L’homme ou la femme né(e) sous Aklan-Mêdji recevra des honneurs et sera apprécié(e), mais portera un caractère orgueilleux, tenace, mélancolique et avare. Sa vie sera faite de hauts et de bas, de deuils, de chagrins et d’héritages successifs. La longévité est possible, mais au prix d’une grande vigilance sur la santé et d’un vrai travail intérieur sur l’orgueil et la solitude.",
+}
+,
   {
-    position: 9,
-    id: "guda-medji",
-    nomPrincipal: "GUDA-MÊDJI",
-    sexe: "masculin",
-    figureSymbolique: {
-      colonnes: [[1, 1, 1, 2], [1, 1, 1, 2]],
-      description: "Mouvement ascendant, symbole de voyage et déplacement.",
-    },
-    resumeCourt: "Signe de voyage, de mouvement et d'exploration. Représente les déplacements et la découverte.",
-    motsCles: ["voyage", "mouvement", "déplacement", "exploration", "découverte"],
-    texteRue:
-      "Guda-Mêdji, c'est le signe du voyageur, de celui qui bouge. Il parle de déplacements, de voyages, de changements de lieu. Ça peut être un voyage physique (déménagement, mission à l'étranger, déplacement professionnel) ou un voyage intérieur (évolution personnelle, découverte spirituelle). Guda-Medji enseigne l'ouverture au monde et à la nouveauté.",
-    themesDeVie: ["voyage à l'étranger", "déménagement", "exploration", "ouverture culturelle", "évolution personnelle"],
-    tonGeneral: "plutot_favorable",
-fetiches: ["Dan", "Lègba", "Lissa", "Gu", "Hêbiosso"],
-feuillesLiturgiques: [],
-devises: [
-"Attin Kpé gu ma jô lù. L'arbre qui croise avec le métal n'a pas bonne santé.",
-"Gbétô si mô nô ké aké vô. Gà do lan oun. La femme du chasseur n'alerte pas l'entourage dans le vide. C'est qu'elle est sûre que la flèche de son mari a traversé le corps d'un animal. Le désir du consultant sera réalisé.",
-"Attin do tôtô nô sa alin voa. Le bois courbé ne craint plus rien du rein. Le «favi» n'ayant plus l'érection normale, ne risque pourtant pas de se fatiguer les reins par le coït. (Un sacrifice prescrit et non exécuté par lui l'entraînerait à une déchéance sexuelle).",
-"Gu égla wê nô gbo bô hun non ton Le couteau tranchant coupe et le sang jaillit. Le «favi» sera très puissant et réussira dans la vie.",
-"Guda gaù. Lègba adigbà nô zinzin mô nô huédo toyomé. Guda entre en érection ! Si la verge de lègba Adigbà entre en érection, toutes les femmes du pays en seront servies. Le «favi» dont les fonctions sexuelles sont actuellement bonnes, sera prochainement menacé de déchéance.",
-],
-
-    interdits: [
-      "Écureuil (Don, en fon)",
-      "Tortue (Logozo, en fon)",
-      "Maïs grillé",
-      "Tabac",
-      "Porc",
-      "Igname pilée (Agou)",
-      "Coq",
-      "Hyène (Hla en fon)",
-      "Viande de singes",
-      "Vin de palme (ne jamais boire)",
-      "Interdit de danser hors de chez soi.",
-      "Interdit de porter des caleçons.",
-      "Interdit de déposer fusil ou couteau près du lit, ou de porter sur soi des couteaux ou poignard.",
-    ],
-    sacrifices: [],
-    commentaire: "Celui qui subit l'influence de ce signe sera ambitieux, irréfléchi et sera d'un esprit belliqueux. Il aura un dédain particulier pour tout le monde, puis connaîtra des heurts et des difficultés avec son entourage. Intelligent, il sera également père d'une nombreuse famille. Il aura le bonheur voire la richesse, mais trouvera une fin subite ou malheureuse."
+  position: 9,
+  id: "guda-medji",
+  nomPrincipal: "GUDA-MEDJI",
+  sexe: "masculin",
+  figureSymbolique: {
+    colonnes: [[2, 2, 1, 1], [2, 2, 1, 1]],
+    description:
+      "Puissance tranchante, signe de vigueur, de sexualité forte, de justice, mais aussi de risques d’accidents et de mort subite.",
   },
+  resumeCourt:
+    "Signe de force, de justice et de tension sexuelle. Guda-Mêdji annonce une grande puissance d’action, mais aussi des ennemis nombreux et des risques d’accidents si les interdits sont négligés.",
+  motsCles: [
+    "puissance",
+    "justice",
+    "sexualité",
+    "ennemis nombreux",
+    "risque d’accident ou de mort subite",
+  ],
+  texteRue:
+    "Guda-Mêdji, c’est le signe du fer qui coupe net. Il parle de force, de vigueur, de justice tranchante et d’une sexualité puissante, mais aussi de dangers si l’on ne respecte pas les limites. Le Fâ montre ici un personnage sûr de lui, qui veut tout connaître, qui agit avec intensité et attire beaucoup d’ennemis et de complications. Sous Guda-Mêdji, on peut aller très loin, mais un accident, une chute ou une dèche sexuelle peuvent surgir si les sacrifices ne sont pas faits.",
+  themesDeVie: [
+    "affirmation de soi",
+    "justice et décision ferme",
+    "tension sexuelle",
+    "ennemis et complications",
+    "risques d’accident ou de mort brutale",
+  ],
+  tonGeneral: "equilibre",
+  fetiches: ["Gu", "Lgba", "Agu", "Hêbiosso", "D", "Hêkê"],
+  feuillesLiturgiques: ["Lidji", "Agnaa"],
+  couleursPreferes: ["Rouge", "Noir", "Blanc"],
+  devises: [
+    "Attin kpè Gu majlè. L’arbre qui frotte le métal n’a pas bonne santé. Celui qui se frotte au «favi» risque d’en souffrir.",
+    "Gblê si mèn n kè akpavi. Gbo do lan wô. La femme du chasseur n’alerte pas le village pour rien. Si elle crie, c’est que la flèche a touché un animal. Le désir du consultant sera réalisé.",
+    "Attin do têtin sa alin voa. Le bois courbé ne craint plus rien du rabot. Le «favi» qui a perdu sa vigueur sexuelle ne se fatigue plus les reins au coït, mais s’il néglige un sacrifice prescrit, une déchéance sexuelle peut survenir.",
+    "Gu gla wèn gbo bô houn nôn ton. Le couteau tranchant coupe et le sang jaillit. Le «favi» sera très puissant et réussira dans la vie.",
+    "Guda ga. Lgba Adigbè zinzin mèn hudo toyom. Guda entre en érection ! Si la verge de Lgba Adigbè entre en érection, toutes les femmes du pays en seront servies. Le «favi», sexuellement fort aujourd’hui, est menacé de déchéance s’il ne respecte pas les prescriptions.",
+  ],
+  interdits: [
+    "Chair de tortue Logozo",
+    "Viande d’antilope la",
+    "Crocodile (Lò)",
+    "Tous les serpents",
+    "Fruit du faux acajou (Lissa)",
+    "Oiseaux: hibou (azî), Agbogbo, Lôk-lôk",
+    "Manioc (forme et préparation spécifiques liées au texte)",
+    "Ligname pilée (Agu)",
+    "Coq (interdit commun aux signes majeurs)",
+    "Danser hors de sa maison d’habitation",
+    "Porter des caleçons Godo (cache-sexe) ou même des pantalons chokoto-chaka de façon ostentatoire rituelle",
+    "Creuser une fosse ou un trou (pour certains rituels non autorisés)",
+    "Déposer fusil, couteau ou objet de Gu près du lit ou porter un poignard sur soi",
+  ],
+  sacrifices: [
+    "Adorer Gu, Lgba et Agu",
+    "Faire Vonssissa pour échapper aux accidents appelés Gu ovi",
+    "Faire des offrandes à Lgba",
+    "Faire des sacrifices de boissons et de pantalons",
+  ],
+  commentaire:
+    "Celui qui subit l’influence de Guda-Mêdji est un juge intègre, honnête et sûr de lui-même. Il cherche à tout connaître et agit avec une grande vigueur, ce qui lui attire autant la renommée que de nombreux ennemis et ennuis. Sa vie est marquée par des tourments et des perturbations de santé possibles, ainsi que par le risque d’un accident inattendu ou d’une mort subite. La gestion de sa sexualité, de sa violence potentielle et le respect strict des interdits sont essentiels pour canaliser ce signe sans se détruire.",
+},
   {
-    position: 10,
-    id: "sa-medji",
-    nomPrincipal: "SA-MÊDJI",
-    sexe: "feminin",
-    figureSymbolique: {
-      colonnes: [[2, 1, 1, 1], [2, 1, 1, 1]],
-      description: "Équilibre parfait, symbole de justice et vérité.",
-    },
-    resumeCourt: "Signe de justice, de vérité et d'équilibre. Représente la rectitude et l'équité.",
-    motsCles: ["justice", "vérité", "équilibre", "rectitude", "clarté"],
-    texteRue:
-      "Sa-Mêdji ou «Osa-mêdji», c'est le signe de la balance, de la justice et de la vérité. Il parle de situations où il faut trancher, juger, décider avec équité. C'est le signe de la clarté morale, de l'honnêteté et de la rectitude. Sa-Medji enseigne à être juste dans ses jugements, à dire la vérité même quand c'est difficile, et à chercher l'équilibre dans toutes les situations.",
-    themesDeVie: ["justice", "décision équitable", "dire la vérité", "médiation", "clarté morale"],
-    tonGeneral: "plutot_favorable",
-    fetiches: ["Gbadu", "Nâ", "Kinnessi", "Tohossou", "Yalodé", "Lissa", "Loko"],
-    feuillesLiturgiques: ["Avôkanfunmâ", "Gnonussissi", "Zomà", "Zêzêmà", "Ajassiafôvê (fon)"],
-    devises: [
-      "Sa jimê ! tufè tufè wê do awo, tufè tufè wê na klon. Faire du mal au «favi» né sous ce signe, c'est s'attirer à soi-même de redoutables ennuis.",
-      "Anà ba tin kpo, ho mêdji d'assamê. La nature a créé et situé la vulve entre les deux cuisses du sexe féminin.",
-      "Nù na gnon nou awon doxe bê na won xwé ton akàma mèton.L'oiseau qui veut s'engluer a trouvé fortune et oublié son akàma. Souvent les hommes parvenus à la richesse oublient le moment où ils ont été pauvres. Le «favi» s'enrichira, mais oubliera bien vite les dures épreuves de la pauvreté.",
-      "Sajimê! Bokônon djan dji wê n'dé. Je suis assis sur la chaise en bambou du devin. Le «favi» a des dispositions pour devenir lui aussi prêtre du Fa.",
-    ],
-    interdits: [    
-      "Ne jamais regarder le sexe de sa conjointe",
-      "Coq",
-      "Chien",
-      "Chat",
-      "Offrandes aux Nà",   
-      "Sorgho (Abôkun en fon)",   
-      "Éléphant (Adjinaku en fon)",    
-    ],
-    sacrifices: [],
-    commentaire: "Ceux nés sous ce signe devront abandonner l'eau des offrandes découlant d'une légende où l'eau joue un grand rôle."
+  position: 10,
+  id: "sa-medji",
+  nomPrincipal: "SA-MÊDJI",
+  sexe: "feminin",
+  figureSymbolique: {
+    colonnes: [[2, 1, 1, 1], [2, 1, 1, 1]],
+    description:
+      "Puissance en mouvement, signe de voyage, d’épreuves dépassées et de réussite après des débuts difficiles.",
   },
+  resumeCourt:
+    "Signe de voyage, de lutte et de réussite après les épreuves. Sa-Mêdji parle d’un destin puissant qui finit par s’épanouir loin de la terre natale.",
+  motsCles: [
+    "voyage",
+    "réussite après épreuves",
+    "destin puissant",
+    "recherche spirituelle",
+    "richesse et prodigalité",
+  ],
+  texteRue:
+    "Sa-Mêdji, c’est le signe de celles et ceux qui ne restent pas là où ils sont nés. Il annonce des débuts difficiles, des routes longues, des combats à mener, mais aussi la réussite pour celui qui persévère. Le Fâ montre ici un destin fort, qui s’épanouit souvent loin de la terre natale, avec une santé robuste et une protection spirituelle réelle. Sa-Mêdji ouvre aussi la voie vers les sciences occultes et la recherche du savoir caché, mais rappelle qu’il ne faut jamais se décourager, même quand tout semble bloqué.",
+  themesDeVie: [
+    "exil ou vie loin du pays natal",
+    "épreuves puis réussite",
+    "recherche spirituelle et occultisme",
+    "richesse et générosité",
+    "ne pas céder au découragement",
+  ],
+  tonGeneral: "plutot_favorable",
+  fetiches: ["Gbadu", "Nâ", "Azô", "Kinnessi", "Tohossou", "Yalodé", "Naawo", "Lissa", "Loko"],
+  feuillesLiturgiques: ["Avôkanfunmâ", "Gnonussissi", "Zomâ", "Zêzêmâ", "Ajassiafôvê (fon)"],
+  couleursPreferes: ["Rouge (principale)", "Blanc", "Bleu"],
+  devises: [
+    "Sa jimê ! tufè tufè wê do awo, tufè tufè wê na klon. C’est la salive pulvérisée qui prépare la glu et qui la détache. Faire du mal au «favi» né sous ce signe, c’est s’attirer à soi-même de redoutables ennuis.",
+    "An ba tin kpo, ho mêdji dassamê. La nature a créé et situé la vulve entre les deux cuisses du sexe féminin.",
+    "Sajimê! Bokônon djan dji wê n'dé. Je suis assis sur la chaise en bambou du devin. Le «favi» a des dispositions pour devenir lui aussi prêtre du Fa.",
+    "Nù na gnon nou awon doxe bê na won xwé ton akàma mèton. L’oiseau qui veut s’engluer a trouvé fortune et oublié son akàma. Souvent les hommes parvenus à la richesse oublient le moment où ils ont été pauvres. Le «favi» s’enrichira, mais oubliera bien vite les dures épreuves de la pauvreté.",
+  ],
+  interdits: [
+    "Ne jamais regarder le sexe de sa conjointe (et, pour les femmes Sa-Mêdji, éviter les rapports en pleine journée)",
+    "Poulet",
+    "Tout oiseau «sorcier» et offrandes faites aux Nânu",
+    "Sorgho (Abôkun en fon)",
+    "Éléphant (Adjinaku)",
+    "Afyanku",
+    "Chien",
+    "Léopard",
+    "Chat",
+    "Coq (commun à tous les signes majeurs)",
+    "Vin de palme",
+    "Approcher le coton du feu (Avôkanfunm do zo)",
+    "Usage de la graine de Kpêdjêlkun",
+    "Feuilles de l’arbre iroko",
+  ],
+  sacrifices: [
+    "Adorer Nâ",
+    "Adorer Tohossou",
+    "Adorer Yalodé",
+    "Adorer Sakpata",
+    "Leur faire régulièrement des sacrifices Hên",
+    "Élever un perroquet et offrir chaque année en sacrifice du bois de chauffe",
+  ],
+  commentaire:
+    "Ceux nés sous Sa-Mêdji connaîtront des débuts difficiles mais finiront par réussir et vivre dans l’abondance. Ils voyageront beaucoup et vivront souvent loin de leur terre natale, avec une santé robuste et un goût marqué pour la recherche et les sciences occultes. Riche et prodigue, le «favi» est invité à ne jamais se laisser écraser par les échecs, car la Providence revient toujours l’aider dès qu’il fait un effort pour se relever.",
+},
   {
-    position: 11,
-    id: "ka-medji",
-    nomPrincipal: "KA-MÊDJI",
-    sexe: "masculin",
-    figureSymbolique: {
-      colonnes: [[2, 1, 2, 2], [2, 1, 2, 2]],
-      description: "Flux de communication, symbole de parole et message.",
-    },
-    resumeCourt: "Signe de communication, de parole et d'échange. Représente la transmission de messages.",
-    motsCles: ["communication", "parole", "message", "relation", "échange"],
-    texteRue:
-      "Ka-Mêdji, c'est le signe du messager, de celui qui parle et transmet l'information. Il parle de communication, d'échanges, de discussions importantes, de négociations. C'est le signe des relations, du dialogue, de la capacité à bien s'exprimer et à se faire comprendre. Ka-Medji enseigne l'importance de la parole juste, de l'écoute et du dialogue constructif.",
-    themesDeVie: ["communication efficace", "dialogue", "négociation", "enseignement", "transmission de savoir"],
-    tonGeneral: "plutot_favorable",
-fetiches: ["Lissa", "Dan", "Tohossou", "Hoho", "Hêbiosso"],
-feuillesLiturgiques: ["Zuku-zwi", "Addw", "Alafya"],
-    couleursPreferes: [],
-    devises: [
-      "Agban n dj ton gudo. Celui qui transporte les bagages (sacrifices) de tous les signes conduit à la fois ces bagages et les précède.",
-      "Tch-Tula-Klbo n ho t d ni n gblaa. Si Klbo prononce la prière de son père, sa bénédiction se réalisera. Les vœux et les souhaits du consultant seront exaucés.",
-      "Si Tohossou Lad (Souverain du pays) exprime même verbalement un ordre, ses sujets ne peuvent que l'exécuter.",
-      "E m n do gb gban, ho n dida. On ne peut rassembler et faire porter par la chauve-souris tout le poids des malheurs de l'humanité.",
-      "Sgbo Lissa n d gb n hu ni n gb tton n. C'est Sgbo Lissa qui prescrit et ses paroles se réaliseront."
-    ],
-interdits: [
-  "Viande de chien",
-  "Indiscrétion (ne pas révéler les secrets confiés)",
-  "Mensonge",
-  "Coq"
-],
-sacrifices: [
-  "Adorer Lgba (le messager)",
-  "Faire des offrandes à Dan et Lissa",
-  "Sacrifices annuels aux divinités de la communication"
-],
-    commentaire: "Ce signe rend heureux et grand voyageur celui qu'il influence. Après de durs débuts, il arrivera à la réussite. Il vivra loin de sa terre natale."
+  position: 11,
+  id: "ka-medji",
+  nomPrincipal: "KA-MÊDJI",
+  sexe: "masculin",
+  figureSymbolique: {
+    colonnes: [[2, 1, 2, 2], [2, 1, 2, 2]],
+    description:
+      "Force qui résiste aux coups du destin, signe d’ambition, de heurts et de réussite arrachée de haute lutte.",
   },
+  resumeCourt:
+    "Signe d’ambition, de résistance et de réussite malgré les tempêtes. Ka-Mêdji parle d’un destin qui passe par les épreuves avant de trouver stabilité et richesse.",
+  motsCles: [
+    "ambition",
+    "résistance aux épreuves",
+    "richesse",
+    "destin mouvementé",
+    "protection contre les ennemis",
+  ],
+  texteRue:
+    "Ka-Mêdji, c’est le signe de ceux qui ne reculent pas devant les obstacles. Il annonce un chemin de vie plein de heurts, de luttes et de remous, comme une pirogue ballotée par les vagues avant de trouver enfin un port sûr. Le Fâ montre ici une grande ambition, une capacité à se relever après les chutes et à transformer les difficultés en force. Ka-Mêdji promet la richesse et la considération, mais rappelle aussi que la fin peut être brusque si l’on oublie la prudence et les interdits.",
+  themesDeVie: [
+    "vie mouvementée",
+    "relever les défis",
+    "construire sa richesse",
+    "protection dans l’épreuve",
+    "ne pas se laisser submerger",
+  ],
+  tonGeneral: "plutot_favorable",
+  fetiches: ["Tohossou", "Hohovi (jumeaux)", "Hêbiosso", "Lissa", "Gu", "Loko", "D"],
+  feuillesLiturgiques: ["Sélévik", "Srésrévik (fon)"],
+  couleursPreferes: ["Noir", "Rouge", "Bleu", "Tacheté"],
+  devises: [
+    "Lègùd gòvi jto ma cí. Lègùd gòvi tombe dans l’eau mais ne s’immerge pas. Si le «favi» tombe dans un malheur quelconque, il s’en tirera facilement.",
+    "È mèn nè jé tado kè bo n ba ka do ùn nan, mon hun gbè gblo. Celui qui est tombé dans la rivière jusqu’au cou ne cherche pas une calebasse pour se désaltérer. Il n’a plus qu’à boire. Le bonheur du «favi» dépendra de lui-même.",
+    "Gajé tê, bo hô ló. L’ancre mouille et la pirogue s’arrête. Le consultant, longtemps ballotté par les vicissitudes de la vie, finira par trouver en Ka-Mêdji son point de stabilité.",
+    "Haoussa hossu ma yiku do kun mvo. Le roi haoussa ne meurt jamais autrement que riche. Il en sera de même pour le «favi».",
+    "Attin ku tê, moin ma ku tê. Tous les arbres se noient, mais le bambou résiste. Le «favi» échappera toujours à ses ennemis.",
+  ],
+  interdits: [
+    "Poisson fumé recourbé (Azín gokwin)",
+    "Patate douce",
+    "Tous les serpents",
+    "Crocodile (lò)",
+    "Pangolin (azô)",
+    "Oiseau Agbogbo",
+    "Singes Hâa, Klan, Zinwô",
+    "Enfreindre l’interdit sur les singes (risque de mort d’un enfant)",
+    "Viande de coq (commun aux signes majeurs)",
+  ],
+  sacrifices: [
+    "Adorer Tohossou",
+    "Adorer D",
+    "Adorer Hohovi (jumeaux)",
+    "Adorer Gu",
+    "Abandonner l’eau des offrandes (ne plus la reverser comme avant)",
+    "Faire des aumônes et sacrifices aux forgerons",
+    "Faire des offrandes régulières aux jumeaux",
+  ],
+  commentaire:
+    "Celui qui est sous l’influence de Ka-Mêdji sera ambitieux et parfois brusque dans ses réactions. Sa vie connaîtra de nombreux heurts, mais il finira par s’imposer, gagner en richesse et en considération. Rusé et persévérant, il échappe souvent aux pièges tendus par ses ennemis. Il doit toutefois rester prudent et respecter ses interdits, car un excès de confiance peut entraîner une fin brutale ou malheureuse.",
+},
   {
-    position: 12,
-    id: "trukpin-medji",
-    nomPrincipal: "TRUKPIN-MEDJI",
-    sexe: "masculin",
-    figureSymbolique: {
-      colonnes: [[2, 2, 1, 2], [2, 2, 1, 2]],
-      description: "Profondeur cachée, symbole de mystère et secret.",
-    },
-    resumeCourt: "Signe de mystère, de secret et d'initiation. Représente les connaissances profondes et cachées.",
-    motsCles: ["mystère", "secret", "initiation", "profondeur", "connaissance"],
-    texteRue:
-      "Trukpin-Medji, c'est le signe des mystères et des secrets. Il parle de ce qui est caché, des connaissances profondes qui ne peuvent pas être révélées à tout le monde. C'est le signe de l'initiation, des savoirs ésotériques, des vérités gardées. Trukpin-Medji enseigne la discrétion, le respect du sacré et l'importance de protéger certaines connaissances.",
-    themesDeVie: ["initiation spirituelle", "connaissance cachée", "mystère", "discrétion", "approfondissement"],
-    tonGeneral: "equilibre",
-    fetiches: ["Lgba"],
-    feuillesLiturgiques: ["Zuku-zwi", "Addw"],
-    couleursPreferes: ["Toutes les couleurs"],
-    devises: [
-      "Sa jim ! tuf tuf w do awo, tuf tuf w na klon. C'est la salive pulvérisée qui prépare la glu et qui la détache.",
-      "An ba tin kpo, ho mdji dassam. La nature a créé et situé la vulve entre les deux cuisses du sexe féminin.",
-      "Sajim! Boknon djan dji w nd. Je suis assis sur la chaise en bambou du devin. Le fa vi a des dispositions pour devenir lui aussi prtre du Fa.",
-      "N na gnon nou awon doxe b na won xw ton akma mton. L'oiseau qui veut s'engluer a trouvé fortune et oublié son akma."
-    ],
-interdits: [
-  "Révéler les secrets d'initiation",
-  "Entrer dans les lieux sacrés sans permission",
-  "Toucher aux objets rituels sans être initié",
-  "Viande de serpent",
-  "Coq"
-],
-sacrifices: [
-  "Adorer Lgba",
-  "Faire des offrandes aux ancêtres et aux initiés défunts",
-  "Respecter les rituels d'initiation"
-],
-
-    commentaire: "Ce signe rend heureux et grand voyageur celui qu'il influence. Après de durs débuts, il arrivera à la réussite. Il vivra loin de sa terre natale, aura une bonne épouse. Le Favi a des dispositions pour devenir prêtre du Fa."
+  position: 12,
+  id: "trukpin-medji",
+  nomPrincipal: "TRUKPIN-MÊDJI",
+  sexe: "feminin",
+  figureSymbolique: {
+    colonnes: [[2, 2, 1, 2], [2, 2, 1, 2]],
+    description:
+      "Justice délicate et destinée lente, signe de décisions difficiles, de lente maturation et de responsabilités lourdes.",
   },
+  resumeCourt:
+    "Signe de justice, de lenteur et de responsabilités karmiques. Trukpin-Mêdji parle d’un destin où les décisions sont lourdes et où les résultats arrivent tard, après hésitations et sacrifices.",
+  motsCles: [
+    "justice",
+    "responsabilité",
+    "lenteur de réalisation",
+    "enfants et maternité",
+    "scrupules et hésitation",
+  ],
+  texteRue:
+    "Trukpin-Mêdji, c’est le signe des décisions qui pèsent lourd et qu’on ne prend pas à la légère. Il parle de justice, de scrupules, d’hésitation avant d’agir, comme quelqu’un qui sait que chaque choix engage tout son destin. Le Fâ montre ici une vie où les projets avancent lentement, avec des retards, des blocages, mais aussi une capacité à devenir un grand juge ou un chef respecté. Trukpin-Mêdji touche aussi la maternité : beaucoup d’enfants peuvent mourir en bas âge, et il faut des sacrifices réguliers pour stabiliser la descendance.",
+  themesDeVie: [
+    "justice et équité",
+    "décisions lourdes à assumer",
+    "projets lents à se réaliser",
+    "questions d’enfants et de lignée",
+    "scrupules, doutes et maturation intérieure",
+  ],
+  tonGeneral: "equilibre",
+  fetiches: ["Sakpata", "Hohovi (jumeaux)", "Lgba", "Hêbiosso", "Dan", "Tohossou"],
+  feuillesLiturgiques: ["(gombo et papaye à marquer comme sensibles dans l’enseignement)"],
+  couleursPreferes: ["Rouge", "Noir", "Blanc", "Bleu", "Tacheté"],
+  devises: [
+    "Kan gbto n gb ka, bo n hun. La tête de l’enfant ne supporte pas la terre. Le «favi» porte des charges qu’il ne devrait pas porter seul.",
+    "Agban do wli, dokpo do wli, mèton mèn wli. La case plafonnée ne craint pas la chaleur. Celui qui est bien protégé résiste aux épreuves.",
+    "Nukplin do w n w d agbo. La femme à peine enceinte ne peut rester debout longtemps. Les projets du «favi» demandent patience et soutien pour arriver à terme.",
+    "Ahin d do w n yi gbo. La rivière en crue emporte tout sur son passage. Si les sacrifices ne sont pas faits, les événements peuvent tout balayer.",
+  ],
+  interdits: [
+    "Gombo",
+    "Papaye",
+    "Plante Ayikp",
+    "Coq (commun aux signes majeurs)",
+    "Pintade",
+    "Tous les serpents",
+    "Léopard",
+    "Sorgho",
+    "Éléphant (Adjinaku)",
+    "Hyène (Hia)",
+    "Oiseaux de sorcellerie",
+    "Singes",
+    "Chien",
+    "Chat",
+  ],
+  sacrifices: [
+    "Adorer Sakpata",
+    "Adorer Nâ",
+    "Adorer Hohovi (jumeaux)",
+    "Faire Vonssissa Enagni ho m zôn pour stabiliser la destinée",
+    "Offrir chaque année des bananes et papayes (sous forme rituelle, sans consommation par le «favi»)",
+  ],
+  commentaire:
+    "Sous Trukpin-Mêdji, la personne a le profil d’un juge ou d’un chef qui veut être juste, mais avance avec prudence et lenteur. Sa vie connaît des retards, des occasions manquées et des hésitations, mais aussi une montée progressive vers une grande responsabilité. La question des enfants et de la continuité de la lignée est centrale et demande des sacrifices réguliers. Bien géré, ce signe donne un destin respecté, mais exige de la patience, de la rigueur morale et un vrai sens de la justice.",
+},
   {
-    position: 13,
-    id: "tula-medji",
-    nomPrincipal: "TULA-MEDJI",
-    sexe: "masculin",
-    figureSymbolique: {
-      colonnes: [[1, 2, 1, 1], [1, 2, 1, 1]],
-      description: "Désordre apparent, symbole de chaos créateur et purification.",
-    },
-    resumeCourt: "Signe de chaos, de désordre et de transformation radicale. Précède souvent une purification nécessaire.",
-    motsCles: ["chaos", "désordre", "transformation", "purification", "renouveau"],
-    texteRue:
-      "Tula-Medji, c'est le signe du chaos créateur, du désordre qui précède le renouveau. Il parle de situations confuses, de moments où tout semble partir dans tous les sens. Mais ce chaos n'est pas mauvais: c'est souvent une purification nécessaire avant une renaissance. Tula-Medji enseigne que parfois il faut tout défaire pour pouvoir reconstruire mieux.",
-    themesDeVie: ["transformation radicale", "purification", "renouveau complet", "chaos nécessaire", "renaissance"],
-    tonGeneral: "plutot_difficile",
-    fetiches: ["Lgba", "Dan", "Ajaguna", "Lissa", "Hoho", "G", "Tohossou"],
-    feuillesLiturgiques: ["Alafya ou Fifam", "Dm"],
-    couleursPreferes: ["Bleu", "Blanc", "Or", "Tacheté"],
-    devises: [
-      "Malnu d m n s h n d. Un musulman ne peut en adorer un autre. Le Fa vi n'aura pas à se soucier du rang social de ses interlocuteurs.",
-      "B hluinsounv do hu ad a o dokpo o w n do kija na. Le bec dont le mange-mil se sert pour construire son nid est le même qu'il utilise pour le défaire.",
-      "Gb bojo do! Hou m n wli soun ho n do wa nd! Laisse! Le soleil ne peut attraper la lune pour la torturer.",
-      "Tula-mdji dit: A la afia-Allah Kubaru. Le Fa vi devra faire de nombreuses aumônes Saala.",
-      "Aho kpon ma n kpo hl. Si us soit l'indigo, il réussit cependant à teindre l'étoffe."
-    ],
-    interdits: [
-      "Indiscrétion",
-      "Consommation de la viande de porc",
-      "Vin de palme",
-      "Port de couteau et de canif sur soi dans la poche",
-      "Le burnous Agbada (ne pas s'en vêtir)"
-    ],
-    sacrifices: [
-      "Adorer les ftiches Dan, Lgba et Lissa",
-      "Faire de nombreuses aumônes",
-      "Avoir chez soi un de ces petits autels de sable dont les musulmans se servent pour prier"
-    ],
-    commentaire: "N sous le signe de Tula, le sujet voyagera souvent et deviendra un chef d'une grande influence. Il s'adonnera fréquemment aux femmes, se donnant de sérieux ennemis s'il entretient toujours ce genre d'activité. Ceux nés sous ce même signe sont persévérants et travailleurs, sont indifférents aux malheureux événements et dédaignent leur entourage."
+  position: 13,
+  id: "tula-medji",
+  nomPrincipal: "TULA-MEDJI",
+  sexe: "masculin",
+  figureSymbolique: {
+    colonnes: [[1, 2, 1, 1], [1, 2, 1, 1]],
+    description:
+      "Destin de mouvement et de commandement, signe de voyage, d’autorité et de remises en question répétées.",
   },
-  // Suite LETE-MEDJI
+  resumeCourt:
+    "Signe de voyage, de pouvoir et de comportements excessifs. Tula-Mêdji annonce une vie mobile, une grande influence, mais aussi des excès qui créent des ennemis.",
+  motsCles: [
+    "voyage",
+    "autorité",
+    "influence",
+    "excès",
+    "aide par les aumônes",
+  ],
+  texteRue:
+    "Tula-Mêdji, c’est le signe de ceux qui bougent beaucoup et qui finissent par commander. Il parle de voyages fréquents, d’un caractère fort, parfois dur, qui attire autant le respect que la jalousie. Le Fâ montre ici un destin de chef, d’homme d’influence, mais qui risque aussi de se créer de sérieux ennemis par ses excès, surtout dans les relations et le rapport aux femmes. Tula-Mêdji recommande la persévérance, les aumônes et la discrétion pour équilibrer cette puissance.",
+  themesDeVie: [
+    "voyages et déplacements fréquents",
+    "leadership et grande influence",
+    "excès et ennemis cachés",
+    "protection par les aumônes",
+    "indifférence apparente face aux épreuves",
+  ],
+  tonGeneral: "plutot_difficile",
+  fetiches: ["Lgba", "Dan", "Ajaguna", "Lissa", "Hoho", "G", "Tohossou"],
+  feuillesLiturgiques: ["Alafya (ou Fifam)", "Dôm"],
+  couleursPreferes: ["Bleu", "Blanc", "Or", "Tacheté"],
+  devises: [
+    "Malinu dèmèn si hèn dé. Un musulman ne peut en adorer un autre. Le «favi» n’a pas à se soucier du rang social de ses interlocuteurs.",
+    "Bè hluinsounv do hu adè a o dokpo o wèn do kija na. Le bec dont le mange-mil se sert pour construire son nid est le même qu’il utilise pour le défaire.",
+    "Gbè bojo do ! Houn mè n wli sounhoun do wa n dè ! Laisse ! Le soleil ne peut attraper la lune pour la torturer.",
+    "Tula-Mêdji dit : Alafya-Allah Kubaru. Le «favi» devra faire de nombreuses aumônes (Saala).",
+    "Aho kpon man n kponhlè. Si usé soit l’indigo, il réussit cependant à teindre l’étoffe.",
+  ],
+  interdits: [
+    "Indiscrétion",
+    "Consommation de la viande de porc",
+    "Vin de palme",
+    "Port de couteau, canif ou arme blanche sur soi (dans la poche ou à la ceinture)",
+    "Port du burnous Agbada",
+  ],
+  sacrifices: [
+    "Adorer les fétiches Dan, Lgba et Lissa",
+    "Faire de nombreuses aumônes (Saala)",
+    "Avoir chez soi un petit autel de sable comme ceux que les musulmans utilisent pour prier",
+  ],
+  commentaire:
+    "Né sous Tula-Mêdji, le sujet voyagera souvent et deviendra un chef ou un personnage d’une grande influence. Il s’adonnera volontiers aux femmes et à certains plaisirs, ce qui pourra lui attirer des ennemis acharnés s’il n’apprend pas à se modérer. Persévérant et travailleur, il traverse les événements malheureux avec une forme d’indifférence et de détachement. Ce signe demande de cultiver la discrétion, la générosité et le respect des interdits pour transformer cette puissance parfois explosive en réussite durable.",
+},
   {
-    position: 14,
-    id: "lete-medji",
-    nomPrincipal: "LETE-MEDJI",
-    sexe: "feminin",
-    figureSymbolique: {
-      colonnes: [[1, 1, 2, 1], [1, 1, 2, 1]],
-      description: "Grâce divine, symbole de bénédiction et faveur.",
-    },
-    resumeCourt: "Signe de bénédiction, de faveur divine et de chance. Apporte la grâce et la protection.",
-    motsCles: ["bénédiction", "faveur", "chance", "protection", "grâce"],
-    texteRue:
-      "Lete-Medji, c'est le signe des bénédictions et des faveurs divines. Il parle de chance, de grâces accordées, de situations où les choses se passent mieux que prévu. C'est le signe de la protection céleste, du moment où l'univers sourit. Lete-Medji enseigne la gratitude et l'humilité face aux bénédictions reçues.",
-    themesDeVie: ["bénédiction divine", "faveur inattendue", "chance", "protection céleste", "grâce"],
-    tonGeneral: "plutot_favorable",
-    fetiches: ["Sakpata", "Hbiosso", "Na", "Gbadu", "D", "Lissa", "Azovowema (Fon)"],
-    feuillesLiturgiques: ["Awiim", "Gnissinkin", "Akaya", "Tohossou"],
-    couleursPreferes: ["Rouge", "Noir", "Gris", "Bleu", "Blanc"],
-    devises: [
-      "Boko dé gnon vo sa, kaka n hou aton m na su, n d na k, h n gbo dj. Hou m n wli ahossou. Ha avivia. Si les sacrifices imposés par la consultation sont bien exécutés par un devin accompli, cette observance entraînera en moins de trois ans la mort de son ennemi pour qu'il soit tranquille. Le soleil ardent n'éteint pourtant pas l'ombre qui règne.",
-      "Zun d gla n zin wan dodo. Le martèlement de l'enclume, progressivement, parvient à l'enfoncer dans la terre. S'il est courageux et accomplit correctement les sacrifices prescrits, le consultant réussira à éliminer tous ses ennemis.",
-      "Lt jim ! Akw adkpo ton, av adkpo ton, as si adkpo ton. Kl djgb na zn k n yom ho n gb. L'argent est au sac, tandis que les étoffes, les enfants et les femmes appartiennent au sac, c'est-à-dire la terre. Le favi conservera tout ce qu'il possède.",
-      "Lt jim! Okl djgh zn k n yom ho n gh. Lt-Mdji, la terre insulte la mort par les organes de sa mère, mais la mort ne peut se venger d'elle.",
-      "N go sin ji m n t ta a yi. Tout ce qui vient d'en haut doit poser la tête sur la terre, parce que la terre voit et reçoit tout ce qui tombe.",
-      "Ami zin hd hd, h wiwl n n gl ton. La surface de l'huile de palme reposée est claire, mais il y a un dépôt très noir à la base."
-    ],
-    interdits: [],
-    sacrifices: [],
-    commentaire: "L'enfant né sous le signe de Lt sera beaucoup considéré par sa famille, ses parents et occupera une place importante dans sa ville natale. Courageux, il sera têtu, n'aura peur de rien, pas même de la mort. Il sera ambitieux, orgueilleux et rude."
+  position: 14,
+  id: "lete-medji",
+  nomPrincipal: "LETE-MEDJI",
+  sexe: "feminin",
+  figureSymbolique: {
+    colonnes: [[1, 1, 2, 1], [1, 1, 2, 1]],
+    description:
+      "Stabilité enracinée dans la terre, signe de protection, de conservation des acquis et de victoire progressive sur les ennemis.",
   },
+  resumeCourt:
+    "Signe de protection, de conservation et de victoire patiente. Lete-Mêdji parle d’une destinée solide, qui garde ce qu’elle possède et neutralise ses ennemis avec le temps et les bons sacrifices.",
+  motsCles: [
+    "protection",
+    "conserver ses acquis",
+    "victoire sur les ennemis",
+    "patience",
+    "stabilité",
+  ],
+  texteRue:
+    "Lete-Mêdji, c’est le signe de la terre qui ne lâche pas ce qu’on lui confie. Il annonce une protection réelle sur les biens, la famille et la position du «favi», à condition qu’il fasse les sacrifices demandés. Le Fâ montre ici quelqu’un que les ennemis cherchent à abattre, mais dont la force tranquille finit par triompher à la longue. Avec Lete-Mêdji, on avance parfois lentement, mais on perd rarement ce qu’on a déjà gagné.",
+  themesDeVie: [
+    "protection des biens et de la famille",
+    "neutraliser ses ennemis",
+    "stabilité sociale",
+    "courage face aux attaques",
+    "patience dans la lutte",
+  ],
+  tonGeneral: "plutot_favorable",
+  fetiches: ["Sakpata", "Hêbiosso", "Nâ", "Gbadu", "D", "Lissa", "Azovowema (fon)"],
+  feuillesLiturgiques: ["Awiim", "Gninsinkin", "Akaya", "Tohossou"],
+  couleursPreferes: ["Rouge", "Noir", "Gris", "Bleu", "Blanc"],
+  devises: [
+    "Boko dé gnon vo sa, kaka n hou aton m na su, n dé na kè, hèn gbo dji. Houn mè n wli ahossou. Ha avivia. Si les sacrifices imposés par la consultation sont bien exécutés, en moins de trois ans l’ennemi du «favi» mourra et il sera tranquille. Le soleil ardent n’éteint pourtant pas l’ombre.",
+    "Zun dé glan zin wan dodo. Le martèlement de l’enclume, progressivement, parvient à l’enfoncer dans la terre. Avec courage et sacrifices corrects, le consultant éliminera ses ennemis.",
+    "Lèté jim ! Akwè adokpo ton, avè adokpo ton, assi adokpo ton. Klô djègbè na zin kan yôm houn gbè. L’argent, les étoffes, les enfants et les femmes appartiennent à la terre. Le «favi» conservera ce qu’il possède.",
+    "Lèté jim ! Oklo djègbè zin kan yôm houn gbè. Lete-Mêdji dit : la terre insulte la mort par le canal de sa mère, mais la mort ne peut rien contre elle.",
+    "N go sin ji mèn tê ta a yi. Tout ce qui vient d’en haut finit par poser la tête sur la terre, parce qu’elle reçoit tout.",
+    "Ami zin hôdohôdo, houn wiwlèn nè glon ton. La surface de l’huile de palme reposée est claire, mais il y a un dépôt noir au fond.",
+  ],
+  interdits: [
+    "Mépriser ou négliger les sacrifices prescrits par le Fa (la protection tombe si les rituels ne sont pas respectés)",
+    "Toute participation active à des complots ou attaques contre la terre (Sakpata) ou contre les ancêtres",
+    "Consommer des mets consacrés spécifiquement aux ennemis déclarés du «favi» (ne pas manger ce qui a été utilisé pour les atteindre)",
+    "Brûler ou profaner des lieux sacrés liés à Sakpata ou Hêbiosso",
+    "Coq (interdit commun aux signes majeurs, à respecter avec rigueur sous Lete-Mêdji)",
+  ],
+  sacrifices: [
+    "Exécuter scrupuleusement les sacrifices prescrits par le Fa pour neutraliser les ennemis",
+    "Offrir des cadeaux (argent, étoffes, nourriture) à la terre par l’intermédiaire de Sakpata",
+    "Faire des offrandes régulières pour renforcer la protection de la maison et des biens",
+  ],
+  commentaire:
+    "L’enfant né sous le signe de Lete sera beaucoup considéré par sa famille et occupera une place importante dans sa ville natale. Courageux et parfois dur, il n’a peur de rien, pas même de la mort, et défend farouchement ce qui lui appartient. Ce signe attire les attaques et la jalousie, mais donne aussi la force de résister et de vaincre, à condition de rester patient, de respecter les prescriptions et de ne pas sous-estimer la puissance de la terre.",
+},
   {
-    position: 15,
-    id: "tche-medji",
-    nomPrincipal: "TCHE-MEDJI",
-    sexe: "masculin",
-    figureSymbolique: {
-      colonnes: [[1, 2, 1, 2], [1, 2, 1, 2]],
-      description: "Alternance parfaite, symbole de dualité et de choix.",
-    },
-    resumeCourt: "Signe de dualité, de choix et de décision importante. Représente le carrefour où il faut choisir.",
-    motsCles: ["dualité", "choix", "décision", "carrefour", "alternance"],
-    texteRue:
-      "Tche-Medji, c'est le signe du carrefour, du moment où il faut choisir entre deux voies. Il parle de dualité, de situations où on ne peut pas tout avoir et où il faut trancher. C'est le signe des grandes décisions de vie: quel métier choisir, quelle voie suivre, quelle personne épouser. Tche-Medji enseigne que choisir c'est aussi renoncer.",
-    themesDeVie: ["choix de vie important", "carrefour professionnel", "décision cruciale", "dualité", "renoncement"],
-    tonGeneral: "equilibre",
-    fetiches: ["Sakpata", "Kinnessi", "Hbiosso", "Lissa", "G", "Tohossou"],
-    feuillesLiturgiques: ["Nukunzaw", "Hansimlin", "Azloko", "Futukd"],
-    couleursPreferes: ["Trois ensembles (n'importe lesquelles)"],
-    devises: [
-      "T mi m do n hiaha n m do Adjaghto-na du mi h e du mi kpla-likpiti n su ho. Ligname grillée dit à l'homme, auprès de la rivière Adjagb: Si tu veux me manger, dépêche-toi toi-même, sinon, celui qui bouche le trou avec son pied, la mort viendra t'ensevelir, t'empêcher de me manger. La réussite du consultant dépendra de sa prestance, de son habileté.",
-      "M ta huhu do n hiaha n m ta hn m do nu do Adjaghto. Un vieux crâne humain dit à un jeune crâne humain, un jour, au bord de la rivière Adjagb: Moi je suis déjà sec. Si l'on me coupe, pas une goutte de sang ne coulera, mais toi, si on te fend, il en jaillira du sang.",
-      "Tchjim! n tch wiwa, han tch djidji, aff tch did, ma n gnon. A m mi hn, m k. Tch! tout ce que j'accomplis, les chants que je chante, les pas que je fais, rien de tout cela n'est bon et indispose tout le monde. Si tu me vois tu vois donc la mort."
-    ],
-    interdits: [
-      "Le maïs grillé (agbad mim), cause du craquement de la grillade qui attire la maladie",
-      "Ligname grillée (t mi m), pour la même raison",
-      "Pintade",
-      "Colas sauf le blanc",
-      "Zn s ou ass (perdrix)",
-      "Tous les interdits de Sakpata (exemple: haricot mélangé avec du maïs, tout mélange de mets grillés)",
-      "S'abstenir de porter des fagots de bois de chauffage sur la tête",
-      "Toucher au bois consumé partiellement",
-      "Les singes",
-      "Le coq (commun aux signes majeurs)"
-    ],
-    sacrifices: [
-      "Adorer Sakpata, N et Hbiosso",
-      "E na gni azon, bo n dio k. Tous les ans, E na gni azon: faire des sacrifices et offrandes aux boknons et aux féticheurs"
-    ],
-    commentaire: "Lhomme sous l'influence de Tch deviendra un grand révolutionnaire, un prétentieux qui aimera la guerre, il souffrira un peu, mais obtiendra le bonheur plus tard. Devenu riche, la prodigalité le ruinera après. Les gens nés sous ce signe sont souvent les jouets de leurs sentiments. Ils sont inconstants dans leurs sentiments, ce qui ne leur favorise guère l'union."
+  position: 15,
+  id: "tche-medji",
+  nomPrincipal: "TCHE-MEDJI",
+  sexe: "masculin",
+  figureSymbolique: {
+    colonnes: [[1, 2, 1, 2], [1, 2, 1, 2]],
+    description:
+      "Carrefour dangereux, signe d’épreuves brutales, de choix risqués et de transformations douloureuses.",
   },
+  resumeCourt:
+    "Signe de danger, de choix risqués et de transformations radicales. Tche-Mêdji annonce des épreuves dures, des décisions qui peuvent coûter cher, mais aussi la possibilité de renaître après le choc.",
+  motsCles: [
+    "danger",
+    "épreuve brutale",
+    "choix risqués",
+    "révolution intérieure",
+    "instabilité affective",
+  ],
+  texteRue:
+    "Tche-Mêdji, c’est le signe des carrefours dangereux, là où une mauvaise décision peut tout faire basculer. Il parle de situations extrêmes, de coups durs, de maladies ou événements qui frappent comme la foudre, souvent à cause de négligence ou d’entêtement. Le Fâ montre ici un caractère révolutionnaire, impulsif, qui aime bousculer l’ordre établi mais qui se met lui-même en danger. Sous Tche-Mêdji, on peut devenir grand, mais au prix de chocs, de pertes et de remises en question profondes.",
+  themesDeVie: [
+    "grandes épreuves",
+    "décisions à fort risque",
+    "révolte et remise en question",
+    "instabilité dans les sentiments",
+    "chute après la réussite si l’on n’est pas prudent",
+  ],
+  tonGeneral: "plutot_difficile",
+  fetiches: ["Sakpata", "Kinnessi", "Hêbiosso", "Lissa", "G", "Tohossou"],
+  feuillesLiturgiques: ["Nukunzaw", "Hansimlin", "Azloko", "Futukôd"],
+  couleursPreferes: ["Trois ensembles de couleurs (au choix)"],
+  devises: [
+    "Tè mi mèn do n hiaha n mèn do Adjagbo-na du mi hwe du mi kplali-kpliti n su houn. Ligname grillée dit à l’homme, près de la rivière Adjagbo : Si tu veux me manger, dépêche-toi toi-même, sinon la mort viendra t’ensevelir et t’empêchera de me manger. La réussite du consultant dépendra de sa vigilance et de sa rapidité à agir.",
+    "Méta huhu do n hiaha n mèn ta houn mèn do nu do Adjagbo. Un vieux crâne humain dit à un crâne plus jeune, au bord de la rivière Adjagbo : Moi, je suis déjà sec ; si l’on me fend, pas une goutte de sang ne coulera, mais toi, si on te fend, il en jaillira encore. Le «favi» est plus exposé au danger qu’il ne le croit.",
+    "Tchê jim ! n tchê wiwà, han tchê djidji, aff tchê didi, ma n gnon. A mèn mi houn, mèn kô. Tchê ! Tout ce que j’accomplis, les chants que je chante, les pas que je fais, tout cela indispose les gens. Si tu me vois, tu vois la mort.",
+  ],
+  interdits: [
+    "Maïs grillé (agbad mim), cause de craquements qui attirent la maladie",
+    "Ligname grillée (tè mi m), pour la même raison",
+    "Pintade",
+    "Colas sauf la blanche",
+    "Perdrix (Zin sô / assô)",
+    "Tous les interdits de Sakpata (par exemple haricot mélangé avec du maïs, mélange de mets grillés)",
+    "Porter des fagots de bois sur la tête",
+    "Toucher au bois partiellement consumé",
+    "Les singes",
+    "Coq (interdit commun aux signes majeurs)",
+  ],
+  sacrifices: [
+    "Adorer Sakpata, Nâ et Hêbiosso",
+    "Chaque année, faire des sacrifices et offrandes aux bokonon et féticheurs (E na gni azon, bo n djo kè)",
+  ],
+  commentaire:
+    "L’homme sous l’influence de Tche-Mêdji deviendra un grand révolutionnaire, un prétentieux qui aime la guerre et la confrontation. Il souffrira beaucoup, mais obtiendra le bonheur plus tard s’il apprend de ses épreuves. Devenu riche, il risque cependant de se ruiner par prodigalité et excès. Instable dans ses sentiments, il supporte mal l’union et crée lui-même une grande partie de ses problèmes.",
+},
   {
-    position: 16,
-    id: "fu-medji",
-    nomPrincipal: "FU-MEDJI",
-    sexe: "feminin",
-    figureSymbolique: {
-      colonnes: [[2, 1, 2, 1], [2, 1, 2, 1]],
-      description: "Alternance inverse, symbole de longévité et résistance dans le temps.",
-    },
-    resumeCourt: "Signe de longévité, de durée et de résistance. Représente ce qui traverse le temps sans s'altérer.",
-    motsCles: ["longévité", "durée", "résistance", "persévérance", "survie"],
-    texteRue:
-      "Fu-Medji, c'est le signe de la longue vie, de la durée, de ce qui résiste au temps. Il parle de longévité, de santé durable, de projets qui tiennent dans la durée, de relations qui durent. C'est le signe de la persévérance, de la capacité à tenir bon sur le long terme. Fu-Medji enseigne que la vraie force n'est pas dans l'intensité mais dans la durée.",
-    themesDeVie: ["longévité", "santé durable", "relation stable", "projet à long terme", "persévérance"],
-    tonGeneral: "plutot_favorable",
-    fetiches: ["Odu", "Lissa", "Mawu", "Na", "Hoho", "Sakpata", "Hbiosso", "G", "Loko", "Kpvodun"],
-    feuillesLiturgiques: ["Tutu", "Kgoto", "Zzma", "Adantfio", "Sinfiffama", "Awiima"],
-    couleursPreferes: ["Blanc (principale, mais aucune autre couleur ne lui déplaît)"],
-    devises: [
-      "T n min, lo t n man. Les rivières se dessèchent, mais le repère du crocodile lo ne tarit jamais. Tout réussira au consultant. Il vivra longtemps, mais devra se surveiller de près, car Tch a commis un inceste dal.",
-      "Fu-Mdji! Nu m n s lovi dolo n kon. Rien ne peut ravir ou nul ne peut emporter lovi petit crocodile devant son père Jo grand crocodile. Le consultant ne trouvera pas une mort tragique doko ku.",
-      "Adi w n gnin, ho n kin. Ta n kin n. Le savon mousse pour laver la tête puis disparaît, tandis que la tête reste. Le favi aura la longévité.",
-      "Kago w n gba, gan go n gbaa. La calebasse se casse, mais le récipient métallique résiste au choc. Même sens que le précédent."
-    ],
-    interdits: [
-      "La chair de pintade (Sonu)",
-      "Toutes sortes de nourritures consacrées au Vodun Sakpata",
-      "Tous les mets grillés (nu mi m)",
-      "Le vin de palme, la bière de mil, de sorgho",
-      "Viande d'éléphant (adjinaku), de cheval (S), de l'hyène (hia), de girafe (Agbanlin)",
-      "Le coq",
-      "Ne doit pas épouser une fticheuse de Sakpata",
-      "Ne pas se laver dans la mer",
-      "Ne pas porter des pagnes ou vêtements bigarrés ou de plus de deux couleurs"
-    ],
-    sacrifices: [
-      "Adorer les ftiches Sakpata, Kinnesssi, Tohossou",
-      "Annuellement, faire des sacrifices avec une volaille domestique rôtie ou grillée et de la viande fraîche"
-    ],
-    commentaire: "L'homme qui est né sous le signe de Fu sera beaucoup considéré par sa famille, ses parents et occupera une place importante dans sa ville natale. Au début de sa vie, il souffrira pour être heureux après. Il sera franc, juste et correct envers tout le monde, puis sera riche et charitable. Il s'élèvera au-dessus de son milieu par son savoir-faire et le travail."
+  position: 16,
+  id: "fu-medji",
+  nomPrincipal: "FU-MEDJI",
+  sexe: "feminin",
+  figureSymbolique: {
+    colonnes: [[2, 1, 2, 1], [2, 1, 2, 1]],
+    description:
+      "Aboutissement et longévité, signe de durée, de résistance aux épreuves et d’accomplissement tardif.",
   },
+  resumeCourt:
+    "Signe de longue vie, de protection et de résistance. Fu-Mêdji parle d’une destinée qui traverse le temps, échappe aux morts tragiques et finit par s’imposer malgré les obstacles.",
+  motsCles: [
+    "longévité",
+    "protection contre la mort tragique",
+    "résistance",
+    "accomplissement tardif",
+    "stabilité",
+  ],
+  texteRue:
+    "Fu-Mêdji, c’est le signe de celles et ceux qu’on ne balaie pas facilement. Il annonce une vie longue, une forte capacité à encaisser les coups du destin et à rester debout là où d’autres tombent. Le Fâ montre ici un destin protégé des morts brutales, avec des réussites durables pour celui qui respecte ses interdits. Fu-Mêdji rappelle aussi que la vraie force n’est pas seulement dans le bruit et le spectacle, mais dans la capacité à durer, à rester solide malgré le temps.",
+  themesDeVie: [
+    "longévité et protection",
+    "éviter les morts brutales",
+    "projets de long terme",
+    "solidité du caractère",
+    "réussite progressive",
+  ],
+  tonGeneral: "plutot_favorable",
+  fetiches: ["Odu", "Lissa", "Mawu", "Nâ", "Hoho", "Sakpata", "Hêbiosso", "G", "Loko", "Kpvodoun"],
+  feuillesLiturgiques: ["Tutu", "Kgoto", "Zêzma", "Adantfio", "Sinfifama", "Awiima"],
+  couleursPreferes: ["Blanc (principal)", "Toutes les autres couleurs sont acceptées"],
+  devises: [
+    "Tê n min, lò tê n man. Les rivières se dessèchent, mais le repaire du crocodile lò ne tarit jamais. Tout réussira au consultant, qui vivra longtemps s’il se surveille.",
+    "Fu-Mêdji ! Nù mèn sô lòvi dolo n kon. Rien ne peut ravir le petit crocodile lòvi devant son père lò. Le consultant ne trouvera pas une mort tragique (doko ku).",
+    "Adi wèn gnin, houn kin. Ta n kin n. Le savon mousse pour laver la tête puis disparaît, mais la tête reste. Le «favi» aura la longévité.",
+    "Kagbo wèn gba, gàn gbo n gbaa. La calebasse se casse, mais le récipient métallique résiste au choc. Même sens : le «favi» résiste là où d’autres se brisent.",
+  ],
+  interdits: [
+    "Chair de pintade (Sonu)",
+    "Toutes nourritures consacrées au vodun Sakpata",
+    "Tous les mets grillés (nu mi m)",
+    "Vin de palme",
+    "Bière de mil et de sorgho",
+    "Viande d’éléphant (Adjinaku)",
+    "Viande de cheval (Sô)",
+    "Viande d’hyène (Hia)",
+    "Viande de girafe (Agbanlin)",
+    "Coq (interdit commun aux signes majeurs)",
+    "Épouser une féticheuse de Sakpata",
+    "Se laver dans la mer",
+    "Porter des pagnes ou vêtements bigarrés ou de plus de deux couleurs",
+  ],
+  sacrifices: [
+    "Adorer les fétiches Sakpata, Kinnessi et Tohossou",
+    "Chaque année, faire des sacrifices avec une volaille domestique rôtie ou grillée et de la viande fraîche",
+  ],
+  commentaire:
+    "L’homme ou la femme né(e) sous Fu-Mêdji sera beaucoup considéré(e) par sa famille et occupera une place importante dans sa communauté. Début de vie parfois difficile, mais qui se transforme en réussite grâce à la persévérance et au respect des prescriptions. Franc, juste et correct avec tout le monde, le «favi» devient riche et charitable et s’élève au-dessus de son milieu par le travail. Fu-Mêdji protège contre les morts brutales, mais demande une grande discipline dans les interdits alimentaires et rituels.",
+},
 ];
 
 
