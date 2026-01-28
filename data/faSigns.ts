@@ -610,57 +610,8 @@ export const faMotherSigns: FaSign[] = [
   },
 ];
 
-// Interface pour les combinaisons
-export interface FaCombination {
-  type: "signe-mere" | "vikando";
-  id: string;
-  nom: string;
-  signePrincipal: FaSign;
-  signeCompagnie: FaSign;
-  figureSymbolique: {
-    colonnes: number[][];
-  };
-  motsCles: string[];
-  description: string;
-}
 
-// Générer les 256 combinaisons (16x16)
-export function genererToutesCombinations(): FaCombination[] {
-  const combinations: FaCombination[] = [];
-  
-  faMotherSigns.forEach((signePrincipal) => {
-    faMotherSigns.forEach((signeCompagnie) => {
-      const estSigneMere = signePrincipal.position === signeCompagnie.position;
-      
-      const combinationId = estSigneMere 
-        ? signePrincipal.id
-        : `${signePrincipal.id.replace('-medji', '')}-${signeCompagnie.id.replace('-medji', '')}`;
-      
-      combinations.push({
-        type: estSigneMere ? "signe-mere" : "vikando",
-        id: combinationId,
-        nom: estSigneMere 
-          ? signePrincipal.nomPrincipal
-          : `${signePrincipal.nomPrincipal.replace('-MEDJI', '')}-${signeCompagnie.nomPrincipal.replace('-MEDJI', '')}`,
-        signePrincipal,
-        signeCompagnie,
-        figureSymbolique: {
-          colonnes: [
-            signePrincipal.figureSymbolique.colonnes[0],
-            signeCompagnie.figureSymbolique.colonnes[0]
-          ]
-        },
-        motsCles: [
-          ...(signePrincipal.motsCles || []),
-          ...(estSigneMere ? [] : (signeCompagnie.motsCles || []))
-        ],
-        description: estSigneMere 
-          ? `${signePrincipal.nomPrincipal} en puissance maximum (Dou-Médji). ${signePrincipal.resumeCourt || ''}`
-          : `${signePrincipal.nomPrincipal.replace('-MEDJI', '')} dans la maison de ${signeCompagnie.nomPrincipal.replace('-MEDJI', '')}. Vikando (enfant de ${signeCompagnie.nomPrincipal.replace('-MEDJI', '')}).`
-      });
-    });
-  });
-  // Interface pour les combinaisons
+// Interface pour les combinaisons
 export interface FaCombination {
   type: "signe-mere" | "vikando";
   id: string;
@@ -714,7 +665,7 @@ export function genererToutesCombinations(): FaCombination[] {
   return combinations;
 }
 
-// ✅ Fonction manquante : Obtenir les combinaisons d'un signe-mère spécifique
+// Obtenir les combinaisons d'un signe-mère spécifique
 export function getCombinaisonsParSigne(signeId: string): FaCombination[] {
   const allCombinations = genererToutesCombinations();
   return allCombinations.filter(
@@ -722,7 +673,7 @@ export function getCombinaisonsParSigne(signeId: string): FaCombination[] {
   );
 }
 
-// ✅ Fonction manquante : Obtenir une combinaison spécifique par son ID
+// Obtenir une combinaison spécifique par son ID
 export function getCombinaisonById(combinationId: string): FaCombination | undefined {
   const allCombinations = genererToutesCombinations();
   return allCombinations.find(combo => combo.id === combinationId);
@@ -733,7 +684,7 @@ export function getStats() {
   const all = genererToutesCombinations();
   return {
     total: all.length,
-    signesMeres: all.filter(c => c.type === "signe-mere").length,
-    vikandos: all.filter(c => c.type === "vikando").length
+    signesMeres: all.filter((c: FaCombination) => c.type === "signe-mere").length,
+    vikandos: all.filter((c: FaCombination) => c.type === "vikando").length
   };
 }
