@@ -281,8 +281,17 @@ export const faMotherSigns: FaSign[] = [
       "Gnon nu wa nd ho dubla l, Aj ton nassu. La femme qui mange à deux râteliers s'expose à la mort.",
       "Dagb do tssi, Houa w n b k ton yi agu. C'est le poisson Houa qui traîne jusqu'à la rive la ressource de l'eau douce."
     ],
-    interdits: [],
-    sacrifices: [],
+interdits: [
+  "Viande de pintade (Sonu)",
+  "Poisson fumé",
+  "Oiseau Hwl (tourterelle)",
+  "Coq"
+],
+sacrifices: [
+  "Adorer Lissa, Hoho (jumeaux), Tovodun et Dan",
+  "Faire des offrandes aux divinités de l'eau"
+],
+
     commentaire: "Celui qui est né sous le signe de Abia sera heureux, aura une bonne épouse et des enfants bien éduqués."
   },
   {
@@ -300,9 +309,10 @@ export const faMotherSigns: FaSign[] = [
       "Aklan-Medji, c'est le signe du guerrier, de celui qui doit se battre. Il parle de lutte, de combat, de situations difficiles où rien ne vient facilement. Ce n'est pas un signe de paix, mais de confrontation nécessaire. Aklan-Medji enseigne le courage, la détermination et la capacité à affronter l'adversité sans reculer, même quand c'est dur.",
     themesDeVie: ["lutte acharnée", "adversité", "courage face au danger", "défense de ses droits", "victoire difficile"],
     tonGeneral: "plutot_difficile",
-    fetiches: [],
-    feuillesLiturgiques: [],
-    couleursPreferes: [],
+fetiches: ["Hoho (jumeaux)", "Lgba", "Hbiosso"],
+feuillesLiturgiques: ["Nukunzaw", "Hansimlin"],
+couleursPreferes: ["Rouge", "Blanc"],
+
     devises: [
       "Gan Kpatr mon n gnon klon. Deux morceaux de fer soudés ne peuvent être séparés. Les ennemis ne pourront rien contre le fa vi.",
       "Assin hluisin m n dj gan do al kpakpa home h n tchi bi ayi. L'eau dont on se lave les mains est aussitôt jetée après la toilette.",
@@ -337,10 +347,14 @@ export const faMotherSigns: FaSign[] = [
       "Guda-Medji, c'est le signe du voyageur, de celui qui bouge. Il parle de déplacements, de voyages, de changements de lieu. Ça peut être un voyage physique (déménagement, mission à l'étranger, déplacement professionnel) ou un voyage intérieur (évolution personnelle, découverte spirituelle). Guda-Medji enseigne l'ouverture au monde et à la nouveauté.",
     themesDeVie: ["voyage à l'étranger", "déménagement", "exploration", "ouverture culturelle", "évolution personnelle"],
     tonGeneral: "plutot_favorable",
-    fetiches: [],
-    feuillesLiturgiques: [],
-    couleursPreferes: [],
-    devises: [],
+fetiches: ["Dan", "Lgba", "Lissa"],
+feuillesLiturgiques: ["Alafya", "Fifam"],
+couleursPreferes: ["Bleu", "Blanc"],
+devises: [
+  "Écureuil Don dit: Le voyageur qui part loin reviendra avec des richesses.",
+  "Le voyageur sage ne part jamais les mains vides."
+],
+
     interdits: [
       "Écureuil rongeur appelé Don (fon)",
       "Maïs grillé",
@@ -414,8 +428,8 @@ export const faMotherSigns: FaSign[] = [
       "Ka-Medji, c'est le signe du messager, de celui qui parle et transmet l'information. Il parle de communication, d'échanges, de discussions importantes, de négociations. C'est le signe des relations, du dialogue, de la capacité à bien s'exprimer et à se faire comprendre. Ka-Medji enseigne l'importance de la parole juste, de l'écoute et du dialogue constructif.",
     themesDeVie: ["communication efficace", "dialogue", "négociation", "enseignement", "transmission de savoir"],
     tonGeneral: "plutot_favorable",
-    fetiches: [],
-    feuillesLiturgiques: [],
+fetiches: ["Lgba", "Lissa", "Dan", "Tohossou"],
+feuillesLiturgiques: ["Zuku-zwi", "Addw", "Alafya"],
     couleursPreferes: [],
     devises: [
       "Agban n dj ton gudo. Celui qui transporte les bagages (sacrifices) de tous les signes conduit à la fois ces bagages et les précède.",
@@ -424,8 +438,17 @@ export const faMotherSigns: FaSign[] = [
       "E m n do gb gban, ho n dida. On ne peut rassembler et faire porter par la chauve-souris tout le poids des malheurs de l'humanité.",
       "Sgbo Lissa n d gb n hu ni n gb tton n. C'est Sgbo Lissa qui prescrit et ses paroles se réaliseront."
     ],
-    interdits: [],
-    sacrifices: [],
+interdits: [
+  "Viande de chien",
+  "Indiscrétion (ne pas révéler les secrets confiés)",
+  "Mensonge",
+  "Coq"
+],
+sacrifices: [
+  "Adorer Lgba (le messager)",
+  "Faire des offrandes à Dan et Lissa",
+  "Sacrifices annuels aux divinités de la communication"
+],
     commentaire: "Ce signe rend heureux et grand voyageur celui qu'il influence. Après de durs débuts, il arrivera à la réussite. Il vivra loin de sa terre natale."
   },
   {
@@ -452,8 +475,19 @@ export const faMotherSigns: FaSign[] = [
       "Sajim! Boknon djan dji w nd. Je suis assis sur la chaise en bambou du devin. Le fa vi a des dispositions pour devenir lui aussi prtre du Fa.",
       "N na gnon nou awon doxe b na won xw ton akma mton. L'oiseau qui veut s'engluer a trouvé fortune et oublié son akma."
     ],
-    interdits: [],
-    sacrifices: [],
+interdits: [
+  "Révéler les secrets d'initiation",
+  "Entrer dans les lieux sacrés sans permission",
+  "Toucher aux objets rituels sans être initié",
+  "Viande de serpent",
+  "Coq"
+],
+sacrifices: [
+  "Adorer Lgba",
+  "Faire des offrandes aux ancêtres et aux initiés défunts",
+  "Respecter les rituels d'initiation"
+],
+
     commentaire: "Ce signe rend heureux et grand voyageur celui qu'il influence. Après de durs débuts, il arrivera à la réussite. Il vivra loin de sa terre natale, aura une bonne épouse. Le Favi a des dispositions pour devenir prêtre du Fa."
   },
   {
