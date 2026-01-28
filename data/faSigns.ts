@@ -921,42 +921,54 @@ export interface FaCombination {
 // Générer les 256 combinaisons (16x16)
 export function genererToutesCombinations(): FaCombination[] {
   const combinations: FaCombination[] = [];
-  
+
+  // Helper pour enlever le suffixe -MÊDJI / -MEDJI dans les noms affichés
+  const getNomSansSuffixe = (nomComplet: string) => {
+    return nomComplet.replace(/-M[ÊE]DJI$/, '');
+  };
+
   faMotherSigns.forEach((signePrincipal) => {
     faMotherSigns.forEach((signeCompagnie) => {
       const estSigneMere = signePrincipal.position === signeCompagnie.position;
-      
-      const combinationId = estSigneMere 
+
+      const combinationId = estSigneMere
         ? signePrincipal.id
         : `${signePrincipal.id.replace('-medji', '')}-${signeCompagnie.id.replace('-medji', '')}`;
-      
+
       combinations.push({
-        type: estSigneMere ? "signe-mere" : "vikando",
+        type: estSigneMere ? 'signe-mere' : 'vikando',
         id: combinationId,
-        nom: estSigneMere 
+        nom: estSigneMere
           ? signePrincipal.nomPrincipal
-          : `${signePrincipal.nomPrincipal.replace('-MÊDJI', '')}-${signeCompagnie.nomPrincipal.replace('-MÊDJI', '')}`,
+          : `${getNomSansSuffixe(signePrincipal.nomPrincipal)}-${getNomSansSuffixe(
+              signeCompagnie.nomPrincipal
+            )}`,
         signePrincipal,
         signeCompagnie,
         figureSymbolique: {
           colonnes: [
             signePrincipal.figureSymbolique.colonnes[0],
-            signeCompagnie.figureSymbolique.colonnes[0]
-          ]
+            signeCompagnie.figureSymbolique.colonnes[0],
+          ],
         },
         motsCles: [
           ...(signePrincipal.motsCles || []),
-          ...(estSigneMere ? [] : (signeCompagnie.motsCles || []))
+          ...(estSigneMere ? [] : signeCompagnie.motsCles || []),
         ],
-        description: estSigneMere 
-          ? `${signePrincipal.nomPrincipal} en puissance maximum (Dou-Médji). ${signePrincipal.resumeCourt || ''}`
-          : `${signePrincipal.nomPrincipal.replace('-MEDJI', '')} dans la maison de ${signeCompagnie.nomPrincipal.replace('-MEDJI', '')}. Vikando (enfant de ${signeCompagnie.nomPrincipal.replace('-MEDJI', '')}).`
+        description: estSigneMere
+          ? `${signePrincipal.nomPrincipal} en puissance maximum (Dou-Médji). ${
+              signePrincipal.resumeCourt || ''
+            }`
+          : `${getNomSansSuffixe(signePrincipal.nomPrincipal)} dans la maison de ${getNomSansSuffixe(
+              signeCompagnie.nomPrincipal
+            )}. Vikando (enfant de ${getNomSansSuffixe(signeCompagnie.nomPrincipal)}).`,
       });
     });
   });
-  
+
   return combinations;
 }
+
 
 // Obtenir les combinaisons d'un signe-mère spécifique
 export function getCombinaisonsParSigne(signeId: string): FaCombination[] {
