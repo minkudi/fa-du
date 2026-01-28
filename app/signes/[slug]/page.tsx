@@ -127,6 +127,132 @@ export default async function SignePage({ params }: PageProps) {
             </p>
           </div>
         )}
+{/* ✅ NOUVELLE SECTION : Sexe */}
+{sign.sexe && (
+  <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+    <h2 className="text-2xl font-bold text-amber-900 mb-4">
+      Caractéristiques
+    </h2>
+    <p className="text-gray-700">
+      <span className="font-semibold">Sexe du signe :</span>{" "}
+      {sign.sexe === "masculin" ? "Masculin ♂" : "Féminin ♀"}
+    </p>
+  </div>
+)}
+
+{/* ✅ NOUVELLE SECTION : Fétiches / Divinités */}
+{sign.fetiches && sign.fetiches.length > 0 && (
+  <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+    <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+      <span>🎭</span> Fétiches et Divinités associés
+    </h2>
+    <ul className="space-y-2">
+      {sign.fetiches.map((fetiche: string, i: number) => (
+        <li key={i} className="flex items-start">
+          <span className="text-amber-900 mr-2">•</span>
+          <span className="text-gray-700">{fetiche}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+{/* ✅ NOUVELLE SECTION : Feuilles liturgiques */}
+{sign.feuillesLiturgiques && sign.feuillesLiturgiques.length > 0 && (
+  <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+    <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+      <span>🌿</span> Feuilles liturgiques
+    </h2>
+    <ul className="space-y-2">
+      {sign.feuillesLiturgiques.map((feuille: string, i: number) => (
+        <li key={i} className="flex items-start">
+          <span className="text-amber-900 mr-2">•</span>
+          <span className="text-gray-700">{feuille}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+{/* ✅ NOUVELLE SECTION : Couleurs préférées */}
+{sign.couleursPreferes && sign.couleursPreferes.length > 0 && (
+  <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+    <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+      <span>🎨</span> Couleurs sacrées
+    </h2>
+    <ul className="space-y-2">
+      {sign.couleursPreferes.map((couleur: string, i: number) => (
+        <li key={i} className="flex items-start">
+          <span className="text-amber-900 mr-2">•</span>
+          <span className="text-gray-700">{couleur}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+{/* ✅ NOUVELLE SECTION : Devises / Proverbes */}
+{sign.devises && sign.devises.length > 0 && (
+  <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+    <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+      <span>💬</span> Devises et Proverbes
+    </h2>
+    <div className="space-y-4">
+      {sign.devises.map((devise: string, i: number) => (
+        <div key={i} className="pl-4 border-l-4 border-amber-300 py-2 bg-amber-50 rounded-r-lg">
+          <p className="text-gray-700 italic leading-relaxed">{devise}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{/* ✅ NOUVELLE SECTION : Interdits */}
+{sign.interdits && sign.interdits.length > 0 && (
+  <div className="bg-red-50 rounded-xl shadow-lg p-8 mb-8 border-2 border-red-200">
+    <h2 className="text-2xl font-bold text-red-900 mb-4 flex items-center gap-2">
+      <span>🚫</span> Interdits (Tabous)
+    </h2>
+    <p className="text-sm text-red-700 mb-4 bg-red-100 p-3 rounded-lg">
+      Ces interdits doivent être respectés par ceux qui sont nés sous ce signe ou qui le possèdent.
+    </p>
+    <ul className="space-y-2">
+      {sign.interdits.map((interdit: string, i: number) => (
+        <li key={i} className="flex items-start">
+          <span className="text-red-900 mr-2">✗</span>
+          <span className="text-red-800">{interdit}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+{/* ✅ NOUVELLE SECTION : Sacrifices */}
+{sign.sacrifices && sign.sacrifices.length > 0 && (
+  <div className="bg-amber-50 rounded-xl shadow-lg p-8 mb-8 border-2 border-amber-200">
+    <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+      <span>🙏</span> Sacrifices et Offrandes recommandés
+    </h2>
+    <ul className="space-y-2">
+      {sign.sacrifices.map((sacrifice: string, i: number) => (
+        <li key={i} className="flex items-start">
+          <span className="text-amber-900 mr-2">•</span>
+          <span className="text-gray-700">{sacrifice}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+{/* ✅ NOUVELLE SECTION : Commentaire */}
+{sign.commentaire && (
+  <div className="bg-purple-50 rounded-xl shadow-lg p-8 mb-8 border-2 border-purple-200">
+    <h2 className="text-2xl font-bold text-purple-900 mb-4 flex items-center gap-2">
+      <span>📖</span> Caractère et Destinée
+    </h2>
+    <p className="text-gray-700 leading-relaxed text-lg">{sign.commentaire}</p>
+  </div>
+)}
 
         {/* Les 15 combinaisons (vikandos uniquement) */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
