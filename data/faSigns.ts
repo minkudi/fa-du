@@ -733,7 +733,7 @@ export const faMotherSigns: FaSign[] = [
   {
   position: 14,
   id: "lete-medji",
-  nomPrincipal: "LETE-ME    DJI",
+  nomPrincipal: "LÈTÈ-MEDJI",
   sexe: "feminin",
   figureSymbolique: {
     colonnes: [[1, 1, 2, 1], [1, 1, 2, 1]],
@@ -741,7 +741,7 @@ export const faMotherSigns: FaSign[] = [
       "Stabilité enracinée dans la terre, signe de protection, de conservation des acquis et de victoire progressive sur les ennemis.",
   },
   resumeCourt:
-    "Signe de protection, de conservation et de victoire patiente. Lete-Mêdji parle d’une destinée solide, qui garde ce qu’elle possède et neutralise ses ennemis avec le temps et les bons sacrifices.",
+    "Signe de protection, de conservation et de victoire patiente. Lètè-Mêdji parle d’une destinée solide, qui garde ce qu’elle possède et neutralise ses ennemis avec le temps et les bons sacrifices.",
   motsCles: [
     "protection",
     "conserver ses acquis",
@@ -750,7 +750,7 @@ export const faMotherSigns: FaSign[] = [
     "stabilité",
   ],
   texteRue:
-    "Lete-Mêdji, c’est le signe de la terre qui ne lâche pas ce qu’on lui confie. Il annonce une protection réelle sur les biens, la famille et la position du «favi», à condition qu’il fasse les sacrifices demandés. Le Fâ montre ici quelqu’un que les ennemis cherchent à abattre, mais dont la force tranquille finit par triompher à la longue. Avec Lete-Mêdji, on avance parfois lentement, mais on perd rarement ce qu’on a déjà gagné.",
+    "Lètè-Mêdji, c’est le signe de la terre qui ne lâche pas ce qu’on lui confie. Il annonce une protection réelle sur les biens, la famille et la position du «favi», à condition qu’il fasse les sacrifices demandés. Le Fâ montre ici quelqu’un que les ennemis cherchent à abattre, mais dont la force tranquille finit par triompher à la longue. Avec Lètè-Mêdji, on avance parfois lentement, mais on perd rarement ce qu’on a déjà gagné.",
   themesDeVie: [
     "protection des biens et de la famille",
     "neutraliser ses ennemis",
@@ -765,8 +765,8 @@ export const faMotherSigns: FaSign[] = [
   devises: [
     "Boko dé gnon vo sa, kaka n hou aton m na su, n dé na kè, hèn gbo dji. Houn mè n wli ahossou. Ha avivia. Si les sacrifices imposés par la consultation sont bien exécutés, en moins de trois ans l’ennemi du «favi» mourra et il sera tranquille. Le soleil ardent n’éteint pourtant pas l’ombre.",
     "Zun dé glan zin wan dodo. Le martèlement de l’enclume, progressivement, parvient à l’enfoncer dans la terre. Avec courage et sacrifices corrects, le consultant éliminera ses ennemis.",
-    "Lèté jim ! Akwè adokpo ton, avè adokpo ton, assi adokpo ton. Klô djègbè na zin kan yôm houn gbè. L’argent, les étoffes, les enfants et les femmes appartiennent à la terre. Le «favi» conservera ce qu’il possède.",
-    "Lèté jim ! Oklo djègbè zin kan yôm houn gbè. Lete-Mêdji dit : la terre insulte la mort par le canal de sa mère, mais la mort ne peut rien contre elle.",
+    "Lètè jimê ! Akwè adokpo ton, avè adokpo ton, assi adokpo ton. Klô djègbè na zin kan yôm houn gbè. L’argent, les étoffes, les enfants et les femmes appartiennent à la terre. Le «favi» conservera ce qu’il possède.",
+    "Lètè jimê ! Oklo djègbè zin kan yôm houn gbè. Lètè-Mêdji dit : la terre insulte la mort par le canal de sa mère, mais la mort ne peut rien contre elle.",
     "N go sin ji mèn tê ta a yi. Tout ce qui vient d’en haut finit par poser la tête sur la terre, parce qu’elle reçoit tout.",
     "Ami zin hôdohôdo, houn wiwlèn nè glon ton. La surface de l’huile de palme reposée est claire, mais il y a un dépôt noir au fond.",
   ],
@@ -775,7 +775,7 @@ export const faMotherSigns: FaSign[] = [
     "Toute participation active à des complots ou attaques contre la terre (Sakpata) ou contre les ancêtres",
     "Consommer des mets consacrés spécifiquement aux ennemis déclarés du «favi» (ne pas manger ce qui a été utilisé pour les atteindre)",
     "Brûler ou profaner des lieux sacrés liés à Sakpata ou Hêbiosso",
-    "Coq (interdit commun aux signes majeurs, à respecter avec rigueur sous Lete-Mêdji)",
+    "Coq (interdit commun aux signes majeurs, à respecter avec rigueur sous Lètè-Mêdji)",
   ],
   sacrifices: [
     "Exécuter scrupuleusement les sacrifices prescrits par le Fa pour neutraliser les ennemis",
@@ -783,7 +783,7 @@ export const faMotherSigns: FaSign[] = [
     "Faire des offrandes régulières pour renforcer la protection de la maison et des biens",
   ],
   commentaire:
-    "L’enfant né sous le signe de Lete sera beaucoup considéré par sa famille et occupera une place importante dans sa ville natale. Courageux et parfois dur, il n’a peur de rien, pas même de la mort, et défend farouchement ce qui lui appartient. Ce signe attire les attaques et la jalousie, mais donne aussi la force de résister et de vaincre, à condition de rester patient, de respecter les prescriptions et de ne pas sous-estimer la puissance de la terre.",
+    "L’enfant né sous le signe de Lètè sera beaucoup considéré par sa famille et occupera une place importante dans sa ville natale. Courageux et parfois dur, il n’a peur de rien, pas même de la mort, et défend farouchement ce qui lui appartient. Ce signe attire les attaques et la jalousie, mais donne aussi la force de résister et de vaincre, à condition de rester patient, de respecter les prescriptions et de ne pas sous-estimer la puissance de la terre.",
 },
   {
   position: 15,
@@ -922,9 +922,9 @@ export interface FaCombination {
 export function genererToutesCombinations(): FaCombination[] {
   const combinations: FaCombination[] = [];
 
-  // Helper pour enlever le suffixe -MÊDJI / -MEDJI dans les noms affichés
-  const getNomSansSuffixe = (nomComplet: string) => {
-    return nomComplet.replace(/-M[ÊE]DJI$/, '');
+  // Helper pour extraire JUSTE le premier mot (avant le tiret)
+  const getNomSimple = (nomComplet: string) => {
+    return nomComplet.split('-')[0];
   };
 
   faMotherSigns.forEach((signePrincipal) => {
@@ -940,7 +940,7 @@ export function genererToutesCombinations(): FaCombination[] {
         id: combinationId,
         nom: estSigneMere
           ? signePrincipal.nomPrincipal
-          : `${getNomSansSuffixe(signePrincipal.nomPrincipal)}-${getNomSansSuffixe(
+          : `${getNomSimple(signePrincipal.nomPrincipal)}-${getNomSimple(
               signeCompagnie.nomPrincipal
             )}`,
         signePrincipal,
@@ -959,9 +959,9 @@ export function genererToutesCombinations(): FaCombination[] {
           ? `${signePrincipal.nomPrincipal} en puissance maximum (Dou-Médji). ${
               signePrincipal.resumeCourt || ''
             }`
-          : `${getNomSansSuffixe(signePrincipal.nomPrincipal)} dans la maison de ${getNomSansSuffixe(
+          : `${getNomSimple(signePrincipal.nomPrincipal)} dans la maison de ${getNomSimple(
               signeCompagnie.nomPrincipal
-            )}. Vikando (enfant de ${getNomSansSuffixe(signeCompagnie.nomPrincipal)}).`,
+            )}. Vikando (enfant de ${getNomSimple(signeCompagnie.nomPrincipal)}).`,
       });
     });
   });
