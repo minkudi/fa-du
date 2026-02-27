@@ -37,7 +37,7 @@ export const faMotherSigns: FaSign[] = [
       "Signe de vie, de lumière et d'ouverture, il annonce souvent des débuts favorables mais demande de rester responsable et lucide.",
     motsCles: ["vie", "lumière", "ouverture", "chance", "responsabilité"],
     texteRue:
-      "Gbé-Mêdji, c'est le signe de la vie qui s'ouvre. Il représente le commencement, la création, la lumière qui éclaire. Quand ce signe apparaît, ça parle souvent de nouvelles opportunités, de portes qui s'ouvrent, de projets qui peuvent bien démarrer. Mais attention: ce n'est pas un billet gratuit pour le succès. Gbe-Medji demande d'être sérieux, organisé et de ne pas gaspiller les chances qui se présentent.",
+      "Gbé-Mêdji, c'est le signe de la vie qui s'ouvre. Il représente le commencement, la création, la lumière qui éclaire. Quand ce signe apparaît, ça parle souvent de nouvelles opportunités, de portes qui s'ouvrent, de projets qui peuvent bien démarrer. Mais attention: ce n'est pas un billet gratuit pour le succès. Gbe-Mêdji demande d'être sérieux, organisé et de ne pas gaspiller les chances qui se présentent.",
     themesDeVie: ["nouveau départ", "opportunité professionnelle", "début de projet", "croissance"],
     tonGeneral: "plutot_favorable",
     fetiches: ["Mahu-Lissa", "Dan", "Gbadu", "Hêbiosso", "Sakpata"],
@@ -370,7 +370,7 @@ export const faMotherSigns: FaSign[] = [
   {
   position: 8,
   id: "aklan-medji",
-  nomPrincipal: "AKLAN-MEDJI",
+  nomPrincipal: "AKLAN-MÊDJI",
   sexe: "feminin",
   figureSymbolique: {
     colonnes: [[1, 2, 2, 1], [1, 2, 2, 1]],
@@ -426,7 +426,7 @@ export const faMotherSigns: FaSign[] = [
   {
   position: 9,
   id: "guda-medji",
-  nomPrincipal: "GUDA-MEDJI",
+  nomPrincipal: "GUDA-MÊDJI",
   sexe: "masculin",
   figureSymbolique: {
     colonnes: [[2, 2, 1, 1], [2, 2, 1, 1]],
@@ -679,7 +679,7 @@ export const faMotherSigns: FaSign[] = [
   {
   position: 13,
   id: "tula-medji",
-  nomPrincipal: "TULA-MEDJI",
+  nomPrincipal: "TULA-MÊDJI",
   sexe: "masculin",
   figureSymbolique: {
     colonnes: [[1, 2, 1, 1], [1, 2, 1, 1]],
@@ -723,7 +723,7 @@ export const faMotherSigns: FaSign[] = [
     "Port du burnous Agbada",
   ],
   sacrifices: [
-    "Adorer les fétiches Dan, Lgba et Lissa",
+    "Adorer les fétiches Dan, Lègba et Lissa",
     "Faire de nombreuses aumônes (Saala)",
     "Avoir chez soi un petit autel de sable comme ceux que les musulmans utilisent pour prier",
   ],
@@ -733,7 +733,7 @@ export const faMotherSigns: FaSign[] = [
   {
   position: 14,
   id: "lete-medji",
-  nomPrincipal: "LÈTÈ-MEDJI",
+  nomPrincipal: "LÈTÈ-MÊDJI",
   sexe: "feminin",
   figureSymbolique: {
     colonnes: [[1, 1, 2, 1], [1, 1, 2, 1]],
@@ -788,7 +788,7 @@ export const faMotherSigns: FaSign[] = [
   {
   position: 15,
   id: "tche-medji",
-  nomPrincipal: "TCHE-MEDJI",
+  nomPrincipal: "TCHE-MÊDJI",
   sexe: "masculin",
   figureSymbolique: {
     colonnes: [[1, 2, 1, 2], [1, 2, 1, 2]],
@@ -844,7 +844,7 @@ export const faMotherSigns: FaSign[] = [
   {
   position: 16,
   id: "fu-medji",
-  nomPrincipal: "FU-MEDJI",
+  nomPrincipal: "FU-MÊDJI",
   sexe: "feminin",
   figureSymbolique: {
     colonnes: [[2, 1, 2, 1], [2, 1, 2, 1]],
