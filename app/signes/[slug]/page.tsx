@@ -11,13 +11,21 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params
-  const sign = faMotherSigns.find((s) => s.id === slug)
+  const { slug } = await params;
+  const sign = faMotherSigns.find((s) => s.id === slug);
 
-  if (!sign) return {}
+  if (!sign) return {};
 
-  const title = `${sign.nomPrincipal} – Signe du Fâ`
-  const description = sign.resumeCourt ?? sign.texteRue ?? `Découvrez ${sign.nomPrincipal}, signe du Fâ géomantique.`
+  const title = `${sign.nomPrincipal} – Signe du Fâ`;
+  const description =
+    sign.resumeCourt ??
+    sign.texteRue ??
+    `Découvrez ${sign.nomPrincipal}, signe du Fâ géomantique.`;
+
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://fa-du.vercel.app";
+
+  const imageUrl = `${baseUrl}/api/carte/${slug}`;
 
   return {
     title,
@@ -25,9 +33,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description,
+      url: `${baseUrl}/signes/${slug}`,
       images: [
         {
-          url: `/api/carte/${slug}`,  // ← notre route OG image
+          url: imageUrl, // absolue
           width: 1080,
           height: 1080,
           alt: title,
@@ -35,12 +44,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
-      images: [`/api/carte/${slug}`],
+      images: [imageUrl],
     },
-  }
+  };
 }
 
 export default async function SignePage({ params }: PageProps) {
