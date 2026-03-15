@@ -164,73 +164,72 @@ export const signesMeres = [
 
 // Générer les 256 combinaisons complètes
 export function genererToutesCombinations() {
-  const combinations = [];
-  
-  // Parcourir chaque signe principal (colonne droite du Fa)
+  const combinations = []
+
   signesMeres.forEach((signePrincipal) => {
-    // Parcourir chaque maison/compagnie (colonne gauche du Fa)
     signesMeres.forEach((signeCompagnie) => {
-      
-      const estSigneMere = signePrincipal.position === signeCompagnie.position;
-      
-      // Créer le nom du signe
-      const nomCourt = estSigneMere 
+      const estSigneMere = signePrincipal.position === signeCompagnie.position
+
+      const nomCourt = estSigneMere
         ? signePrincipal.nom
-        : `${signePrincipal.nom.replace('-MEDJI', '')}-${signeCompagnie.nom.replace('-MEDJI', '')}`;
-      
-      // Créer le slug
+        : `${signePrincipal.nom.replace('-MEDJI', '')}-${signeCompagnie.nom.replace('-MEDJI', '')}`
+
+      // slugs courts pour les combinaisons : lete-ka, gbe-woli, etc.
+      const basePrincipal = signePrincipal.slug.replace('-medji', '')
+      const baseCompagnie = signeCompagnie.slug.replace('-medji', '')
+
       const slug = estSigneMere
-        ? signePrincipal.slug
-        : `${signePrincipal.slug}-${signeCompagnie.slug}`;
-      
+        ? signePrincipal.slug            // "lete-medji" pour les mères
+        : `${basePrincipal}-${baseCompagnie}` // "lete-ka" pour combinaisons
+
       combinations.push({
         id: `${signePrincipal.position}-${signeCompagnie.position}`,
-        type: estSigneMere ? "signe-mere" : "vikando",
+        type: estSigneMere ? 'signe-mere' : 'vikando',
         nom: nomCourt,
-        slug: slug,
-        signePrincipal: signePrincipal,
-        signeCompagnie: signeCompagnie,
+        slug,
+        signePrincipal,
+        signeCompagnie,
         symboleGauche: signeCompagnie.symbole,
         symboleDroit: signePrincipal.symbole,
-        description: estSigneMere 
+        description: estSigneMere
           ? `${signePrincipal.nom} en puissance maximum (Dou-Médji). ${signePrincipal.description}`
           : `${signePrincipal.nom.replace('-MEDJI', '')} dans la maison de ${signeCompagnie.nom.replace('-MEDJI', '')}. Vikando (enfant de ${signeCompagnie.nom.replace('-MEDJI', '')}).`,
         motsCles: [
           ...signePrincipal.motsCles,
-          ...(estSigneMere ? [] : signeCompagnie.motsCles)
-        ]
-      });
-    });
-  });
-  
-  return combinations;
+          ...(estSigneMere ? [] : signeCompagnie.motsCles),
+        ],
+      })
+    })
+  })
+
+  return combinations
 }
 
 // Obtenir toutes les combinaisons d'un signe-mère spécifique
 export function getCombinaisonsParSigne(signeSlug) {
-  const allCombinations = genererToutesCombinations();
+  const allCombinations = genererToutesCombinations()
   return allCombinations.filter(
-    combo => combo.signePrincipal.slug === signeSlug
-  );
+    (combo) => combo.signePrincipal.slug === signeSlug
+  )
 }
 
 // Obtenir une combinaison spécifique
 export function getCombinaisonBySlug(slug) {
-  const allCombinations = genererToutesCombinations();
-  return allCombinations.find(combo => combo.slug === slug);
+  const allCombinations = genererToutesCombinations()
+  return allCombinations.find((combo) => combo.slug === slug)
 }
 
 // Obtenir les 16 signes-mères uniquement
 export function getSignesMeres() {
-  return genererToutesCombinations().filter(combo => combo.type === "signe-mere");
+  return genererToutesCombinations().filter((combo) => combo.type === 'signe-mere')
 }
 
 // Statistiques
 export function getStats() {
-  const all = genererToutesCombinations();
+  const all = genererToutesCombinations()
   return {
     total: all.length,
-    signesMeres: all.filter(c => c.type === "signe-mere").length,
-    vikandos: all.filter(c => c.type === "vikando").length
-  };
+    signesMeres: all.filter((c) => c.type === 'signe-mere').length,
+    vikandos: all.filter((c) => c.type === 'vikando').length,
+  }
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from 'next'
 import { faMotherSigns, getCombinaisonsParSigne } from "@/data/faSigns";
 import { notFound } from "next/navigation";
 import { FaSignSymbol } from "@/components/FaSymbol"; 
@@ -7,6 +8,39 @@ interface PageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params
+  const sign = faMotherSigns.find((s) => s.id === slug)
+
+  if (!sign) return {}
+
+  const title = `${sign.nomPrincipal} – Signe du Fâ`
+  const description = sign.resumeCourt ?? sign.texteRue ?? `Découvrez ${sign.nomPrincipal}, signe du Fâ géomantique.`
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: `/api/carte/${slug}`,  // ← notre route OG image
+          width: 1080,
+          height: 1080,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`/api/carte/${slug}`],
+    },
+  }
 }
 
 export default async function SignePage({ params }: PageProps) {
