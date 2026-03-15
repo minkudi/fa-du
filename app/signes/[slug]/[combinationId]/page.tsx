@@ -29,7 +29,7 @@ export async function generateMetadata(
     `Découvrez la combinaison ${combinaison.nom} du signe ${combinaison.signePrincipal.nomPrincipal} et sa maison d'accueil ${combinaison.signeCompagnie.nomPrincipal} dans le Fâ.`;
 
   const pageUrl = `${baseUrl}/signes/${slug}/${combinationId}`;
-  const imageUrl = `${baseUrl}/api/carte/${slug}`; // on utilise la carte du signe principal
+  const imageUrl = `${baseUrl}/api/carte-combinaison/${combinationId}`; 
 
   return {
     title,
