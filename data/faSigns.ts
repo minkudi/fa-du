@@ -61,7 +61,7 @@ export const faMotherSigns: FaSign[] = [
       "Viande du coq (interdit commun à tous les signes majeurs)"
     ],
     sacrifices: ["Faire des sacrifices ou des offrandes, Adorer le fétiche Dan-Ayidohudo", "Adorer les fétiches Lissa et Tohossou"],
-    commentaire: "Né dans Gbé, l'homme connaîtra un peu de souffrance, agira mal après avoir fait une bonne action. Il sera d'une audace particulière et d'une grande autorité. Il sera un bon guerrier ou lutteur riche, il connaîtra ou aura beaucoup de gloire et réussira dans tout ce qu'il entreprendra. Il sera juste, honnête et très fort. Il perdra une ou ses filles et si c'est une femme, l'un de ses fils mourra. Il sera goïste, mais d'une grande renommée."
+    commentaire: "Né dans Gbé, l'homme connaîtra un peu de souffrance, agira mal après avoir fait une bonne action. Il sera d'une audace particulière et d'une grande autorité. Il sera un bon guerrier ou lutteur riche, il connaîtra ou aura beaucoup de gloire et réussira dans tout ce qu'il entreprendra. Il sera juste, honnête et très fort. Il perdra une ou ses filles et si c'est une femme, l'un de ses fils mourra. Il sera égoïste, mais d'une grande renommée."
   },
   {
     position: 2,
@@ -945,12 +945,13 @@ export function genererToutesCombinations(): FaCombination[] {
             )}`,
         signePrincipal,
         signeCompagnie,
-        figureSymbolique: {
-          colonnes: [
-            signePrincipal.figureSymbolique.colonnes[0],
-            signeCompagnie.figureSymbolique.colonnes[0],
-          ],
-        },
+figureSymbolique: {
+  colonnes: [
+    signeCompagnie.figureSymbolique.colonnes[0],
+    signePrincipal.figureSymbolique.colonnes[0],
+  ],
+},
+
         motsCles: [
           ...(signePrincipal.motsCles || []),
           ...(estSigneMere ? [] : signeCompagnie.motsCles || []),
