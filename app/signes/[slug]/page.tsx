@@ -106,7 +106,26 @@ export default async function SignePage({ params }: PageProps) {
             </div>
           </div>
         )}
-
+        {/* ✅ QR inline visible sur la page */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+          <h2 className="text-2xl font-bold text-amber-900 mb-4">Partager ce signe</h2>
+          <div className="flex items-center gap-4 mb-4">
+            <img
+              src={`/api/qr/${sign.id}`}
+              alt={`QR code ${sign.nomPrincipal}`}
+              width={110}
+              height={110}
+              className="rounded-xl border border-gray-200"
+            />
+            <div>
+              <p className="text-xs text-gray-500 mb-1">Scannez pour partager</p>
+              <p className="text-xs font-mono text-gray-400 break-all">
+                fa-du.vercel.app/signes/{sign.id}
+              </p>
+            </div>
+          </div>
+          <QRDownloadButton slug={sign.id} nom={sign.nomPrincipal} />
+        </div>
         {/* Résumé court */}
         {sign.resumeCourt && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
@@ -306,27 +325,6 @@ export default async function SignePage({ params }: PageProps) {
               </Link>
             ))}
           </div>
-        </div>
-
-        {/* ✅ QR inline visible sur la page */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-amber-900 mb-4">Partager ce signe</h2>
-          <div className="flex items-center gap-4 mb-4">
-            <img
-              src={`/api/qr/${sign.id}`}
-              alt={`QR code ${sign.nomPrincipal}`}
-              width={110}
-              height={110}
-              className="rounded-xl border border-gray-200"
-            />
-            <div>
-              <p className="text-xs text-gray-500 mb-1">Scannez pour partager</p>
-              <p className="text-xs font-mono text-gray-400 break-all">
-                fa-du.vercel.app/signes/{sign.id}
-              </p>
-            </div>
-          </div>
-          <QRDownloadButton slug={sign.id} nom={sign.nomPrincipal} />
         </div>
 
         {/* Navigation */}
