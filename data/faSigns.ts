@@ -146,7 +146,7 @@ export const faMotherSigns: FaSign[] = [
   nomPrincipal: "DI-MÊDJI",
   sexe: "feminin",
   figureSymbolique: {
-    colonnes: [[1, 2, 2, 2], [1, 2, 2, 2]],
+    colonnes: [[1, 2, 2, 1], [1, 2, 2, 1]],
     description:
       "Épreuves et lenteur, signe de contraintes, d’ennemis proches et de réussite tardive après de nombreuses peines.",
   },
@@ -204,7 +204,7 @@ export const faMotherSigns: FaSign[] = [
   nomPrincipal: "LOSSO-MÊDJI",
   sexe: "masculin",
   figureSymbolique: {
-    colonnes: [[2, 1, 2, 2], [1, 1, 1, 1]],
+    colonnes: [[1, 1, 2, 2], [1, 1, 2, 2]],
     description:
       "Tension et coup de tonnerre, signe d’épreuves, de colère, d’accidents et de succès instables.",
   },
@@ -312,7 +312,7 @@ export const faMotherSigns: FaSign[] = [
   nomPrincipal: "ABLA-MÊDJI",
   sexe: "masculin",
   figureSymbolique: {
-    colonnes: [[1, 1, 1, 2], [1, 1, 1, 2]],
+    colonnes: [[1, 2, 2, 2], [1, 2, 2, 2]],
     description:
       "Vent frais du chef patient, signe de leadership, de patience récompensée, mais aussi de fin de vie difficile.",
   },
@@ -373,7 +373,7 @@ export const faMotherSigns: FaSign[] = [
   nomPrincipal: "AKLAN-MÊDJI",
   sexe: "feminin",
   figureSymbolique: {
-    colonnes: [[1, 2, 2, 1], [1, 2, 2, 1]],
+    colonnes: [[2, 2, 2, 1], [2, 2, 2, 1]],
     description:
       "Honors et solitude, signe de lutte, d’orgueil, de hauts et bas, de deuils et d’héritages successifs.",
   },
