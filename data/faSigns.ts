@@ -255,7 +255,7 @@ export const faMotherSigns: FaSign[] = [
   nomPrincipal: "WINLIN-MÊDJI",
   sexe: "feminin",
   figureSymbolique: {
-    colonnes: [[2, 1, 1, 2], [2, 1, 1, 2]],
+    colonnes: [[2, 2, 1, 1], [2, 2, 1, 1]],
     description:
       "Puissance de Sakpata, signe de guerre, de protection face aux ennemis et de richesse après des débuts difficiles.",
   },
