@@ -3,6 +3,8 @@ import Link from "next/link";
 import { faMotherSigns, getCombinaisonsParSigne } from "@/data/faSigns";
 import { notFound } from "next/navigation";
 import { FaSignSymbol } from "@/components/FaSymbol";
+import QRDownloadButton from '@/components/QRDownloadButton'
+import SigneCardPrint from '@/components/SigneCardPrint'
 
 interface PageProps {
   params: Promise<{
@@ -10,24 +12,14 @@ interface PageProps {
   }>;
 }
 
-// ✅ Metadata dynamique pour chaque signe
-export async function generateMetadata(
-  { params }: PageProps
-): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const sign = faMotherSigns.find((s) => s.id === slug);
-
   if (!sign) return {};
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://fa-du.vercel.app";
-
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://fa-du.vercel.app";
   const title = `${sign.nomPrincipal} – Signification complète du signe du Fâ`;
-  const description =
-    sign.resumeCourt ??
-    sign.texteRue ??
-    `Découvrez ${sign.nomPrincipal}, sa signification, ses interdits, sacrifices et thèmes de vie dans le Fâ.`;
-
+  const description = sign.resumeCourt ?? sign.texteRue ?? `Découvrez ${sign.nomPrincipal}, sa signification, ses interdits, sacrifices et thèmes de vie dans le Fâ.`;
   const pageUrl = `${baseUrl}/signes/${slug}`;
   const imageUrl = `${baseUrl}/api/carte/${slug}`;
 
@@ -40,14 +32,7 @@ export async function generateMetadata(
       url: pageUrl,
       siteName: "Fâ-Du",
       type: "article",
-      images: [
-        {
-          url: imageUrl,
-          width: 1080,
-          height: 1080,
-          alt: title,
-        },
-      ],
+      images: [{ url: imageUrl, width: 1080, height: 1080, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
@@ -58,6 +43,13 @@ export async function generateMetadata(
   };
 }
 
+// ✅ generateStaticParams HORS du composant
+export async function generateStaticParams() {
+  return faMotherSigns.map((sign) => ({
+    slug: sign.id,
+  }));
+}
+
 export default async function SignePage({ params }: PageProps) {
   const { slug } = await params;
   const sign = faMotherSigns.find((s) => s.id === slug);
@@ -66,21 +58,15 @@ export default async function SignePage({ params }: PageProps) {
     notFound();
   }
 
-  // Obtenir les 16 combinaisons et FILTRER pour retirer le signe-mère
   const toutesCombinaisons = getCombinaisonsParSigne(slug);
-  const combinaisons = toutesCombinaisons.filter(
-    (c) => c.type === "vikando"
-  ); // ✅ Ne garder que les vikandos (15)
+  const combinaisons = toutesCombinaisons.filter((c) => c.type === "vikando");
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
       {/* Header */}
       <header className="bg-amber-900 text-white py-6 shadow-lg">
         <div className="max-w-4xl mx-auto px-4">
-          <Link
-            href="/signes"
-            className="text-amber-200 hover:text-white mb-2 inline-block"
-          >
+          <Link href="/signes" className="text-amber-200 hover:text-white mb-2 inline-block">
             ← Retour aux signes
           </Link>
           <div className="flex items-center gap-4 mt-2">
@@ -92,28 +78,15 @@ export default async function SignePage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* Content */}
       <article className="max-w-4xl mx-auto px-4 py-12">
-        {/* Visual representation */}
+        {/* Symbole */}
         <div className="flex justify-center py-8 bg-amber-50 rounded-lg mb-8 relative">
-          {/* SVG visible */}
-          <FaSignSymbol
-            colonnes={sign.figureSymbolique.colonnes}
-            size="lg"
-            showElements={false}
-          />
-
-          {/* Texte caché pour reconnaissance IA */}
-          <div
-            className="sr-only"
-            aria-label={`Signe ${sign.nomPrincipal}`}
-          >
+          <FaSignSymbol colonnes={sign.figureSymbolique.colonnes} size="lg" showElements={false} />
+          <div className="sr-only" aria-label={`Signe ${sign.nomPrincipal}`}>
             {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
               <div key={colIdx}>
                 {colonne.map((trait, traitIdx) => (
-                  <span key={traitIdx}>
-                    {trait === 1 ? "I" : "II"}{" "}
-                  </span>
+                  <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
                 ))}
               </div>
             ))}
@@ -123,15 +96,10 @@ export default async function SignePage({ params }: PageProps) {
         {/* Mots-clés */}
         {sign.motsCles && sign.motsCles.length > 0 && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-amber-900 mb-4">
-              Mots-clés
-            </h2>
+            <h2 className="text-2xl font-bold text-amber-900 mb-4">Mots-clés</h2>
             <div className="flex flex-wrap gap-3">
               {sign.motsCles.map((mot, idx) => (
-                <span
-                  key={idx}
-                  className="text-base text-amber-900 bg-amber-100 px-4 py-2 rounded-full font-medium"
-                >
+                <span key={idx} className="text-base text-amber-900 bg-amber-100 px-4 py-2 rounded-full font-medium">
                   {mot}
                 </span>
               ))}
@@ -142,33 +110,23 @@ export default async function SignePage({ params }: PageProps) {
         {/* Résumé court */}
         {sign.resumeCourt && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-amber-900 mb-4">
-              En bref
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              {sign.resumeCourt}
-            </p>
+            <h2 className="text-2xl font-bold text-amber-900 mb-4">En bref</h2>
+            <p className="text-lg text-gray-700 leading-relaxed">{sign.resumeCourt}</p>
           </div>
         )}
 
-        {/* Explication "dans la rue" */}
+        {/* Texte rue */}
         {sign.texteRue && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-amber-900 mb-4">
-              Explication simple
-            </h2>
-            <p className="text-gray-700 leading-relaxed text-lg">
-              {sign.texteRue}
-            </p>
+            <h2 className="text-2xl font-bold text-amber-900 mb-4">Explication simple</h2>
+            <p className="text-gray-700 leading-relaxed text-lg">{sign.texteRue}</p>
           </div>
         )}
 
         {/* Thèmes de vie */}
         {sign.themesDeVie && sign.themesDeVie.length > 0 && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-amber-900 mb-4">
-              Thèmes de vie associés
-            </h2>
+            <h2 className="text-2xl font-bold text-amber-900 mb-4">Thèmes de vie associés</h2>
             <ul className="space-y-2">
               {sign.themesDeVie.map((theme, idx) => (
                 <li key={idx} className="flex items-start">
@@ -183,26 +141,19 @@ export default async function SignePage({ params }: PageProps) {
         {/* Ton général */}
         {sign.tonGeneral && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-amber-900 mb-4">
-              Ton général du signe
-            </h2>
+            <h2 className="text-2xl font-bold text-amber-900 mb-4">Ton général du signe</h2>
             <p className="text-gray-700">
-              {sign.tonGeneral === "plutot_favorable" &&
-                "Plutôt favorable"}
-              {sign.tonGeneral === "equilibre" &&
-                "Équilibre entre difficulté et renouveau"}
-              {sign.tonGeneral === "plutot_difficile" &&
-                "Plutôt difficile, demande patience"}
+              {sign.tonGeneral === "plutot_favorable" && "Plutôt favorable"}
+              {sign.tonGeneral === "equilibre" && "Équilibre entre difficulté et renouveau"}
+              {sign.tonGeneral === "plutot_difficile" && "Plutôt difficile, demande patience"}
             </p>
           </div>
         )}
 
-        {/* ✅ Sexe */}
+        {/* Sexe */}
         {sign.sexe && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-amber-900 mb-4">
-              Caractéristiques
-            </h2>
+            <h2 className="text-2xl font-bold text-amber-900 mb-4">Caractéristiques</h2>
             <p className="text-gray-700">
               <span className="font-semibold">Sexe du signe :</span>{" "}
               {sign.sexe === "masculin" ? "Masculin ♂" : "Féminin ♀"}
@@ -210,7 +161,7 @@ export default async function SignePage({ params }: PageProps) {
           </div>
         )}
 
-        {/* ✅ Fétiches / Divinités */}
+        {/* Fétiches */}
         {sign.fetiches && sign.fetiches.length > 0 && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
             <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
@@ -227,51 +178,41 @@ export default async function SignePage({ params }: PageProps) {
           </div>
         )}
 
-        {/* ✅ Feuilles liturgiques */}
-        {sign.feuillesLiturgiques &&
-          sign.feuillesLiturgiques.length > 0 && (
-            <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-              <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
-                <span>🌿</span> Feuilles liturgiques
-              </h2>
-              <ul className="space-y-2">
-                {sign.feuillesLiturgiques.map(
-                  (feuille: string, i: number) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-amber-900 mr-2">•</span>
-                      <span className="text-gray-700">
-                        {feuille}
-                      </span>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-          )}
+        {/* Feuilles liturgiques */}
+        {sign.feuillesLiturgiques && sign.feuillesLiturgiques.length > 0 && (
+          <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+              <span>🌿</span> Feuilles liturgiques
+            </h2>
+            <ul className="space-y-2">
+              {sign.feuillesLiturgiques.map((feuille: string, i: number) => (
+                <li key={i} className="flex items-start">
+                  <span className="text-amber-900 mr-2">•</span>
+                  <span className="text-gray-700">{feuille}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-        {/* ✅ Couleurs préférées */}
-        {sign.couleursPreferes &&
-          sign.couleursPreferes.length > 0 && (
-            <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-              <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
-                <span>🎨</span> Couleurs sacrées
-              </h2>
-              <ul className="space-y-2">
-                {sign.couleursPreferes.map(
-                  (couleur: string, i: number) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-amber-900 mr-2">•</span>
-                      <span className="text-gray-700">
-                        {couleur}
-                      </span>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-          )}
+        {/* Couleurs */}
+        {sign.couleursPreferes && sign.couleursPreferes.length > 0 && (
+          <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+              <span>🎨</span> Couleurs sacrées
+            </h2>
+            <ul className="space-y-2">
+              {sign.couleursPreferes.map((couleur: string, i: number) => (
+                <li key={i} className="flex items-start">
+                  <span className="text-amber-900 mr-2">•</span>
+                  <span className="text-gray-700">{couleur}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-        {/* ✅ Devises / Proverbes */}
+        {/* Devises */}
         {sign.devises && sign.devises.length > 0 && (
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
             <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
@@ -279,43 +220,35 @@ export default async function SignePage({ params }: PageProps) {
             </h2>
             <div className="space-y-4">
               {sign.devises.map((devise: string, i: number) => (
-                <div
-                  key={i}
-                  className="pl-4 border-l-4 border-amber-300 py-2 bg-amber-50 rounded-r-lg"
-                >
-                  <p className="text-gray-700 italic leading-relaxed">
-                    {devise}
-                  </p>
+                <div key={i} className="pl-4 border-l-4 border-amber-300 py-2 bg-amber-50 rounded-r-lg">
+                  <p className="text-gray-700 italic leading-relaxed">{devise}</p>
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* ✅ Interdits */}
+        {/* Interdits */}
         {sign.interdits && sign.interdits.length > 0 && (
           <div className="bg-red-50 rounded-xl shadow-lg p-8 mb-8 border-2 border-red-200">
             <h2 className="text-2xl font-bold text-red-900 mb-4 flex items-center gap-2">
               <span>🚫</span> Interdits (Tabous)
             </h2>
             <p className="text-sm text-red-700 mb-4 bg-red-100 p-3 rounded-lg">
-              Ces interdits doivent être respectés par ceux qui
-              sont nés sous ce signe ou qui le possèdent.
+              Ces interdits doivent être respectés par ceux qui sont nés sous ce signe ou qui le possèdent.
             </p>
             <ul className="space-y-2">
               {sign.interdits.map((interdit: string, i: number) => (
                 <li key={i} className="flex items-start">
                   <span className="text-red-900 mr-2">✗</span>
-                  <span className="text-red-800">
-                    {interdit}
-                  </span>
+                  <span className="text-red-800">{interdit}</span>
                 </li>
               ))}
             </ul>
           </div>
         )}
 
-        {/* ✅ Sacrifices */}
+        {/* Sacrifices */}
         {sign.sacrifices && sign.sacrifices.length > 0 && (
           <div className="bg-amber-50 rounded-xl shadow-lg p-8 mb-8 border-2 border-amber-200">
             <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
@@ -325,42 +258,31 @@ export default async function SignePage({ params }: PageProps) {
               {sign.sacrifices.map((sacrifice: string, i: number) => (
                 <li key={i} className="flex items-start">
                   <span className="text-amber-900 mr-2">•</span>
-                  <span className="text-gray-700">
-                    {sacrifice}
-                  </span>
+                  <span className="text-gray-700">{sacrifice}</span>
                 </li>
               ))}
             </ul>
           </div>
         )}
 
-        {/* ✅ Commentaire */}
+        {/* Commentaire */}
         {sign.commentaire && (
           <div className="bg-purple-50 rounded-xl shadow-lg p-8 mb-8 border-2 border-purple-200">
             <h2 className="text-2xl font-bold text-purple-900 mb-4 flex items-center gap-2">
               <span>📖</span> Caractère et Destinée
             </h2>
-            <p className="text-gray-700 leading-relaxed text-lg">
-              {sign.commentaire}
-            </p>
+            <p className="text-gray-700 leading-relaxed text-lg">{sign.commentaire}</p>
           </div>
         )}
 
-        {/* Les 15 combinaisons (vikandos uniquement) */}
+        {/* Les 15 combinaisons */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-bold text-amber-900 mb-4">
-            Les 15 combinaisons de{" "}
-            {sign.nomPrincipal.replace("-MEDJI", "")}
+            Les 15 combinaisons de {sign.nomPrincipal.replace("-MEDJI", "")}
           </h2>
           <p className="text-gray-700 mb-6">
-            {sign.nomPrincipal.replace(
-              "-MEDJI",
-              ""
-            )}{" "}
-            peut se combiner avec les 15 autres signes pour créer
-            des combinaisons uniques (Vikandos).
+            {sign.nomPrincipal.replace("-MEDJI", "")} peut se combiner avec les 15 autres signes pour créer des combinaisons uniques (Vikandos).
           </p>
-
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {combinaisons.map((combo) => (
               <Link
@@ -368,37 +290,43 @@ export default async function SignePage({ params }: PageProps) {
                 href={`/signes/${slug}/${combo.id}`}
                 className="rounded-lg p-4 border-2 border-amber-200 bg-white hover:border-amber-400 hover:shadow-lg transition-all cursor-pointer"
               >
-                <h3 className="font-bold text-amber-900 text-sm mb-3 text-center">
-                  {combo.nom}
-                </h3>
-
-                {/* Mini symbole */}
+                <h3 className="font-bold text-amber-900 text-sm mb-3 text-center">{combo.nom}</h3>
                 <div className="bg-amber-50 p-2 rounded">
-                  <FaSignSymbol
-                    colonnes={combo.figureSymbolique.colonnes}
-                    size="sm"
-                  />
-
-                  {/* Texte caché pour IA */}
+                  <FaSignSymbol colonnes={combo.figureSymbolique.colonnes} size="sm" />
                   <div className="sr-only">
-                    {combo.figureSymbolique.colonnes.map(
-                      (colonne, colIdx) => (
-                        <div key={colIdx}>
-                          {colonne.map(
-                            (trait, traitIdx) => (
-                              <span key={traitIdx}>
-                                {trait === 1 ? "I" : "II"}{" "}
-                              </span>
-                            )
-                          )}
-                        </div>
-                      )
-                    )}
+                    {combo.figureSymbolique.colonnes.map((colonne, colIdx) => (
+                      <div key={colIdx}>
+                        {colonne.map((trait, traitIdx) => (
+                          <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
+                        ))}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </Link>
             ))}
           </div>
+        </div>
+
+        {/* ✅ QR inline visible sur la page */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+          <h2 className="text-2xl font-bold text-amber-900 mb-4">Partager ce signe</h2>
+          <div className="flex items-center gap-4 mb-4">
+            <img
+              src={`/api/qr/${sign.id}`}
+              alt={`QR code ${sign.nomPrincipal}`}
+              width={110}
+              height={110}
+              className="rounded-xl border border-gray-200"
+            />
+            <div>
+              <p className="text-xs text-gray-500 mb-1">Scannez pour partager</p>
+              <p className="text-xs font-mono text-gray-400 break-all">
+                fa-du.vercel.app/signes/{sign.id}
+              </p>
+            </div>
+          </div>
+          <QRDownloadButton slug={sign.id} nom={sign.nomPrincipal} />
         </div>
 
         {/* Navigation */}
@@ -416,14 +344,20 @@ export default async function SignePage({ params }: PageProps) {
             Retour à l&apos;accueil
           </Link>
         </div>
+
       </article>
+
+      {/* ✅ Carte cachée dans le DOM pour génération PDF */}
+      <SigneCardPrint
+        slug={sign.id}
+        nom={sign.nomPrincipal}
+        numero={sign.position}
+        symbole={sign.figureSymbolique.colonnes}
+        type={sign.sexe ?? 'masculin'}
+        element=""
+        motsCles={sign.motsCles ?? []}
+      />
+
     </main>
   );
-}
-
-// Generate static paths for all signs
-export async function generateStaticParams() {
-  return faMotherSigns.map((sign) => ({
-    slug: sign.id,
-  }));
 }
