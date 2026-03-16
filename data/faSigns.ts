@@ -429,7 +429,7 @@ export const faMotherSigns: FaSign[] = [
   nomPrincipal: "GUDA-MÊDJI",
   sexe: "masculin",
   figureSymbolique: {
-    colonnes: [[2, 2, 1, 1], [2, 2, 1, 1]],
+    colonnes: [[1, 1, 1, 2], [1, 1, 1, 2]],
     description:
       "Puissance tranchante, signe de vigueur, de sexualité forte, de justice, mais aussi de risques d’accidents et de mort subite.",
   },
