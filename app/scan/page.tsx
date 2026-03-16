@@ -1,5 +1,5 @@
 'use client'
-
+import Link from 'next/link'
 import { useRef, useState, useCallback, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { faMotherSigns, genererToutesCombinations } from '@/data/faSigns'
@@ -197,9 +197,9 @@ export default function ScanPage() {
 
   return (
     <main className="min-h-screen bg-white px-4 py-10 max-w-xl mx-auto">
-      <a href="/" className="text-sm text-violet-600 hover:underline mb-6 inline-block">
-        Retour
-      </a>
+<Link href="/" className="text-sm text-violet-600 hover:underline mb-6 inline-block">
+  Retour
+</Link>
       <h1 className="text-2xl font-bold text-gray-900 mb-2">Identifier un signe</h1>
       <p className="text-gray-500 text-sm mb-8">
         Scannez un QR FÂ DÜ ou composez le signe que vous voyez pour l&apos;identifier.
