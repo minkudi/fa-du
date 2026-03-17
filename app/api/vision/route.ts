@@ -1,29 +1,46 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const PROMPT = `Tu analyses une image contenant un signe du Fa, systeme de divination du Benin.
+const PROMPT = `Analyse cette image d'un signe du Fa.
 
-STRUCTURE : Le signe a exactement 2 colonnes verticales cote a cote. Chaque colonne contient exactement 4 positions (de haut en bas).
+Le signe a 2 colonnes verticales. Chaque colonne a 4 positions de haut en bas.
+Chaque position = soit 1 barre verticale (valeur 1) soit 2 barres paralleles (valeur 2).
 
-REGLES DE LECTURE - tres important :
-- Chaque position contient soit UN trait vertical (= valeur 1) soit DEUX traits verticaux separes par un espace visible (= valeur 2)
-- UN trait = 1 barre unique, mince, verticale
-- DEUX traits = 2 barres paralleles cote a cote avec un espace clair entre elles
-- Si tu vois une barre large ou epaisse, regarde si c'est en realite 2 barres tres proches = valeur 2
-- Le style, la couleur, le fond, l'epaisseur des traits ne changent pas la logique
+FOCUS sur l'espace entre les barres :
+- 1 barre seule, pas d'espace = valeur 1
+- 2 barres avec un espace visible entre elles = valeur 2
 
-EXEMPLES :
-- Position avec | = valeur 1
-- Position avec || = valeur 2
-- Position avec I = valeur 1
-- Position avec II = valeur 2
-
-Reponds UNIQUEMENT avec ce JSON exact, sans aucun texte avant ou apres, sans backticks, sans explication :
+Reponds avec UNIQUEMENT ce JSON, rien d'autre :
 {"col1":[A,B,C,D],"col2":[E,F,G,H]}
 
-Ou A B C D sont les 4 valeurs (1 ou 2) de la colonne gauche du haut vers le bas,
-et E F G H sont les 4 valeurs (1 ou 2) de la colonne droite du haut vers le bas.
+Si pas de signe Fa visible : {"error":"no_sign"}`
 
-Si l'image ne montre pas clairement un signe Fa, reponds : {"error":"no_sign"}`
+async function callModel(model: string, imageBase64: string, mediaType: string, apiKey: string) {
+  const response = await fetch('https://router.huggingface.co/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model,
+      max_tokens: 150,
+      temperature: 0,
+      messages: [{
+        role: 'user',
+        content: [
+          {
+            type: 'image_url',
+            image_url: { url: `data:${mediaType};base64,${imageBase64}` }
+          },
+          { type: 'text', text: PROMPT }
+        ]
+      }]
+    })
+  })
+  const data = await response.json()
+  console.log(`[vision] model=${model} response:`, JSON.stringify(data).slice(0, 500))
+  return data
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -32,61 +49,46 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'imageBase64 requis' }, { status: 400 })
     }
 
-    // Nettoyer le base64 — retirer le prefixe data URI si present
-    const cleanBase64 = imageBase64.includes(',')
-      ? imageBase64.split(',')[1]
-      : imageBase64
+    const cleanBase64 = imageBase64.includes(',') ? imageBase64.split(',')[1] : imageBase64
+    const apiKey = process.env.HF_API_TOKEN!
 
-    const response = await fetch('https://router.huggingface.co/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.HF_API_TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'Qwen/Qwen2.5-VL-7B-Instruct',
-        max_tokens: 200,
-        temperature: 0,
-        messages: [{
-          role: 'user',
-          content: [
-            {
-              type: 'image_url',
-              image_url: {
-                url: `data:${mediaType};base64,${cleanBase64}`
-              }
-            },
-            {
-              type: 'text',
-              text: PROMPT
-            }
-          ]
-        }]
-      })
-    })
+    // Essayer Qwen2.5-VL-7B en premier, puis Qwen2.5-VL-72B en fallback
+    const models = [
+      'Qwen/Qwen2.5-VL-7B-Instruct',
+      'Qwen/Qwen2.5-VL-72B-Instruct',
+    ]
 
-    const data = await response.json()
+    for (const model of models) {
+      const data = await callModel(model, cleanBase64, mediaType, apiKey)
 
-    if (data.error) {
-      return NextResponse.json(
-        { error: typeof data.error === 'string' ? data.error : JSON.stringify(data.error) },
-        { status: 500 }
-      )
+      if (data.error) {
+        console.log(`[vision] model=${model} error:`, data.error)
+        continue
+      }
+
+      const text = data.choices?.[0]?.message?.content?.trim()
+      if (!text) continue
+
+      console.log(`[vision] model=${model} text:`, text)
+
+      const jsonMatch = text.match(/\{[^{}]+\}/)
+      if (!jsonMatch) continue
+
+      try {
+        const parsed = JSON.parse(jsonMatch[0])
+        // Valider les valeurs
+        if (parsed.error) return NextResponse.json(parsed)
+        const all = [...(parsed.col1 ?? []), ...(parsed.col2 ?? [])]
+        if (all.length === 8 && all.every((v: number) => v === 1 || v === 2)) {
+          return NextResponse.json(parsed)
+        }
+        console.log('[vision] valeurs invalides:', parsed)
+      } catch {
+        console.log('[vision] JSON parse error pour:', jsonMatch[0])
+      }
     }
 
-    const text = data.choices?.[0]?.message?.content?.trim()
-    if (!text) {
-      return NextResponse.json({ error: 'Reponse vide du modele' }, { status: 500 })
-    }
-
-    // Extraire le JSON de la reponse
-    const jsonMatch = text.match(/\{[^{}]+\}/)
-    if (!jsonMatch) {
-      return NextResponse.json({ error: 'JSON non trouve dans: ' + text }, { status: 500 })
-    }
-
-    const parsed = JSON.parse(jsonMatch[0])
-    return NextResponse.json(parsed)
+    return NextResponse.json({ error: 'Impossible d\'analyser le signe. Reessayez avec une image plus nette.' }, { status: 500 })
 
   } catch (err) {
     return NextResponse.json({ error: String(err) }, { status: 500 })
