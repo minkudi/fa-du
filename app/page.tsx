@@ -24,20 +24,26 @@ export default function Home() {
             Le système de divination ancestral du golfe du Bénin.
             256 signes. Des millénaires de sagesse.
           </p>
-          <div className="animate-fade-up-delay-4 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/signes"
-              className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/50"
-            >
-              Explorer les 16 signes
-            </Link>
-            <Link
-              href="/fa"
-              className="border border-stone-600 hover:border-amber-600 text-stone-300 hover:text-amber-400 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300"
-            >
-              En savoir plus
-            </Link>
-          </div>
+<div className="animate-fade-up-delay-4 flex flex-wrap justify-center gap-4">
+  <Link
+    href="/signes"
+    className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/50"
+  >
+    Explorer les 16 signes
+  </Link>
+  <Link
+    href="/scan"
+    className="border border-stone-600 hover:border-amber-600 text-stone-300 hover:text-amber-400 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300"
+  >
+    Scanner un signe
+  </Link>
+  <Link
+    href="/fa"
+    className="border border-stone-600 hover:border-amber-600 text-stone-300 hover:text-amber-400 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300"
+  >
+    En savoir plus
+  </Link>
+</div>
         </div>
 
         {/* Scroll indicator */}
@@ -49,11 +55,10 @@ export default function Home() {
 
       {/* CHIFFRES */}
       <section className="py-24 px-4 border-t border-stone-800">
-        <div className="max-w-5xl mx-auto grid grid-cols-3 gap-8 text-center">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 gap-8 text-center">
           {[
             { n: '256', label: 'Signes au total', sub: 'Toutes les manifestations de la vie' },
             { n: '16',  label: 'Signes-mères', sub: 'Dou-Médji, puissance maximale' },
-            { n: '5',   label: 'Pays', sub: 'Bénin, Togo, Nigeria, Ghana, Côte d\'Ivoire' },
           ].map((item, i) => (
             <div key={i} className={`animate-fade-up-delay-${i + 1}`}>
               <p className="text-5xl md:text-6xl font-bold text-amber-500 mb-2">{item.n}</p>

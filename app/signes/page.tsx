@@ -38,7 +38,7 @@ export default function SignesPage() {
             <Link
               key={sign.id}
               href={`/signes/${sign.id}`}
-              className="group hover-lift block bg-stone-900 border border-stone-800 hover:border-amber-700/60 rounded-2xl p-6 transition-all duration-300"
+              className="group hover-lift block bg-stone-900 border border-stone-800 hover:border-amber-700/60 rounded-2xl p-6 transition-all duration-300 active:scale-95 active:bg-stone-800"
             >
               {/* Numéro */}
               <div className="flex items-center justify-between mb-5">
