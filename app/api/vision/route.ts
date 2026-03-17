@@ -16,6 +16,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'imageBase64 requis' }, { status: 400 })
     }
 
+    // Nettoyer le base64 — retirer le prefixe data URI si present
+    const cleanBase64 = imageBase64.includes(',')
+      ? imageBase64.split(',')[1]
+      : imageBase64
+
     const response = await fetch('https://router.huggingface.co/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -31,9 +36,14 @@ export async function POST(req: NextRequest) {
           content: [
             {
               type: 'image_url',
-              image_url: { url: `data:${mediaType};base64,${imageBase64}` }
+              image_url: {
+                url: `data:${mediaType};base64,${cleanBase64}`
+              }
             },
-            { type: 'text', text: PROMPT }
+            {
+              type: 'text',
+              text: PROMPT
+            }
           ]
         }]
       })
@@ -42,16 +52,24 @@ export async function POST(req: NextRequest) {
     const data = await response.json()
 
     if (data.error) {
-      return NextResponse.json({ error: data.error.message ?? JSON.stringify(data.error) }, { status: 500 })
+      return NextResponse.json(
+        { error: typeof data.error === 'string' ? data.error : JSON.stringify(data.error) },
+        { status: 500 }
+      )
     }
 
     const text = data.choices?.[0]?.message?.content?.trim()
     if (!text) {
-      return NextResponse.json({ error: 'Reponse vide' }, { status: 500 })
+      return NextResponse.json({ error: 'Reponse vide du modele' }, { status: 500 })
     }
 
-    const clean = text.replace(/```json|```/g, '').trim()
-    const parsed = JSON.parse(clean)
+    // Extraire le JSON de la reponse
+    const jsonMatch = text.match(/\{[^{}]+\}/)
+    if (!jsonMatch) {
+      return NextResponse.json({ error: 'JSON non trouve dans: ' + text }, { status: 500 })
+    }
+
+    const parsed = JSON.parse(jsonMatch[0])
     return NextResponse.json(parsed)
 
   } catch (err) {
