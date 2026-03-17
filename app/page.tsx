@@ -2,228 +2,186 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-      {/* Hero Section */}
-      <section className="bg-amber-900 text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-6xl font-bold mb-4">FÂ DÜ</h1>
-          <p className="text-xl text-amber-100 mb-8">
-            Patrimoine immatériel du golfe du Bénin
+    <main className="min-h-screen bg-stone-950 text-white overflow-hidden">
+
+      {/* HERO — fond sombre texture + titre animé */}
+      <section className="relative min-h-screen flex items-center justify-center px-4">
+        {/* Fond décoratif — cercles concentriques subtils */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <div className="w-[600px] h-[600px] rounded-full border border-amber-900/20 absolute" />
+          <div className="w-[400px] h-[400px] rounded-full border border-amber-900/30 absolute" />
+          <div className="w-[200px] h-[200px] rounded-full border border-amber-800/40 absolute animate-float" />
+        </div>
+
+        <div className="relative z-10 text-center max-w-3xl mx-auto">
+          <p className="animate-fade-up-delay-1 text-amber-500 text-xs tracking-[0.4em] uppercase mb-6 font-light">
+            Patrimoine immatériel de l&apos;humanité — UNESCO 2008
           </p>
-          <p className="text-lg text-amber-200 max-w-2xl mx-auto mb-8">
-            Découvrez le système du Fâ, pratique ancestrale de géomancie du golfe du Bénin,
-            reconnue comme patrimoine immatériel de l&apos;humanité.
+          <h1 className="animate-fade-up-delay-2 text-7xl md:text-9xl font-bold tracking-tight mb-6 shimmer-text">
+            FÂ DÜ
+          </h1>
+          <p className="animate-fade-up-delay-3 text-stone-400 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto font-light">
+            Le système de divination ancestral du golfe du Bénin.
+            256 signes. Des millénaires de sagesse.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/comprendre" className="bg-white text-amber-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-50 transition shadow-lg">
-              Comprendre le Fâ
+          <div className="animate-fade-up-delay-4 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/signes"
+              className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/50"
+            >
+              Explorer les 16 signes
             </Link>
-            <Link href="/signes" className="bg-amber-700 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-600 transition shadow-lg border-2 border-amber-600">
-              Découvrir les 16 signes
+            <Link
+              href="/fa"
+              className="border border-stone-600 hover:border-amber-600 text-stone-300 hover:text-amber-400 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300"
+            >
+              En savoir plus
             </Link>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-up-delay-5">
+          <span className="text-stone-600 text-xs tracking-widest uppercase">Découvrir</span>
+          <div className="w-px h-12 bg-gradient-to-b from-stone-600 to-transparent" />
+        </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-amber-900 mb-8 text-center">
-            Le système du Fâ en chiffres
+      {/* CHIFFRES */}
+      <section className="py-24 px-4 border-t border-stone-800">
+        <div className="max-w-5xl mx-auto grid grid-cols-3 gap-8 text-center">
+          {[
+            { n: '256', label: 'Signes au total', sub: 'Toutes les manifestations de la vie' },
+            { n: '16',  label: 'Signes-mères', sub: 'Dou-Médji, puissance maximale' },
+            { n: '5',   label: 'Pays', sub: 'Bénin, Togo, Nigeria, Ghana, Côte d\'Ivoire' },
+          ].map((item, i) => (
+            <div key={i} className={`animate-fade-up-delay-${i + 1}`}>
+              <p className="text-5xl md:text-6xl font-bold text-amber-500 mb-2">{item.n}</p>
+              <p className="text-white font-medium mb-1 text-sm md:text-base">{item.label}</p>
+              <p className="text-stone-500 text-xs md:text-sm">{item.sub}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FONCTIONNALITÉS */}
+      <section className="py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3 text-center">Plateforme numérique</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+            Une expérience culturelle complète
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-8 shadow-lg text-center">
-              <div className="text-6xl font-bold text-amber-900 mb-3">256</div>
-              <p className="text-amber-800 font-semibold text-lg mb-2">Signes au total</p>
-              <p className="text-sm text-gray-600">Toutes les combinaisons possibles représentant les manifestations de la vie</p>
-            </div>
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-8 shadow-lg text-center">
-              <div className="text-6xl font-bold text-amber-900 mb-3">16</div>
-              <p className="text-amber-800 font-semibold text-lg mb-2">Signes-mères</p>
-              <p className="text-sm text-gray-600">Les hiérarchies supérieures (Dou-Médji) en puissance maximum</p>
-            </div>
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-8 shadow-lg text-center">
-              <div className="text-6xl font-bold text-amber-900 mb-3">4</div>
-              <p className="text-amber-800 font-semibold text-lg mb-2">Éléments</p>
-              <p className="text-sm text-gray-600">Feu, Air, Eau, Terre - fondements de toute vie</p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                titre: '256 signes documentés',
+                desc: 'Interdits, sacrifices, devises, fétiches et feuilles liturgiques pour chaque signe et ses combinaisons.',
+                lien: '/signes',
+                cta: 'Explorer les signes',
+              },
+              {
+                titre: 'Cartes imprimables',
+                desc: 'Chaque signe génère une carte PDF A5 avec QR code — pour expositions, livrets pédagogiques et ateliers.',
+                lien: '/signes',
+                cta: 'Voir un exemple',
+              },
+              {
+                titre: 'Reconnaissance visuelle',
+                desc: 'Pointez votre appareil vers un signe dessiné ou sculpté. L\'IA identifie le signe instantanément.',
+                lien: '/scan',
+                cta: 'Scanner un signe',
+              },
+              {
+                titre: 'Carte des lieux sacrés',
+                desc: 'Temples, forêts et sanctuaires Vodun géolocalisés au Bénin. Chacun lié à un signe du Fâ.',
+                lien: '/explorer',
+                cta: 'Voir la carte',
+              },
+            ].map((f, i) => (
+              <Link
+                key={i}
+                href={f.lien}
+                className="group hover-lift block bg-stone-900 border border-stone-800 hover:border-amber-700/50 rounded-2xl p-8 transition-all duration-300"
+              >
+                <h3 className="text-white font-semibold text-lg mb-3 group-hover:text-amber-400 transition-colors">
+                  {f.titre}
+                </h3>
+                <p className="text-stone-400 text-sm leading-relaxed mb-6">{f.desc}</p>
+                <span className="text-amber-600 text-sm font-medium group-hover:text-amber-400 transition-colors">
+                  {f.cta} &rarr;
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Nouvelles fonctionnalités — section clé pour le ministère */}
-      <section className="py-16 bg-amber-900 text-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4 text-center">Expérience numérique complète</h2>
-          <p className="text-amber-200 text-center mb-12 max-w-2xl mx-auto">
-            FÂ DÜ connecte le patrimoine immatériel à l&apos;ère numérique — en exposition, en atelier, ou sur le terrain au Bénin.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link href="/signes" className="bg-amber-800 hover:bg-amber-700 rounded-xl p-6 transition group">
-              <div className="text-4xl mb-4 text-center">📖</div>
-              <h3 className="font-bold text-lg mb-2 text-center">256 signes</h3>
-              <p className="text-amber-200 text-sm text-center">
-                Les 16 signes-mères et leurs 240 combinaisons, avec interdits, devises et sacrifices
-              </p>
-            </Link>
-            <Link href="/explorer" className="bg-amber-800 hover:bg-amber-700 rounded-xl p-6 transition group">
-              <div className="text-4xl mb-4 text-center">🗺️</div>
-              <h3 className="font-bold text-lg mb-2 text-center">Carte des lieux</h3>
-              <p className="text-amber-200 text-sm text-center">
-                Temples, forêts sacrées et marchés Vodun géolocalisés au Bénin
-              </p>
-            </Link>
-            <Link href="/scan" className="bg-amber-800 hover:bg-amber-700 rounded-xl p-6 transition group">
-              <div className="text-4xl mb-4 text-center">📷</div>
-              <h3 className="font-bold text-lg mb-2 text-center">Scanner un signe</h3>
-              <p className="text-amber-200 text-sm text-center">
-                Scannez un QR FÂ DÜ ou composez votre signe pour l&apos;identifier
-              </p>
-            </Link>
-            <div className="bg-amber-800 rounded-xl p-6">
-              <div className="text-4xl mb-4 text-center">🖨️</div>
-              <h3 className="font-bold text-lg mb-2 text-center">Cartes imprimables</h3>
-              <p className="text-amber-200 text-sm text-center">
-                Chaque signe génère une carte PDF avec QR code, pour expos et livrets
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Introduction */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-amber-900 mb-6">
-            Découvrez le système du Fâ
-          </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            FÂ DÜ est un projet numérique qui rend accessible le système du Fâ, pratique
-            ancestrale de géomancie du golfe du Bénin, reconnue comme patrimoine immatériel
-            de l&apos;humanité.
+      {/* MISSION */}
+      <section className="py-24 px-4 border-t border-stone-800">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-6">Notre positionnement</p>
+          <blockquote className="text-2xl md:text-3xl font-light text-stone-200 leading-relaxed mb-8 italic">
+            &ldquo;Rendre accessible, de manière claire et respectueuse, la connaissance symbolique des 256 signes du Fâ.&rdquo;
+          </blockquote>
+          <p className="text-stone-500 text-sm leading-relaxed max-w-xl mx-auto">
+            FÂ DÜ n&apos;est pas un outil de consultation mystique et ne remplace pas le travail des Bokonon.
+            Nous documentons, nous éduquons, nous valorisons.
           </p>
         </div>
       </section>
 
-      {/* Notre mission */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-amber-900 mb-8 text-center">Notre mission</h2>
-          <div className="max-w-3xl mx-auto mb-12">
-            <p className="text-gray-700 leading-relaxed mb-4 text-center">
-              Pendant longtemps, le Fâ a été mal compris, caricaturé ou réservé aux seuls initiés.
-              Que vous soyez au Bénin, dans la diaspora africaine ou simplement curieux des systèmes
-              de pensée africains, il existe peu d&apos;espaces pour découvrir ce savoir de manière claire,
-              structurée et respectueuse.
-            </p>
-            <p className="text-gray-700 leading-relaxed text-center">
-              FÂ DÜ n&apos;est pas un outil de consultation mystique et ne remplace en aucun cas le
-              travail des bokonon (devins). Nous ne faisons pas de rituels, nous n&apos;offrons pas
-              de &ldquo;lectures&rdquo; personnelles et nous ne prétendons pas prédire l&apos;avenir.
-            </p>
-          </div>
-          <div className="bg-amber-50 border-l-4 border-amber-600 p-8 rounded-lg max-w-3xl mx-auto">
-            <p className="text-gray-800 text-lg leading-relaxed">
-              Notre mission est simple: <strong className="text-amber-900">expliquer les 16 signes &ldquo;mères&rdquo; du Fâ, leurs
-              significations symboliques, et progressivement ouvrir vers une compréhension plus large
-              des 256 combinaisons</strong>. Le tout avec des mots simples, des visuels modernes et
-              des contenus accessibles à tous.
-            </p>
+      {/* POUR QUI */}
+      <section className="py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">Pour qui ?</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { titre: 'La diaspora africaine', desc: 'Se reconnecter aux racines culturelles du golfe du Bénin avec clarté et profondeur.' },
+              { titre: 'Les institutions', desc: 'Outils pédagogiques pour musées, universités et programmes de valorisation du patrimoine.' },
+              { titre: 'Les curieux du monde', desc: 'Découvrir l\'un des systèmes de pensée africains les plus riches et les moins documentés.' },
+            ].map((p, i) => (
+              <div key={i} className="border-l-2 border-amber-700 pl-6 py-2">
+                <h3 className="text-white font-semibold mb-2">{p.titre}</h3>
+                <p className="text-stone-400 text-sm leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Pour qui */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-amber-900 mb-12 text-center">Pour qui?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-yellow-200 hover:border-yellow-400 transition-colors">
-              <div className="text-4xl mb-4 text-center">🔍</div>
-              <h3 className="text-2xl font-bold text-amber-900 mb-3 text-center">Redécouvrir</h3>
-              <p className="text-gray-700 text-center">Pour ceux qui veulent se reconnecter à cette richesse culturelle</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-yellow-200 hover:border-yellow-400 transition-colors">
-              <div className="text-4xl mb-4 text-center">🏛️</div>
-              <h3 className="text-2xl font-bold text-amber-900 mb-3 text-center">Valoriser</h3>
-              <p className="text-gray-700 text-center">Pour les institutions qui cherchent des outils pédagogiques pour le patrimoine</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-yellow-200 hover:border-yellow-400 transition-colors">
-              <div className="text-4xl mb-4 text-center">🌍</div>
-              <h3 className="text-2xl font-bold text-amber-900 mb-3 text-center">Explorer</h3>
-              <p className="text-gray-700 text-center">Pour toute personne intéressée par les savoirs traditionnels africains</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Comment ça marche */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-amber-900 mb-8 text-center">Comment ça marche?</h2>
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="bg-amber-900 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">1</div>
-              <div>
-                <h3 className="font-bold text-amber-900 mb-2">Explorez les 16 signes-mères</h3>
-                <p className="text-gray-700">Commencez par découvrir les 16 signes principaux, leurs symboles et leurs significations.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-amber-900 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">2</div>
-              <div>
-                <h3 className="font-bold text-amber-900 mb-2">Approfondissez un signe</h3>
-                <p className="text-gray-700">Cliquez sur un signe pour voir ses détails complets, ses 15 combinaisons, et télécharger sa carte PDF.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-amber-900 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">3</div>
-              <div>
-                <h3 className="font-bold text-amber-900 mb-2">Scannez ou composez votre signe</h3>
-                <p className="text-gray-700">Sur le terrain, scannez un QR FÂ DÜ ou entrez votre séquence pour identifier votre signe instantanément.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-amber-900 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">4</div>
-              <div>
-                <h3 className="font-bold text-amber-900 mb-2">Explorez les lieux sacrés</h3>
-                <p className="text-gray-700">Visitez la carte des temples, forêts et marchés Vodun au Bénin, chacun lié à un signe du Fâ.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="py-16 bg-gradient-to-br from-amber-100 to-amber-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-amber-900 mb-6">Prêt à explorer?</h2>
-          <p className="text-lg text-gray-700 mb-8">Commencez votre voyage dans l&apos;univers du Fâ</p>
+      {/* CTA FINAL */}
+      <section className="py-24 px-4 border-t border-stone-800">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-white mb-4">Commencer l&apos;exploration</h2>
+          <p className="text-stone-400 mb-10">Accédez aux 256 signes, à la carte et aux outils de médiation culturelle.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/comprendre" className="bg-amber-900 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-800 transition shadow-lg">
-              Comprendre le Fâ
+            <Link href="/signes" className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/50">
+              Les 16 signes-mères
             </Link>
-            <Link href="/signes" className="bg-white text-amber-900 px-8 py-4 rounded-lg font-bold text-lg border-2 border-amber-900 hover:bg-amber-50 transition shadow-lg">
-              Découvrir les 16 signes
+            <Link href="/explorer" className="border border-stone-600 hover:border-amber-600 text-stone-300 hover:text-amber-400 px-8 py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300">
+              Carte des lieux sacrés
             </Link>
-            <Link href="/explorer" className="bg-amber-700 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-600 transition shadow-lg">
-              Carte des lieux
-            </Link>
-            <Link href="/scan" className="bg-white text-amber-700 px-8 py-4 rounded-lg font-bold text-lg border-2 border-amber-700 hover:bg-amber-50 transition shadow-lg">
+            <Link href="/scan" className="border border-stone-600 hover:border-amber-600 text-stone-300 hover:text-amber-400 px-8 py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300">
               Scanner un signe
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-amber-900 text-white py-8">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-amber-200">
-            © 2026 FÂ DÜ - Valorisation du patrimoine immatériel du golfe du Bénin
-          </p>
+      {/* FOOTER */}
+      <footer className="border-t border-stone-800 py-10 px-4">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-stone-600 text-xs">
+          <p className="font-semibold text-stone-400 tracking-widest">FÂ DÜ</p>
+          <p>© 2026 — Valorisation du patrimoine immatériel du golfe du Bénin</p>
+          <div className="flex gap-6">
+            <Link href="/fa" className="hover:text-amber-500 transition-colors">À propos</Link>
+            <Link href="/signes" className="hover:text-amber-500 transition-colors">Signes</Link>
+            <Link href="/scan" className="hover:text-amber-500 transition-colors">Scanner</Link>
+            <Link href="/explorer" className="hover:text-amber-500 transition-colors">Carte</Link>
+          </div>
         </div>
       </footer>
+
     </main>
   );
 }

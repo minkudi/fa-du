@@ -2,68 +2,84 @@ import Link from "next/link";
 import { faMotherSigns } from "@/data/faSigns";
 import { FaSignSymbol } from "@/components/FaSymbol";
 
-
 export default function SignesPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+    <main className="min-h-screen bg-stone-950 text-white">
+
       {/* Header */}
-      <header className="bg-amber-900 text-white py-6 shadow-lg">
-        <div className="max-w-6xl mx-auto px-4">
-          <Link href="/" className="text-amber-200 hover:text-white mb-2 inline-block">
-            ← Retour à l&apos;accueil
+      <header className="border-b border-stone-800 py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          <Link
+            href="/"
+            className="text-stone-500 hover:text-amber-400 text-sm transition-colors mb-6 inline-block tracking-wide"
+          >
+            ← Retour
           </Link>
-          <h1 className="text-4xl font-bold">Les 16 signes-mères du Fâ</h1>
-          <p className="text-amber-200 mt-2">Dougans - Signes mères</p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-2">
+                Dougans — Signes mères
+              </p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white">
+                Les 16 signes-mères du Fâ
+              </h1>
+            </div>
+            <p className="text-stone-400 text-sm max-w-xs leading-relaxed">
+              Chaque signe porte des significations symboliques profondes et 15 combinaisons uniques.
+            </p>
+          </div>
         </div>
       </header>
 
-      {/* Content */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-          Voici les 16 signes mères du système du Fâ. Chaque signe représente une combinaison 
-          unique d&apos;éléments et porte des significations symboliques profondes. Cliquez sur un signe 
-          pour en savoir plus.
-        </p>
-
-        {/* Grid of signs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {faMotherSigns.map((sign) => (
+      {/* Grid */}
+      <section className="max-w-6xl mx-auto px-4 py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {faMotherSigns.map((sign, index) => (
             <Link
               key={sign.id}
               href={`/signes/${sign.id}`}
-              className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 border-2 border-amber-100 hover:border-amber-300"
+              className="group hover-lift block bg-stone-900 border border-stone-800 hover:border-amber-700/60 rounded-2xl p-6 transition-all duration-300"
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-semibold text-amber-900 bg-amber-100 px-3 py-1 rounded-full">
-                  {sign.position}
+              {/* Numéro */}
+              <div className="flex items-center justify-between mb-5">
+                <span className="text-xs font-mono text-stone-600 group-hover:text-amber-600 transition-colors">
+                  {String(sign.position).padStart(2, '0')}
+                </span>
+                <span className={`text-xs px-2 py-0.5 rounded-full border ${
+                  sign.sexe === 'feminin'
+                    ? 'border-violet-700/50 text-violet-400 bg-violet-900/20'
+                    : 'border-amber-700/50 text-amber-400 bg-amber-900/20'
+                }`}>
+                  {sign.sexe === 'feminin' ? 'féminin' : 'masculin'}
                 </span>
               </div>
-              
-              <h3 className="text-xl font-bold text-amber-900 mb-3">
+
+              {/* Nom */}
+              <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors mb-4 tracking-wide">
                 {sign.nomPrincipal}
               </h3>
-{/* Visual representation - FIDÈLE À L'IMAGE */}
-<div className="py-4 bg-amber-50 rounded relative">
-  {/* SVG visible pour l'utilisateur */}
-  <FaSignSymbol colonnes={sign.figureSymbolique.colonnes} size="md" />
-  
-  {/* Texte caché pour reconnaissance IA/OCR */}
-  <div className="sr-only" aria-label={`Signe ${sign.nomPrincipal}`}>
-    {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
-      <div key={colIdx}>
-        {colonne.map((trait, traitIdx) => (
-          <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
-        ))}
-      </div>
-    ))}
-  </div>
-</div>
+
+              {/* Symbole */}
+              <div className="py-5 bg-stone-950 rounded-xl mb-4 flex items-center justify-center border border-stone-800 group-hover:border-stone-700 transition-colors">
+                <FaSignSymbol colonnes={sign.figureSymbolique.colonnes} size="md" />
+                <div className="sr-only" aria-label={`Signe ${sign.nomPrincipal}`}>
+                  {sign.figureSymbolique.colonnes.map((colonne, colIdx) => (
+                    <div key={colIdx}>
+                      {colonne.map((trait, traitIdx) => (
+                        <span key={traitIdx}>{trait === 1 ? "I" : "II"} </span>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mots-clés */}
               {sign.motsCles && sign.motsCles.length > 0 && (
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {sign.motsCles.slice(0, 3).map((mot, idx) => (
                     <span
                       key={idx}
-                      className="text-xs text-amber-700 bg-amber-50 px-2 py-1 rounded"
+                      className="text-xs text-stone-400 bg-stone-800 px-2 py-0.5 rounded-full"
                     >
                       {mot}
                     </span>
@@ -71,13 +87,20 @@ export default function SignesPage() {
                 </div>
               )}
 
-              <div className="mt-4 text-sm text-amber-900 font-medium">
-                En savoir plus →
-              </div>
+              {/* CTA */}
+              <p className="text-xs text-stone-600 group-hover:text-amber-500 transition-colors font-medium">
+                Explorer ce signe &rarr;
+              </p>
             </Link>
           ))}
         </div>
       </section>
+
+      {/* Footer minimal */}
+      <footer className="border-t border-stone-800 py-8 px-4 text-center text-stone-600 text-xs">
+        © 2026 FÂ DÜ — Valorisation du patrimoine immatériel du golfe du Bénin
+      </footer>
+
     </main>
   );
 }
