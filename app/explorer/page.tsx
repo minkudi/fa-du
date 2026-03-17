@@ -6,24 +6,34 @@ import Link from 'next/link'
 const MapVodun = dynamic(() => import('@/components/MapVodun'), {
   ssr: false,
   loading: () => (
-    <p className="text-sm text-gray-400 py-10 text-center">Chargement de la carte…</p>
+    <div className="h-[520px] rounded-2xl bg-stone-900 border border-stone-800 flex items-center justify-center">
+      <p className="text-stone-500 text-sm">Chargement de la carte...</p>
+    </div>
   ),
 })
 
 export default function ExplorerPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="max-w-5xl mx-auto px-4 py-10">
-        <Link href="/" className="text-sm text-violet-600 hover:underline mb-6 inline-block">
-          ← Retour
-        </Link>
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Lieux sacrés Vodun — Bénin</h1>
-        <p className="text-gray-500 text-sm mb-2 max-w-2xl">
-          Explorez les temples, marchés et lieux culturels liés au Fâ à travers le Bénin.
-        </p>
-        <p className="text-xs text-gray-400 mb-6">Cliquez sur un marqueur pour voir le signe lié et son QR code.</p>
+    <main className="min-h-screen bg-stone-950 text-white">
+      <header className="border-b border-stone-800 py-8 px-4">
+        <div className="max-w-5xl mx-auto">
+          <Link href="/" className="text-stone-500 hover:text-amber-400 text-sm transition-colors mb-6 inline-block">
+            ← Retour
+          </Link>
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-2">Géographie sacrée</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">Lieux sacrés Vodun</h1>
+          <p className="text-stone-400 text-sm max-w-xl">
+            Temples, forêts sacrées et sanctuaires géolocalisés au Bénin — chacun lié à un signe du Fâ.
+            Cliquez sur un marqueur pour voir le signe associé.
+          </p>
+        </div>
+      </header>
+      <section className="max-w-5xl mx-auto px-4 py-12">
         <MapVodun />
-      </div>
+      </section>
+      <footer className="border-t border-stone-800 py-8 px-4 text-center text-stone-600 text-xs">
+        © 2026 FÂ DÜ — Valorisation du patrimoine immatériel du golfe du Bénin
+      </footer>
     </main>
   )
 }

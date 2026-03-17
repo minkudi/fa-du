@@ -2,365 +2,185 @@ import Link from "next/link";
 
 export default function ComprendrePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-      {/* Header */}
-      <header className="bg-amber-900 text-white py-8 shadow-lg">
-        <div className="max-w-4xl mx-auto px-4">
-          <Link href="/" className="text-amber-200 hover:text-white mb-4 inline-block">
-            ← Retour à l&apos;accueil
+    <main className="min-h-screen bg-stone-950 text-white">
+
+      <header className="border-b border-stone-800 py-8 px-4">
+        <div className="max-w-4xl mx-auto">
+          <Link href="/" className="text-stone-500 hover:text-amber-400 text-sm transition-colors mb-6 inline-block">
+            ← Retour
           </Link>
-          <h1 className="text-4xl font-bold">Comprendre le Fâ</h1>
-          <p className="text-amber-200 mt-2">
-            Découvrez les fondements du système de géomancie du golfe du Bénin
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-2">Fondements</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">Comprendre le Fâ</h1>
+          <p className="text-stone-400 mt-3 max-w-xl">
+            Le système de géomancie ancestral du golfe du Bénin — ses structures, ses éléments, sa logique.
           </p>
         </div>
       </header>
 
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Introduction */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-4">Qu&apos;est-ce que le Fâ?</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Le Fâ est un système de géomancie ancestral pratiqué dans la région du golfe du Bénin. 
-            C&apos;est une science divinatoire qui permet de comprendre les forces invisibles à l&apos;œuvre 
+      <div className="max-w-4xl mx-auto px-4 py-14 space-y-6">
+
+        {/* Qu'est-ce que le Fâ */}
+        <section className="bg-stone-900 border border-stone-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-amber-400 mb-4">Qu&apos;est-ce que le Fâ ?</h2>
+          <p className="text-stone-300 leading-relaxed mb-4">
+            Le Fâ est un système de géomancie ancestral pratiqué dans la région du golfe du Bénin.
+            C&apos;est une science divinatoire qui permet de comprendre les forces invisibles à l&apos;œuvre
             dans la vie des hommes et de leur environnement.
           </p>
-          <p className="text-gray-700 leading-relaxed">
-            Reconnu comme patrimoine immatériel de l&apos;humanité, le Fâ n&apos;est pas un outil de 
-            consultation mystique et ne remplace en aucun cas le travail des bokonon (devins). 
-            Il s&apos;agit plutôt d&apos;un système de connaissance qui aide à mieux comprendre 
-            les dynamiques de la vie.
+          <p className="text-stone-400 leading-relaxed">
+            Reconnu comme patrimoine immatériel de l&apos;humanité, le Fâ n&apos;est pas un outil de
+            consultation mystique et ne remplace en aucun cas le travail des bokonon (devins).
+            Il s&apos;agit d&apos;un système de connaissance qui aide à mieux comprendre les dynamiques de la vie.
           </p>
         </section>
 
         {/* Les 4 éléments */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-6">Les 4 éléments fondamentaux</h2>
-          <p className="text-gray-700 mb-6">
-            Le Fâ repose sur quatre éléments impondérables qui donnent la vie sur terre:
+        <section className="bg-stone-900 border border-stone-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-amber-400 mb-6">Les 4 éléments fondamentaux</h2>
+          <p className="text-stone-400 mb-8">
+            Le Fâ repose sur quatre éléments impondérables qui donnent la vie sur terre.
           </p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="border-2 border-red-200 rounded-lg p-6 bg-red-50">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="text-3xl">🔥</div>
-                <h3 className="text-xl font-bold text-red-900">Feu</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { element: 'Feu', symbole: 'I', nature: 'Mâle — créateur', desc: "Commande les énergies de lumière. Représente l'esprit, la force vitale, le commencement.", color: 'border-orange-700/50 bg-orange-950/20' },
+              { element: 'Air', symbole: 'I', nature: 'Mâle — créateur', desc: "Commande les énergies de son. Représente l'esprit, la communication, le mouvement.", color: 'border-blue-700/50 bg-blue-950/20' },
+              { element: 'Eau', symbole: 'II', nature: 'Femelle — récepteur', desc: "Source de vie. Commande toutes les énergies de vie. Représente la matière, la fertilité.", color: 'border-cyan-700/50 bg-cyan-950/20' },
+              { element: 'Terre', symbole: 'II', nature: 'Femelle — récepteur', desc: "Source de mort et de transformation. Commande les énergies d'absorption et de régénération.", color: 'border-amber-700/50 bg-amber-950/20' },
+            ].map((el, i) => (
+              <div key={i} className={`rounded-xl p-6 border ${el.color}`}>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-white font-bold text-lg">{el.element}</h3>
+                  <span className="font-mono text-amber-400 text-lg font-bold">{el.symbole}</span>
+                </div>
+                <p className="text-stone-500 text-xs mb-2 uppercase tracking-wide">{el.nature}</p>
+                <p className="text-stone-400 text-sm leading-relaxed">{el.desc}</p>
               </div>
-              <p className="text-gray-700 mb-2">
-                <strong>Symbole:</strong> I (un trait)
-              </p>
-              <p className="text-gray-700 mb-2">
-                <strong>Nature:</strong> Élément mâle, créateur
-              </p>
-              <p className="text-gray-700">
-                Commande les énergies de lumière. Représente l&apos;esprit, la force vitale, 
-                le commencement.
-              </p>
-            </div>
-
-            <div className="border-2 border-blue-200 rounded-lg p-6 bg-blue-50">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="text-3xl">💨</div>
-                <h3 className="text-xl font-bold text-blue-900">Air</h3>
-              </div>
-              <p className="text-gray-700 mb-2">
-                <strong>Symbole:</strong> I (un trait)
-              </p>
-              <p className="text-gray-700 mb-2">
-                <strong>Nature:</strong> Élément mâle, créateur
-              </p>
-              <p className="text-gray-700">
-                Commande les énergies de son. Représente l&apos;esprit, la communication, 
-                le mouvement.
-              </p>
-            </div>
-
-            <div className="border-2 border-cyan-200 rounded-lg p-6 bg-cyan-50">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="text-3xl">💧</div>
-                <h3 className="text-xl font-bold text-cyan-900">Eau</h3>
-              </div>
-              <p className="text-gray-700 mb-2">
-                <strong>Symbole:</strong> II (deux traits)
-              </p>
-              <p className="text-gray-700 mb-2">
-                <strong>Nature:</strong> Élément femelle, récepteur
-              </p>
-              <p className="text-gray-700">
-                Source de vie. Commande toutes les énergies de vie. Représente la matière, 
-                la fertilité, la réceptivité.
-              </p>
-            </div>
-
-            <div className="border-2 border-amber-200 rounded-lg p-6 bg-amber-50">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="text-3xl">🌍</div>
-                <h3 className="text-xl font-bold text-amber-900">Terre</h3>
-              </div>
-              <p className="text-gray-700 mb-2">
-                <strong>Symbole:</strong> II (deux traits)
-              </p>
-              <p className="text-gray-700 mb-2">
-                <strong>Nature:</strong> Élément femelle, récepteur
-              </p>
-              <p className="text-gray-700">
-                Source de mort et de transformation. Commande les énergies d&apos;absorption, 
-                de changement et de régénération.
-              </p>
-            </div>
+            ))}
           </div>
-
-          <div className="mt-6 bg-amber-100 p-6 rounded-lg">
-            <p className="text-gray-800 text-center">
-              <strong className="text-amber-900">Principe fondamental:</strong> Les éléments d&apos;en haut 
+          <div className="mt-6 bg-stone-800 rounded-xl p-5 text-center">
+            <p className="text-stone-300 text-sm">
+              <span className="text-amber-400 font-semibold">Principe fondamental :</span> Les éléments d&apos;en haut
               (feu et air = esprit) viennent féconder ceux d&apos;en bas (eau et terre = matière) pour créer la vie.
             </p>
           </div>
         </section>
 
-        {/* Comment lire les signes */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-6">Comment lire les signes?</h2>
-          
+        {/* Comment lire */}
+        <section className="bg-stone-900 border border-stone-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-amber-400 mb-6">Comment lire les signes ?</h2>
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-bold text-amber-900 mb-3">Structure d&apos;un signe</h3>
-              <p className="text-gray-700 mb-4">
-                Chaque signe est composé de 4 lignes organisées en 2 colonnes. 
-                Les lignes représentent les 4 éléments de haut en bas:
+              <h3 className="text-white font-semibold mb-3">Structure d&apos;un signe</h3>
+              <p className="text-stone-400 mb-4 text-sm leading-relaxed">
+                Chaque signe est composé de 4 lignes organisées en 2 colonnes.
+                Les lignes représentent les 4 éléments de haut en bas.
               </p>
-              <div className="bg-amber-50 p-6 rounded-lg">
-                <div className="flex gap-8 items-center justify-center">
-                  <div className="font-mono text-2xl text-amber-900">
-                    <div>I → Feu</div>
-                    <div>I → Air</div>
-                    <div>II → Eau</div>
-                    <div>II → Terre</div>
+              <div className="bg-stone-800 rounded-xl p-6 flex gap-12 justify-center">
+                {[0, 1].map(col => (
+                  <div key={col} className="flex flex-col gap-2 font-mono text-amber-400 text-sm">
+                    {['Feu', 'Air', 'Eau', 'Terre'].map((el, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <span className="text-stone-600 text-xs w-10">{el}</span>
+                        <span>{i < 2 ? 'I' : 'II'}</span>
+                      </div>
+                    ))}
                   </div>
-                  <div className="font-mono text-2xl text-amber-900">
-                    <div>I → Feu</div>
-                    <div>I → Air</div>
-                    <div>II → Eau</div>
-                    <div>II → Terre</div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
-
             <div>
-              <h3 className="text-xl font-bold text-amber-900 mb-3">Lecture du Fâ</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-amber-900 mr-2">•</span>
-                  <span>On lit le Fâ de <strong>droite à gauche</strong></span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-amber-900 mr-2">•</span>
-                  <span>Le signe à <strong>droite</strong> est le plus fort (élément principal)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-amber-900 mr-2">•</span>
-                  <span>Le signe à <strong>gauche</strong> est la &ldquo;compagnie&rdquo; (maison d&apos;accueil)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-amber-900 mr-2">•</span>
-                  <span>La compagnie modifie en bien ou en mal le signe principal</span>
-                </li>
+              <h3 className="text-white font-semibold mb-3">Règles de lecture</h3>
+              <ul className="space-y-2">
+                {[
+                  'On lit le Fâ de droite à gauche',
+                  'Le signe à droite est le plus fort (élément principal)',
+                  "Le signe à gauche est la « compagnie » (maison d'accueil)",
+                  'La compagnie modifie en bien ou en mal le signe principal',
+                ].map((rule, i) => (
+                  <li key={i} className="flex items-start gap-3 text-stone-300 text-sm">
+                    <span className="text-amber-600 mt-0.5">—</span>
+                    <span>{rule}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </section>
 
         {/* Les 16 signes-mères */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-6">Les 16 signes-mères (Dou-Médji)</h2>
-          <p className="text-gray-700 mb-4">
-            Les 16 signes principaux sont appelés <strong>signes-mères</strong> ou <strong>Dou-Médji</strong> 
-            (dieux-doubles). Ils représentent les hiérarchies supérieures où chaque type de manifestation 
+        <section className="bg-stone-900 border border-stone-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-amber-400 mb-4">Les 16 signes-mères (Dou-Médji)</h2>
+          <p className="text-stone-400 leading-relaxed mb-4 text-sm">
+            Les 16 signes principaux sont appelés <span className="text-white">signes-mères</span> ou <span className="text-white">Dou-Médji</span>
+            (dieux-doubles). Ils représentent les hiérarchies supérieures où chaque type de manifestation
             atteint sa puissance maximum.
           </p>
-          <p className="text-gray-700 mb-6">
-            Chaque signe-mère, en se combinant avec les 16 signes (y compris lui-même), 
-            produit 16 combinaisons. Au total: <strong>16 × 16 = 256 signes</strong>.
-          </p>
-
-          <div className="bg-amber-50 p-6 rounded-lg">
-            <p className="text-gray-800">
-              <strong className="text-amber-900">Signes-mères (16):</strong> Quand un signe se double 
-              par lui-même, il atteint sa puissance maximum. Exemple: GBE-MEDJI.
+          <div className="bg-stone-800 rounded-xl p-5 space-y-3">
+            <p className="text-stone-300 text-sm">
+              <span className="text-amber-400 font-semibold">Signes-mères (16) :</span> Quand un signe se double
+              par lui-même, il atteint sa puissance maximum. Exemple : GBÉ-MÊDJI.
             </p>
-            <p className="text-gray-800 mt-3">
-              <strong className="text-amber-900">Vikandos (240):</strong> Combinaisons de deux signes différents. 
-              Exemple: GBE-YEKOU (GBE dans la maison de YEKOU).
+            <p className="text-stone-300 text-sm">
+              <span className="text-amber-400 font-semibold">Vikandos (240) :</span> Combinaisons de deux signes différents.
+              Exemple : GBÉ-YÈKOU (GBÉ dans la maison de YÈKOU).
             </p>
           </div>
         </section>
 
         {/* Jour et nuit */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-6">Signes de jour et signes de nuit</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="border-2 border-yellow-300 rounded-lg p-6 bg-yellow-50">
-              <h3 className="text-xl font-bold text-yellow-900 mb-3">☀️ Signes de jour (GBE et dérivés)</h3>
-              <p className="text-gray-700 mb-3">
-                Dérivés de GBE-MEDJI, le premier signe de vie et de lumière.
-              </p>
-              <ul className="text-sm text-gray-700 space-y-1">
-                <li>• GBE-MEDJI (vie, lumière)</li>
-                <li>• GUDA-MEDJI (voyage)</li>
-                <li>• SA-MEDJI (justice)</li>
-                <li>• TULA-MEDJI (chaos)</li>
-                <li>• LETE-MEDJI (bénédiction)</li>
-                <li>• WOLI-MEDJI (patience)</li>
-                <li>• WINLIN-MEDJI (changement)</li>
-                <li>• LOSSO-MEDJI (stabilité)</li>
+        <section className="bg-stone-900 border border-stone-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-amber-400 mb-6">Signes de jour et signes de nuit</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="border border-amber-800/40 bg-amber-950/20 rounded-xl p-6">
+              <h3 className="text-amber-400 font-semibold mb-3">Signes de jour — GBÉ</h3>
+              <ul className="space-y-1 text-stone-400 text-sm">
+                {['GBÉ-MÊDJI', 'GUDA-MÊDJI', 'SA-MÊDJI', 'TULA-MÊDJI', 'LÈTÈ-MÊDJI', 'WOLI-MÊDJI', 'WINLIN-MÊDJI', 'LOSSO-MÊDJI'].map(s => (
+                  <li key={s} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-amber-600 flex-shrink-0" />{s}</li>
+                ))}
               </ul>
             </div>
-
-            <div className="border-2 border-slate-300 rounded-lg p-6 bg-slate-50">
-              <h3 className="text-xl font-bold text-slate-900 mb-3">🌙 Signes de nuit (YEKOU et dérivés)</h3>
-              <p className="text-gray-700 mb-3">
-                Dérivés de YEKOU-MEDJI, signe de mort et de mystère.
-              </p>
-              <ul className="text-sm text-gray-700 space-y-1">
-                <li>• YEKOU-MEDJI (mort, transformation)</li>
-                <li>• ABLA-MEDJI (force)</li>
-                <li>• AKLAN-MEDJI (guerre)</li>
-                <li>• KA-MEDJI (communication)</li>
-                <li>• TRUKPIN-MEDJI (mystère)</li>
-                <li>• DI-MEDJI (richesse)</li>
-                <li>• TCHE-MEDJI (dualité)</li>
-                <li>• FU-MEDJI (longévité)</li>
+            <div className="border border-stone-700/40 bg-stone-800/40 rounded-xl p-6">
+              <h3 className="text-stone-300 font-semibold mb-3">Signes de nuit — YÈKOU</h3>
+              <ul className="space-y-1 text-stone-400 text-sm">
+                {['YÈKOU-MÊDJI', 'ABLA-MÊDJI', 'AKLAN-MÊDJI', 'KA-MÊDJI', 'TRUKPIN-MÊDJI', 'DI-MÊDJI', 'TCHE-MÊDJI', 'FU-MÊDJI'].map(s => (
+                  <li key={s} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-stone-500 flex-shrink-0" />{s}</li>
+                ))}
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Origine et histoire */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-6">Origine et histoire</h2>
-          <div className="space-y-4 text-gray-700">
-            <p>
-              Le Fâ tire ses origines de la <strong>loi du triangle</strong> et de la 
-              <strong> science des nombres</strong>, connaissances ancestrales communes à plusieurs 
-              civilisations anciennes.
-            </p>
-            <p>
-                           Selon les recherches, cette science serait liée aux enseignements de Pythagore 
-              (&ldquo;Au commencement, Dieu géométrisa&rdquo;), à la Kabbale hébraïque, et à d&apos;autres 
-              systèmes de pensée anciens.
-            </p>
-            <p>
-              Le système a été transmis de génération en génération par les <strong>Bokonon</strong> 
-              (maîtres géomanciens) à travers un enseignement oral et initiatique, préservant ainsi 
-              ce patrimoine immatériel jusqu&apos;à nos jours.
-            </p>
+        {/* Loi du triangle */}
+        <section className="bg-stone-900 border border-stone-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-amber-400 mb-4">La loi du triangle</h2>
+          <div className="bg-stone-800 rounded-xl p-5 text-center mb-4">
+            <p className="text-amber-400 text-3xl font-bold font-mono mb-1">1 + 2 + 3 + 4 = 10</p>
+            <p className="text-stone-500 text-sm">Les 4 éléments, par addition théosophique, donnent 10 (la totalité).</p>
           </div>
-        </section>
-
-        {/* La loi du triangle */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-6">La loi du triangle</h2>
-          <div className="bg-amber-50 p-6 rounded-lg mb-4">
-            <p className="text-center text-gray-700 mb-4">
-              <strong className="text-amber-900">1 + 2 + 3 + 4 = 10</strong>
-            </p>
-            <p className="text-gray-700 text-center">
-              Les 4 éléments, par addition théosophique, donnent 10 (la totalité).
-            </p>
-          </div>
-          <p className="text-gray-700 mb-4">
-            Le nombre 4 porté au maximum de sa puissance (4 × 4) donne <strong>16 combinaisons 
-            élémentaires</strong>, soit les 16 signes principaux.
+          <p className="text-stone-400 text-sm leading-relaxed mb-3">
+            Le nombre 4 porté au maximum de sa puissance (4 × 4) donne <span className="text-white">16 combinaisons élémentaires</span> — les 16 signes principaux.
           </p>
-          <p className="text-gray-700">
-            Chaque signe, en se combinant avec les 16 signes, produit 16 variantes. 
-            Au total: <strong>16 × 16 = 256 combinaisons possibles</strong>, représentant toutes 
-            les manifestations de la vie.
+          <p className="text-stone-400 text-sm leading-relaxed">
+            Chaque signe, en se combinant avec les 16 signes, produit 16 variantes. Au total : <span className="text-white font-semibold">16 × 16 = 256 combinaisons possibles</span>.
           </p>
         </section>
 
-        {/* Les 256 signes */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-6">Les 256 signes du Fâ</h2>
-          
-          <div className="space-y-4">
-            <div className="flex items-start gap-3">
-              <div className="bg-amber-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
-                16
-              </div>
-              <div>
-                <h3 className="font-bold text-amber-900 mb-1">Signes-mères (Dou-Médji)</h3>
-                <p className="text-gray-700">
-                  Quand un signe se double par lui-même, il atteint sa puissance maximum. 
-                  Ce sont les arcanes majeurs, les hiérarchies supérieures.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="bg-amber-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
-                240
-              </div>
-              <div>
-                <h3 className="font-bold text-amber-900 mb-1">Vikandos (Signes secondaires)</h3>
-                <p className="text-gray-700">
-                  Combinaisons de deux signes différents. Le signe principal (à droite) 
-                  est modifié par la maison d&apos;accueil (à gauche).
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="bg-amber-900 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
-                256
-              </div>
-              <div>
-                <h3 className="font-bold text-amber-900 mb-1">Total des signes</h3>
-                <p className="text-gray-700">
-                  L&apos;ensemble complet représente toutes les formes possibles de manifestation 
-                  de la vie dans notre monde terrestre.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Mission de FÂ DÜ */}
-        <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-3xl font-bold text-amber-900 mb-6">Notre mission</h2>
-          <div className="space-y-4 text-gray-700">
-            <p>
-              <strong className="text-amber-900">FÂ DÜ</strong> a pour mission d&apos;expliquer 
-              les 16 signes-mères du Fâ, leurs significations symboliques, et progressivement 
-              ouvrir vers une compréhension plus large des 256 combinaisons.
-            </p>
-            <p>
-              Le tout avec des mots simples, des visuels modernes et des contenus accessibles à tous, 
-              que vous soyez au Bénin, dans la diaspora africaine ou simplement curieux des systèmes 
-              de pensée africains.
-            </p>
-            <div className="bg-amber-50 border-l-4 border-amber-600 p-6 rounded">
-              <p className="text-amber-900 font-semibold">
-                ⚠️ Important: FÂ DÜ n&apos;est pas un outil de consultation mystique et ne remplace 
-                en aucun cas le travail des bokonon (devins). Nous ne faisons pas de rituels, 
-                nous n&apos;offrons pas de &ldquo;lectures&rdquo; personnelles et nous ne prétendons pas prédire l&apos;avenir.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Call to action */}
-        <div className="text-center mt-12">
+        {/* CTA */}
+        <div className="text-center py-8">
           <Link
             href="/signes"
-            className="inline-block bg-amber-900 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-800 transition shadow-lg"
+            className="inline-block bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/50"
           >
-            Découvrir les 16 signes-mères →
+            Découvrir les 16 signes-mères
           </Link>
         </div>
+
       </div>
+
+      <footer className="border-t border-stone-800 py-8 px-4 text-center text-stone-600 text-xs">
+        © 2026 FÂ DÜ — Valorisation du patrimoine immatériel du golfe du Bénin
+      </footer>
+
     </main>
   );
 }

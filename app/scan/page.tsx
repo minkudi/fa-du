@@ -176,12 +176,12 @@ export default function ScanPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white px-4 py-10 max-w-lg mx-auto">
-      <Link href="/" className="text-sm text-violet-600 hover:underline mb-6 inline-block">
+    <main className="min-h-screen bg-stone-950 px-4 py-10 max-w-lg mx-auto">
+<Link href="/" className="text-sm text-stone-500 hover:text-amber-400 transition-colors mb-6 inline-block">
         Retour
       </Link>
-      <h1 className="text-2xl font-bold text-gray-900 mb-2">Identifier un signe</h1>
-      <p className="text-gray-500 text-sm mb-8">
+<h1 className="text-2xl font-bold text-white mb-2">Identifier un signe</h1>
+<p className="text-stone-400 text-sm mb-8">
         Scannez un QR FÂ DÜ ou reproduisez les 2 colonnes du signe — signe-mere ou combinaison, l&apos;app identifie automatiquement parmi les 256.
       </p>
 
