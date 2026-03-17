@@ -1,13 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const PROMPT = `Tu regardes une image d'un signe du Fa (systeme de divination du Benin).
-Un signe Fa est compose de 2 colonnes cote a cote. Chaque colonne a exactement 4 marques.
-Chaque marque est soit I (une seule barre verticale) soit II (deux barres verticales cote a cote).
-Les signes peuvent etre dessines a la main, imprimes, peints, sculptes. Toutes couleurs et styles.
-Reponds UNIQUEMENT avec un JSON valide sans texte ni backticks :
-{"col1":[X,X,X,X],"col2":[X,X,X,X]}
-X = 1 pour I (une barre) ou 2 pour II (deux barres). col1 = gauche, col2 = droite, haut vers bas.
-Si pas de signe Fa reconnaissable : {"error":"no_sign"}`
+const PROMPT = `Tu analyses une image contenant un signe du Fa, systeme de divination du Benin.
+
+STRUCTURE : Le signe a exactement 2 colonnes verticales cote a cote. Chaque colonne contient exactement 4 positions (de haut en bas).
+
+REGLES DE LECTURE - tres important :
+- Chaque position contient soit UN trait vertical (= valeur 1) soit DEUX traits verticaux separes par un espace visible (= valeur 2)
+- UN trait = 1 barre unique, mince, verticale
+- DEUX traits = 2 barres paralleles cote a cote avec un espace clair entre elles
+- Si tu vois une barre large ou epaisse, regarde si c'est en realite 2 barres tres proches = valeur 2
+- Le style, la couleur, le fond, l'epaisseur des traits ne changent pas la logique
+
+EXEMPLES :
+- Position avec | = valeur 1
+- Position avec || = valeur 2
+- Position avec I = valeur 1
+- Position avec II = valeur 2
+
+Reponds UNIQUEMENT avec ce JSON exact, sans aucun texte avant ou apres, sans backticks, sans explication :
+{"col1":[A,B,C,D],"col2":[E,F,G,H]}
+
+Ou A B C D sont les 4 valeurs (1 ou 2) de la colonne gauche du haut vers le bas,
+et E F G H sont les 4 valeurs (1 ou 2) de la colonne droite du haut vers le bas.
+
+Si l'image ne montre pas clairement un signe Fa, reponds : {"error":"no_sign"}`
 
 export async function POST(req: NextRequest) {
   try {
