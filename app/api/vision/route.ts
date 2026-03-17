@@ -7,48 +7,45 @@ Chaque marque est soit :
 - I : une seule barre verticale (trait simple)
 - II : deux barres verticales cote a cote (double trait)
 
-Les signes peuvent etre dessines a la main, imprimes, peints, sculptes. Les couleurs et le style varient completement.
+Les signes peuvent etre dessines a la main, imprimes, peints, sculptes. Toutes couleurs et styles.
 
-Analyse l'image et reponds UNIQUEMENT avec un objet JSON valide, sans texte avant ni apres, sans backticks :
+Reponds UNIQUEMENT avec un JSON valide, sans texte ni backticks :
 {"col1":[X,X,X,X],"col2":[X,X,X,X]}
 
-Ou X est 1 (pour I, une barre) ou 2 (pour II, deux barres).
-col1 = colonne gauche, col2 = colonne droite, ordre haut vers bas.
-
-Si l'image ne contient pas de signe Fa reconnaissable, reponds : {"error":"no_sign"}`
+X = 1 (une barre) ou 2 (deux barres). col1 = gauche, col2 = droite, ordre haut vers bas.
+Si pas de signe Fa reconnaissable : {"error":"no_sign"}`
 
 export async function POST(req: NextRequest) {
   try {
     const { imageBase64, mediaType = 'image/jpeg' } = await req.json()
-
     if (!imageBase64) {
       return NextResponse.json({ error: 'imageBase64 requis' }, { status: 400 })
     }
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{
-            parts: [
-              {
-                inline_data: {
-                  mime_type: mediaType,
-                  data: imageBase64
-                }
-              },
-              { text: PROMPT }
-            ]
-          }],
-          generationConfig: {
-            maxOutputTokens: 200,
-            temperature: 0,
-          }
-        })
-      }
-    )
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        'HTTP-Referer': 'https://fa-du.vercel.app',
+        'X-Title': 'FA DU',
+      },
+      body: JSON.stringify({
+        model: 'meta-llama/llama-3.2-11b-vision-instruct:free',
+        max_tokens: 200,
+        temperature: 0,
+        messages: [{
+          role: 'user',
+          content: [
+            {
+              type: 'image_url',
+              image_url: { url: `data:${mediaType};base64,${imageBase64}` }
+            },
+            { type: 'text', text: PROMPT }
+          ]
+        }]
+      })
+    })
 
     const data = await response.json()
 
@@ -56,16 +53,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: data.error.message }, { status: 500 })
     }
 
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()
-
+    const text = data.choices?.[0]?.message?.content?.trim()
     if (!text) {
-      return NextResponse.json({ error: 'Reponse vide de Gemini' }, { status: 500 })
+      return NextResponse.json({ error: 'Reponse vide' }, { status: 500 })
     }
 
     const clean = text.replace(/```json|```/g, '').trim()
     const parsed = JSON.parse(clean)
-
     return NextResponse.json(parsed)
+
   } catch (err) {
     return NextResponse.json({ error: String(err) }, { status: 500 })
   }
