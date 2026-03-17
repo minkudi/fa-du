@@ -25,28 +25,30 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'imageBase64 requis' }, { status: 400 })
     }
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY!,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 200,
-        messages: [{
-          role: 'user',
-          content: [
-            {
-              type: 'image',
-              source: { type: 'base64', media_type: mediaType, data: imageBase64 }
-            },
-            { type: 'text', text: PROMPT }
-          ]
-        }]
-      })
-    })
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [
+              {
+                inline_data: {
+                  mime_type: mediaType,
+                  data: imageBase64
+                }
+              },
+              { text: PROMPT }
+            ]
+          }],
+          generationConfig: {
+            maxOutputTokens: 200,
+            temperature: 0,
+          }
+        })
+      }
+    )
 
     const data = await response.json()
 
@@ -54,7 +56,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: data.error.message }, { status: 500 })
     }
 
-    const text = data.content[0].text.trim()
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()
+
+    if (!text) {
+      return NextResponse.json({ error: 'Reponse vide de Gemini' }, { status: 500 })
+    }
+
     const clean = text.replace(/```json|```/g, '').trim()
     const parsed = JSON.parse(clean)
 
