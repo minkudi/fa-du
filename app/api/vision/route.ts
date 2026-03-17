@@ -1,5 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Augmenter la limite du body à 10MB
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+  },
+}
+
 const PROMPT = `Tu analyses une image d'un signe du Fa, systeme de divination du Benin.
 
 Le signe a exactement 2 colonnes verticales cote a cote. Chaque colonne a 4 positions du haut vers le bas.

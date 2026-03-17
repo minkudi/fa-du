@@ -4,8 +4,6 @@ import { useRef, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { faMotherSigns, genererToutesCombinations } from '@/data/faSigns'
 
-const NOMS = faMotherSigns.map(s => s.nomPrincipal.split('-')[0])
-
 function buildLookup() {
   const table: Record<string, { nom: string; url: string }> = {}
   faMotherSigns.forEach(s => {
@@ -26,6 +24,34 @@ function buildLookup() {
 
 const LOOKUP = buildLookup()
 
+// Compresser l'image avant envoi (max 800px, qualite 0.8)
+function compressImage(file: File, maxSize: number, quality: number): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    const url = URL.createObjectURL(file)
+    img.onload = () => {
+      const canvas = document.createElement('canvas')
+      let { width, height } = img
+      if (width > maxSize || height > maxSize) {
+        if (width > height) {
+          height = Math.round(height * maxSize / width)
+          width = maxSize
+        } else {
+          width = Math.round(width * maxSize / height)
+          height = maxSize
+        }
+      }
+      canvas.width = width
+      canvas.height = height
+      canvas.getContext('2d')!.drawImage(img, 0, 0, width, height)
+      URL.revokeObjectURL(url)
+      resolve(canvas.toDataURL('image/jpeg', quality))
+    }
+    img.onerror = reject
+    img.src = url
+  })
+}
+
 export default function VisionScanner() {
   const router = useRouter()
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -41,7 +67,7 @@ export default function VisionScanner() {
     }
   }, [])
 
-  // Attacher le stream à la video quand active devient true
+  // Attacher le stream quand active devient true
   useEffect(() => {
     if (active && streamRef.current && videoRef.current) {
       videoRef.current.srcObject = streamRef.current
@@ -57,7 +83,6 @@ export default function VisionScanner() {
         video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 } }
       })
       streamRef.current = stream
-      // On set active APRES avoir le stream — le useEffect s'occupera d'attacher
       setActive(true)
     } catch {
       setError("Impossible d'acceder a la camera. Verifiez les permissions.")
@@ -78,27 +103,34 @@ export default function VisionScanner() {
       setError('Camera pas encore prete. Attendez une seconde et reessayez.')
       return
     }
+    // Compresser la capture camera aussi
     const canvas = document.createElement('canvas')
-    canvas.width = video.videoWidth
-    canvas.height = video.videoHeight
-    canvas.getContext('2d')!.drawImage(video, 0, 0)
-    const base64 = canvas.toDataURL('image/jpeg', 0.85).split(',')[1]
-    setPreview(canvas.toDataURL('image/jpeg', 0.5))
-    analyze(base64)
+    let { videoWidth: w, videoHeight: h } = video
+    const maxSize = 800
+    if (w > maxSize || h > maxSize) {
+      if (w > h) { h = Math.round(h * maxSize / w); w = maxSize }
+      else { w = Math.round(w * maxSize / h); h = maxSize }
+    }
+    canvas.width = w
+    canvas.height = h
+    canvas.getContext('2d')!.drawImage(video, 0, 0, w, h)
+    const compressed = canvas.toDataURL('image/jpeg', 0.8)
+    setPreview(compressed)
+    analyze(compressed.split(',')[1])
   }
 
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
     setError('')
-    const reader = new FileReader()
-    reader.onload = (ev) => {
-      const result = ev.target?.result as string
-      setPreview(result)
-      const base64 = result.split(',')[1]
-      analyze(base64)
+    try {
+      // Compresser avant envoi — resout le probleme des images > 3MB
+      const compressed = await compressImage(file, 800, 0.8)
+      setPreview(compressed)
+      analyze(compressed.split(',')[1])
+    } catch {
+      setError('Erreur lors du chargement de l\'image.')
     }
-    reader.readAsDataURL(file)
   }
 
   async function analyze(base64: string) {
@@ -176,11 +208,9 @@ export default function VisionScanner() {
               muted
               playsInline
             />
-            {/* Guide cadre */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-56 h-56 border-2 border-amber-400 rounded-2xl opacity-70" />
             </div>
-            {/* Label */}
             <p className="absolute bottom-3 left-0 right-0 text-center text-xs text-white/70">
               Centrez le signe dans le cadre
             </p>
@@ -213,7 +243,7 @@ export default function VisionScanner() {
         <input type="file" accept="image/*" className="hidden" onChange={handleFile} />
       </label>
 
-      {/* Spinner loading */}
+      {/* Spinner */}
       {loading && (
         <div className="flex items-center gap-2 text-sm text-violet-600 px-2">
           <span className="w-4 h-4 border-2 border-violet-600 border-t-transparent rounded-full animate-spin flex-shrink-0" />
@@ -221,7 +251,7 @@ export default function VisionScanner() {
         </div>
       )}
 
-      {/* Preview image capturee */}
+      {/* Preview */}
       {preview && !loading && (
         <div className="rounded-xl overflow-hidden border border-gray-200">
           {/* eslint-disable-next-line @next/next/no-img-element */}
