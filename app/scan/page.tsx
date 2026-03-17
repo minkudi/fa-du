@@ -1,5 +1,5 @@
 'use client'
-
+import VisionScanner from '@/components/VisionScanner'
 import { useRef, useState, useCallback, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -207,6 +207,20 @@ export default function ScanPage() {
               <p className="text-sm text-gray-500">2 colonnes — identifie les 256 signes automatiquement</p>
             </div>
           </button>
+              {/* Séparateur */}
+    <div className="flex items-center gap-3 my-1">
+      <div className="flex-1 h-px bg-gray-200" />
+      <span className="text-xs text-gray-400">ou</span>
+      <div className="flex-1 h-px bg-gray-200" />
+    </div>
+
+    {/* Scanner IA */}
+    <div className="rounded-xl border border-violet-200 bg-violet-50 p-4">
+      <p className="text-xs font-medium text-violet-700 mb-3 uppercase tracking-wide">
+        Reconnaissance par IA
+      </p>
+      <VisionScanner />
+    </div>
         </div>
       )}
 
