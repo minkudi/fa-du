@@ -10,28 +10,22 @@ const SLUGS_VALIDES = faMotherSigns.map(s => s.id)
 type Mark = 1 | 2 | null
 type Mode = 'choose' | 'camera' | 'draw'
 
-// Table unique : 2 colonnes -> destination (signe-mere ou combinaison)
 type Destination =
   | { type: 'signe'; slug: string }
   | { type: 'combo'; signe: string; combinationId: string }
 
 function buildLookupTable(): Record<string, Destination> {
   const table: Record<string, Destination> = {}
-
-  // Signes-mères
   faMotherSigns.forEach(s => {
     const key = s.figureSymbolique.colonnes.map(col => col.join(',')).join('|')
     table[key] = { type: 'signe', slug: s.id }
   })
-
-  // Toutes les combinaisons (vikandos uniquement, les signe-meres sont deja couverts)
   genererToutesCombinations()
     .filter(c => c.type === 'vikando')
     .forEach(c => {
       const key = c.figureSymbolique.colonnes.map(col => col.join(',')).join('|')
       table[key] = { type: 'combo', signe: c.signePrincipal.id, combinationId: c.id }
     })
-
   return table
 }
 
@@ -157,18 +151,18 @@ export default function ScanPage() {
     return (
       <button
         onClick={onClick}
-        className="w-16 h-12 rounded-xl border-2 border-violet-200 hover:border-violet-500 bg-white flex items-center justify-center transition-colors"
+        className="w-16 h-12 rounded-xl border-2 border-amber-200 hover:border-amber-500 bg-white flex items-center justify-center transition-colors"
       >
         {value === null && (
-          <div className="w-6 h-6 rounded-full border-2 border-dashed border-gray-300" />
+          <div className="w-6 h-6 rounded-full border-2 border-dashed border-amber-200" />
         )}
         {value === 1 && (
-          <div className="w-2.5 h-8 bg-violet-700 rounded-full" />
+          <div className="w-2.5 h-8 bg-amber-700 rounded-full" />
         )}
         {value === 2 && (
           <div className="flex gap-2">
-            <div className="w-2.5 h-8 bg-violet-700 rounded-full" />
-            <div className="w-2.5 h-8 bg-violet-700 rounded-full" />
+            <div className="w-2.5 h-8 bg-amber-700 rounded-full" />
+            <div className="w-2.5 h-8 bg-amber-700 rounded-full" />
           </div>
         )}
       </button>
@@ -176,90 +170,88 @@ export default function ScanPage() {
   }
 
   return (
-    <main className="min-h-screen bg-stone-950 px-4 py-10 max-w-lg mx-auto">
-<Link href="/" className="text-sm text-stone-500 hover:text-amber-400 transition-colors mb-6 inline-block">
-        Retour
+    <main className="min-h-screen bg-amber-50 px-4 py-10 max-w-lg mx-auto">
+
+      <Link href="/" className="text-sm text-amber-700/50 hover:text-amber-600 transition-colors mb-6 inline-block">
+        ← Retour
       </Link>
-<h1 className="text-2xl font-bold text-white mb-2">Identifier un signe</h1>
-<p className="text-stone-400 text-sm mb-8">
-        Scannez un QR FÂ DÜ ou reproduisez les 2 colonnes du signe — signe-mere ou combinaison, l&apos;app identifie automatiquement parmi les 256.
+
+      <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-2">Identification</p>
+      <h1 className="text-2xl font-bold text-amber-900 mb-2">Identifier un signe</h1>
+      <p className="text-amber-700/60 text-sm mb-8">
+        Reproduisez les 2 colonnes du signe ou photographiez-le — l&apos;app identifie parmi les 256 signes.
       </p>
 
+      {/* MODE CHOOSE */}
       {mode === 'choose' && (
         <div className="flex flex-col gap-4">
-          <button
-            onClick={() => { setMode('camera'); startCamera() }}
-            className="flex items-center gap-4 p-5 rounded-xl border border-gray-200 hover:border-violet-300 hover:bg-violet-50 transition-colors text-left w-full"
-          >
-            <span className="text-3xl">📷</span>
-            <div>
-              <p className="font-medium text-gray-900">Scanner un QR FÂ DÜ</p>
-              <p className="text-sm text-gray-500">Signes-meres et combinaisons</p>
-            </div>
-          </button>
-          <button
-            onClick={() => setMode('draw')}
-            className="flex items-center gap-4 p-5 rounded-xl border border-gray-200 hover:border-violet-300 hover:bg-violet-50 transition-colors text-left w-full"
-          >
-            <span className="text-3xl">✏️</span>
-            <div>
-              <p className="font-medium text-gray-900">Composer le signe que je vois</p>
-              <p className="text-sm text-gray-500">2 colonnes — identifie les 256 signes automatiquement</p>
-            </div>
-          </button>
-              {/* Séparateur */}
-    <div className="flex items-center gap-3 my-1">
-      <div className="flex-1 h-px bg-gray-200" />
-      <span className="text-xs text-gray-400">ou</span>
-      <div className="flex-1 h-px bg-gray-200" />
-    </div>
+          <div className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm">
 
-    {/* Scanner IA */}
-    <div className="rounded-xl border border-violet-200 bg-violet-50 p-4">
-      <p className="text-xs font-medium text-violet-700 mb-3 uppercase tracking-wide">
-        Reconnaissance par IA
-      </p>
-      <VisionScanner />
-    </div>
+            {/* Titre section */}
+            <div className="mb-5">
+              <p className="font-semibold text-amber-900">Composer le signe que je vois</p>
+              <p className="text-sm text-amber-700/60 mt-0.5">2 colonnes — identifie les 256 signes automatiquement</p>
+            </div>
+
+            <button
+              onClick={() => setMode('draw')}
+              className="w-full py-3 mb-5 rounded-xl bg-amber-700 text-white text-sm font-medium hover:bg-amber-600 transition-colors"
+            >
+              Ouvrir la grille de composition
+            </button>
+
+            <div className="h-px bg-amber-100 mb-5" />
+
+            <VisionScanner />
+          </div>
         </div>
       )}
 
+      {/* MODE CAMERA QR */}
       {mode === 'camera' && (
         <div>
-          <button onClick={() => { stopCamera(); setMode('choose') }} className="text-sm text-violet-600 mb-4 hover:underline">
-            Changer de mode
+          <button
+            onClick={() => { stopCamera(); setMode('choose') }}
+            className="text-sm text-amber-700/60 hover:text-amber-700 mb-4 inline-block"
+          >
+            ← Retour
           </button>
           {cameraError && (
-            <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg mb-4">{cameraError}</div>
+            <div className="bg-red-50 border border-red-200 text-red-600 text-sm p-3 rounded-xl mb-4">
+              {cameraError}
+            </div>
           )}
-          <div className="relative rounded-2xl overflow-hidden bg-black aspect-square">
+          <div className="relative rounded-2xl overflow-hidden bg-amber-900 aspect-square">
             <video ref={videoRef} className="w-full h-full object-cover" muted playsInline />
             <canvas ref={canvasRef} className="hidden" />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-52 h-52 border-2 border-white/70 rounded-2xl" />
+              <div className="w-52 h-52 border-2 border-amber-300/70 rounded-2xl" />
             </div>
           </div>
-          <p className="text-center text-sm text-gray-400 mt-3">
+          <p className="text-center text-sm text-amber-700/50 mt-3">
             Centrez un QR code FÂ DÜ dans le cadre
           </p>
         </div>
       )}
 
+      {/* MODE DRAW */}
       {mode === 'draw' && (
-        <div>
-          <button onClick={() => setMode('choose')} className="text-sm text-violet-600 mb-6 hover:underline">
-            Changer de mode
+        <div className="bg-white rounded-2xl border border-amber-200 p-6 shadow-sm">
+          <button
+            onClick={() => setMode('choose')}
+            className="text-sm text-amber-700/60 hover:text-amber-700 mb-6 inline-block"
+          >
+            ← Retour
           </button>
 
-          <p className="text-xs text-gray-400 mb-6">
-            Appuyez sur chaque case — vide <strong>I</strong> (1 barre) <strong>II</strong> (2 barres) vide
+          <p className="text-xs text-amber-700/50 mb-6">
+            Appuyez sur chaque case pour alterner — vide &rarr; <strong className="text-amber-800">I</strong> (1 barre) &rarr; <strong className="text-amber-800">II</strong> (2 barres) &rarr; vide
           </p>
 
-          {/* Grille 2 colonnes x 4 lignes */}
           <div className="flex gap-4 justify-center mb-8">
             {grid.map((col, ci) => (
               <div key={ci} className="flex flex-col gap-3 items-center">
-                <p className="text-xs text-gray-400">Col. {ci + 1}</p>
+                <p className="text-xs text-amber-700/40 font-mono">Col. {ci + 1}</p>
                 {col.map((mark, ri) => (
                   <MarkButton
                     key={ri}
@@ -273,7 +265,7 @@ export default function ScanPage() {
 
           {noMatch && (
             <p className="text-center text-sm text-red-500 mb-4">
-              Aucun signe trouve. Verifiez la sequence.
+              Aucun signe trouvé. Vérifiez la séquence.
             </p>
           )}
 
@@ -281,19 +273,20 @@ export default function ScanPage() {
             <button
               onClick={identify}
               disabled={!allFilled}
-              className="flex-1 py-3 rounded-xl bg-violet-700 text-white font-medium text-sm hover:bg-violet-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="flex-1 py-3 rounded-xl bg-amber-700 text-white font-medium text-sm hover:bg-amber-600 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               Identifier ce signe
             </button>
             <button
               onClick={reset}
-              className="px-4 py-3 rounded-xl border border-gray-200 text-gray-500 text-sm hover:bg-gray-50 transition-colors"
+              className="px-4 py-3 rounded-xl border border-amber-200 text-amber-700/60 text-sm hover:bg-amber-50 transition-colors"
             >
               Reset
             </button>
           </div>
         </div>
       )}
+
     </main>
   )
 }
