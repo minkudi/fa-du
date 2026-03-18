@@ -120,9 +120,6 @@ export default async function SignePage({ params }: PageProps) {
             />
             <div>
               <p className="text-xs text-gray-500 mb-1">Scannez pour partager</p>
-              <p className="text-xs font-mono text-gray-400 break-all">
-                fa-du.vercel.app/signes/{sign.id}
-              </p>
             </div>
           </div>
           <QRDownloadButton slug={sign.id} nom={sign.nomPrincipal} />
