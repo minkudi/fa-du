@@ -144,7 +144,6 @@ export default async function CombinaisonPage({ params }: PageProps) {
             />
             <div>
               <p className="text-xs text-amber-600/60 mb-1">Scannez pour partager</p>
-              <p className="text-xs font-mono text-amber-700/50 break-all">fa-du.vercel.app/signes/{slug}/{combinaison.id}</p>
             </div>
           </div>
           <QRDownloadButton slug={combinaison.id} nom={combinaison.nom} />

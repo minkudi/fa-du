@@ -175,7 +175,7 @@ export default function Home() {
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-1 bg-white/90 backdrop-blur-md border border-amber-200 rounded-full px-4 py-2.5 shadow-sm">
             <Link href="/" className="font-bold text-amber-900 tracking-[0.12em] text-[13px] mr-4 pr-4 border-r border-amber-200">
-              FÂ DÜ
+              ACCUEIL
             </Link>
             <Link href="/signes"    className="nav-link px-3">Signes</Link>
             <Link href="/comprendre" className="nav-link px-3">Comprendre</Link>
@@ -226,17 +226,17 @@ export default function Home() {
           <div className="absolute inset-0 pointer-events-none"
             style={{background:"radial-gradient(ellipse 80% 55% at 50% 45%, rgba(251,191,36,0.16) 0%, transparent 70%)"}} />
 
-          {/* GBÉ-MÊDJI gauche */}
+          {/* GBÉ-MÊDJI  */}
           <div className="absolute left-[5%] top-1/2 -translate-y-[55%] float-l pointer-events-none select-none hidden md:flex flex-col items-center gap-2">
             <span className="text-[9px] text-amber-400/60 tracking-[0.25em] uppercase font-medium">GBÉ-MÊDJI</span>
-            <GbeMedjiSymbol opacity={0.10}/>
+            <GbeMedjiSymbol opacity={0.50}/>
             <span className="text-[8px] text-amber-400/40 tracking-[0.15em]">01 — Vie</span>
           </div>
 
-          {/* FU-MÊDJI droite */}
+          {/* FU-MÊDJI  */}
           <div className="absolute right-[5%] top-1/2 -translate-y-[55%] float-r pointer-events-none select-none hidden md:flex flex-col items-center gap-2">
             <span className="text-[9px] text-amber-400/60 tracking-[0.25em] uppercase font-medium">FU-MÊDJI</span>
-            <FuMedjiSymbol opacity={0.10}/>
+            <FuMedjiSymbol opacity={0.50}/>
             <span className="text-[8px] text-amber-400/40 tracking-[0.15em]">16 — Longévité</span>
           </div>
 

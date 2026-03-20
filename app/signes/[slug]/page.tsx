@@ -103,7 +103,6 @@ export default async function SignePage({ params }: PageProps) {
             <img src={`/api/qr/${sign.id}`} alt={`QR ${sign.nomPrincipal}`} width={100} height={100} className="rounded-xl border border-amber-200"/>
             <div>
               <p className="text-xs text-amber-600/60 mb-1">Scannez pour partager</p>
-              <p className="text-xs font-mono text-amber-700/50">fa-du.vercel.app/signes/{sign.id}</p>
             </div>
           </div>
           <QRDownloadButton slug={sign.id} nom={sign.nomPrincipal} />

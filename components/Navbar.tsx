@@ -57,7 +57,7 @@ export default function Navbar() {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-1 bg-white/92 backdrop-blur-md border border-amber-200 rounded-full px-4 py-2.5">
           <Link href="/" className="font-bold text-amber-900 tracking-[0.12em] text-[13px] mr-3 pr-3 border-r border-amber-200">
-            FÂ DÜ
+            ACCUEIL
           </Link>
           {links.map(l => (
             <Link key={l.href} href={l.href}

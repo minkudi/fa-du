@@ -126,7 +126,7 @@ export default function ComprendrePage() {
           <h2 className="text-xl font-bold text-amber-800 mb-6">Signes de jour et signes de nuit</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="border border-amber-300/60 bg-amber-50 rounded-xl p-5">
-              <h3 className="text-amber-700 font-semibold text-sm mb-3">Signes de jour — GBÉ</h3>
+              <h3 className="text-amber-700 font-semibold text-sm mb-3">Signes de jour</h3>
               <ul className="space-y-1">
                 {["GBÉ-MÊDJI","GUDA-MÊDJI","SA-MÊDJI","TULA-MÊDJI","LÈTÈ-MÊDJI","WOLI-MÊDJI","WINLIN-MÊDJI","LOSSO-MÊDJI"].map(s => (
                   <li key={s} className="flex items-center gap-2 text-amber-800 text-xs">
@@ -137,7 +137,7 @@ export default function ComprendrePage() {
               </ul>
             </div>
             <div className="border border-amber-200 bg-white rounded-xl p-5">
-              <h3 className="text-amber-700 font-semibold text-sm mb-3">Signes de nuit — YÈKOU</h3>
+              <h3 className="text-amber-700 font-semibold text-sm mb-3">Signes de nuit</h3>
               <ul className="space-y-1">
                 {["YÈKOU-MÊDJI","ABLA-MÊDJI","AKLAN-MÊDJI","KA-MÊDJI","TRUKPIN-MÊDJI","DI-MÊDJI","TCHE-MÊDJI","FU-MÊDJI"].map(s => (
                   <li key={s} className="flex items-center gap-2 text-amber-800 text-xs">
@@ -152,11 +152,6 @@ export default function ComprendrePage() {
 
         {/* Loi du triangle */}
         <section className="bg-white border border-amber-200 rounded-2xl p-8">
-          <h2 className="text-xl font-bold text-amber-800 mb-4">La loi du triangle</h2>
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 text-center mb-4">
-            <p className="text-amber-700 text-3xl font-black font-mono mb-1">1 + 2 + 3 + 4 = 10</p>
-            <p className="text-amber-600/60 text-xs">Les 4 éléments, par addition théosophique, donnent 10 (la totalité).</p>
-          </div>
           <p className="text-amber-700/70 text-sm leading-relaxed">
             4 × 4 = <span className="font-semibold text-amber-800">16 signes-mères</span>. Chacun se combinant avec les 16, on obtient <span className="font-semibold text-amber-800">16 × 16 = 256 signes</span> au total — toutes les manifestations possibles de la vie.
           </p>
